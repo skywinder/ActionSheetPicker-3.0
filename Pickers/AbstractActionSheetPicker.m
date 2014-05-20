@@ -250,7 +250,12 @@ BOOL OSAtLeast(NSString* v) {
 }
 
 - (UIBarButtonItem *)createButtonWithType:(UIBarButtonSystemItem)type target:(id)target action:(SEL)buttonAction {
-    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:type target:target action:buttonAction];
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:type target:target action:buttonAction];
+    [button setTintColor: [[UIApplication sharedApplication] keyWindow].tintColor];
+    
+    return button;
+    
 }
 
 #pragma mark - Utilities and Accessors
