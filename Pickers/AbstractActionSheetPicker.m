@@ -30,6 +30,10 @@
 #import <objc/message.h>
 #import <sys/utsname.h>
 
+#ifndef NSFoundationVersionNumber_iOS_7_1
+#define NSFoundationVersionNumber_iOS_7_1 1047.25
+#endif
+
 CG_INLINE BOOL isIPhone4()
 {
     struct utsname systemInfo;
