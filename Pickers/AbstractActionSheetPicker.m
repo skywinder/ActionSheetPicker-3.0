@@ -224,8 +224,14 @@ CG_INLINE BOOL isIPhone4()
     
     // add tap dismiss action
     self.actionSheet.window.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tapAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPicker)];
+    UITapGestureRecognizer *tapAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDismissAction)];
     [self.actionSheet.window addGestureRecognizer:tapAction];
+}
+
+- (void)onTapDismissAction
+{
+    [self notifyTarget:self.target didSucceedWithAction:self.successAction origin:[self storedOrigin]];
+    [self dismissPicker];
 }
 
 - (IBAction)actionPickerDone:(id)sender
