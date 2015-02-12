@@ -212,16 +212,14 @@ CG_INLINE BOOL isIPhone4()
     
     self.pickerView = [self configuredPickerView];
     NSAssert(_pickerView != NULL, @"Picker view failed to instantiate, perhaps you have invalid component data.");
-    
     // toolbar hidden remove the toolbar frame and update pickerview frame
-    if (self.toolbar.hidden == YES) {
+    if (self.toolbar.hidden == YES)
+    {
         masterView.frame = CGRectMake(0, 0, self.viewSize.width, 220);
         self.pickerView.frame = CGRectMake(0, 4, self.viewSize.width, 216);
     }
-    
     [masterView addSubview:_pickerView];
     [self presentPickerForView:masterView];
-    
     // add tap dismiss action
     self.actionSheet.window.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDismissAction)];
