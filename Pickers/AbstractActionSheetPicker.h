@@ -43,6 +43,13 @@ typedef NS_ENUM(NSInteger, ActionType)
     ActionTypeBlock
 };
 
+typedef NS_ENUM(NSInteger, TapAction)
+{
+    TapActionNone,
+    TapActionSuccess,
+    TapActionCancel
+};
+
 typedef void (^ActionBlock)(void);
 
 static NSString *const kButtonValue   = @"buttonValue";
@@ -59,14 +66,15 @@ static NSString *const kActionTarget  = @"buttonActionTarget";
 @property (nonatomic, strong) UIView *pickerView;
 @property (nonatomic, readonly) CGSize viewSize;
 @property (nonatomic, strong) NSMutableArray *customButtons;
-@property (nonatomic, assign) BOOL hideCancel;
+@property (nonatomic, assign) BOOL hideCancel; // show or hide cancel button.
 @property (nonatomic, assign) CGRect presentFromRect;
 @property (nonatomic) NSDictionary *titleTextAttributes; // default is nil. Used to specify Title Label attributes.
-@property (nonatomic) NSAttributedString *attributedTitle; // default is nil. If titleTextAttributes not nil this value ignorred.
+@property (nonatomic) NSAttributedString *attributedTitle; // default is nil. If titleTextAttributes not nil this value ignored.
 @property (nonatomic, retain) Class popoverBackgroundViewClass; //allow popover customization on iPad
 @property (nonatomic) UIInterfaceOrientationMask supportedInterfaceOrientations; // You can set your own supportedInterfaceOrientations value to prevent dismissing picker in some special cases.
+@property (nonatomic) TapAction tapDismissAction; // Specify, which action should be fired in case of tapping outside of the picker (on top darkened side)
 
-    // For subclasses.
+// For subclasses.
 - (id)initWithTarget:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
 
 // Present the ActionSheetPicker

@@ -64,6 +64,7 @@
 
 - (IBAction)selectABlock:(UIControl *)sender {
     ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+        NSLog(@"Block picker sucess: selectedValue = %@", selectedValue);
         if ([sender respondsToSelector:@selector(setText:)]) {
             [sender performSelector:@selector(setText:) withObject:selectedValue];
         }
@@ -72,7 +73,9 @@
         NSLog(@"Block Picker Canceled");
     };
     NSArray *colors = @[@"Red", @"Green", @"Blue", @"Orange"];
-    [ActionSheetStringPicker showPickerWithTitle:@"Select a Block" rows:colors initialSelection:0 doneBlock:done cancelBlock:cancel origin:sender];
+    ActionSheetStringPicker* picker = [[ActionSheetStringPicker alloc] initWithTitle:@"Select a Block" rows:colors initialSelection:0 doneBlock:done cancelBlock:cancel origin:sender];
+    picker.tapDismissAction = TapActionCancel;
+    [picker showActionSheetPicker];
 }
 
 - (IBAction)selectALocale:(UIControl *)sender {

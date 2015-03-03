@@ -6,6 +6,9 @@
 
 ActionSheetPicker-3.0
 ==================
+
+![Animation](Screenshots/example.gif)
+
 - [Overview](#overview)
 	- [Benefits](#benefits)
 - [QuickStart](#quickstart)
@@ -18,10 +21,6 @@ ActionSheetPicker-3.0
 - [Maintainer and Contributor](#maintainer-and-contributor)
 - [Credits](#credits)
 - [Contributing](#contributing)
-
-Since the [Tim's repo](https://github.com/TimCinel/ActionSheetPicker) is not support iOS 7+, I forked from his repo and implement iOS 7-8 support, and also bunch of UI fixes, crash-fixes and different customisation abilities.
-
-New updates will be added only in this repo.
 
 Please welcome: **ActionSheetPicker-3.0**!
 
@@ -152,6 +151,26 @@ ActionSheetStringPicker *colorPicker = [[ActionSheetStringPicker alloc] initWith
  //If you prefer to send selectors rather than blocks you can use this method:
 [colorPicker addCustomButtonWithTitle:@"Selector" target:self selector:@selector(awesomeSelector)];
 ```
+
+#### Other customisations:
+
+look at `AbstractActionSheetPicker` properties:
+
+- `toolbar`
+- `title`
+- `pickerView`
+- `viewSize`
+- `customButtons`
+- `hideCancel` -  show or hide cancel button.
+- `titleTextAttributes` - default is nil. Used to specify Title Label attributes.
+- `attributedTitle` - default is nil. If titleTextAttributes not nil this value ignored.
+- `popoverBackgroundViewClass` -allow popover customization on iPad
+- `supportedInterfaceOrientations` - You can set your own supportedInterfaceOrientations value to prevent dismissing picker in some special cases.
+- `tapDismissAction` -  to specify action, by clicking outside area of the picker
+    - TapActionNone,
+    - TapActionSuccess,
+    - TapActionCancel
+
  
 ##Installation##
 
@@ -189,7 +208,7 @@ Here is 4 projects:
 
 ## Credits
 
-- ActionSheetPicker was originally created by [Tim Cinel](http://github.com/TimCinel) ([@TimCinel](http://twitter.com/TimCinel))
+- ActionSheetPicker was originally created by [Tim Cinel](http://github.com/TimCinel) ([@TimCinel](http://twitter.com/TimCinel)) Since the [Tim's repo](https://github.com/TimCinel/ActionSheetPicker) is not support iOS 7+, I forked from his repo and implement iOS 7-8 support, and also bunch of UI fixes, crash-fixes and different customisation abilities.
 
 - And most of all, thanks to ActionSheetPicker-3.0's [growing list of contributors](https://github.com/skywinder/ActionSheetPicker-3.0/graphs/contributors).
 

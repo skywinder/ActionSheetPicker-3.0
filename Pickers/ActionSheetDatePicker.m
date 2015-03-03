@@ -46,6 +46,14 @@
 
 + (id)showPickerWithTitle:(NSString *)title
            datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
+                   target:(id)target action:(SEL)action origin:(id)origin cancelAction:(SEL)cancelAction {
+    ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin cancelAction:cancelAction];
+    [picker showActionSheetPicker];
+    return picker;
+}
+
++ (id)showPickerWithTitle:(NSString *)title
+           datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
               minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate
                    target:(id)target action:(SEL)action origin:(id)origin {
     ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin];
