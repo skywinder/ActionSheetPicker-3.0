@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>55920F7B-FC93-4654-B6DB-C6196AF8E073</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Example</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FF65A8AFC255E5913A7BCDE7153CC9C006153EAE</key>
+		<string>https://github.com/vkumarsharma/ActionSheetPicker-3.0.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Example.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FF65A8AFC255E5913A7BCDE7153CC9C006153EAE</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/vkumarsharma/ActionSheetPicker-3.0.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FF65A8AFC255E5913A7BCDE7153CC9C006153EAE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FF65A8AFC255E5913A7BCDE7153CC9C006153EAE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ActionSheetPicker-3.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

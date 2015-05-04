@@ -32,11 +32,9 @@
 #import "ActionSheetPickerCustomPickerDelegate.h"
 #import "TestTableViewController.h"
 
-@interface ActionSheetPickerViewController ()
+@interface ActionSheetPickerViewController()
 - (void)measurementWasSelectedWithBigUnit:(NSNumber *)bigUnit smallUnit:(NSNumber *)smallUnit element:(id)element;
-
 - (void)dateWasSelected:(NSDate *)selectedDate element:(id)element;
-
 - (void)animalWasSelected:(NSNumber *)selectedIndex element:(id)element;
 @end
 
@@ -62,7 +60,8 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
     return YES;
 }
 
@@ -105,20 +104,9 @@
 }
 
 
+
 - (IBAction)selectADate:(UIControl *)sender {
-
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *minimumDateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-    [minimumDateComponents setYear:2000];
-    NSDate *minDate = [calendar dateFromComponents:minimumDateComponents];
-    NSDate *maxDate = [NSDate date];
-
-
-    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate selectedDate:self.selectedDate
-                                                          minimumDate:minDate
-                                                          maximumDate:maxDate
-                                                               target:self action:@selector(dateWasSelected:element:) origin:sender];
-
+    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate selectedDate:self.selectedDate minimumDate:nil maximumDate:nil target:self action:@selector(dateWasSelected:element:) origin:sender];
     [self.actionSheetPicker addCustomButtonWithTitle:@"Today" value:[NSDate date]];
     [self.actionSheetPicker addCustomButtonWithTitle:@"Yesterday" value:[[NSDate date] TC_dateByAddingCalendarUnits:NSCalendarUnitDay amount:-1]];
     self.actionSheetPicker.hideCancel = YES;
@@ -139,9 +127,9 @@
 
                                                             } cancelBlock:^(ActionSheetDatePicker *picker) {
 
-                NSLog(@"Cancel clicked");
+                                                                NSLog(@"Cancel clicked");
 
-            }                                                  origin:sender];
+                                                            } origin:sender];
 
     [(ActionSheetDatePicker *) _actionSheetPicker setCountDownDuration:120];
     self.actionSheetPicker.hideCancel = YES;
@@ -149,19 +137,19 @@
 }
 
 
-- (IBAction)selectATime:(id)sender {
 
+-(IBAction)selectATime:(id)sender {
 
     NSInteger minuteInterval = 5;
     //clamp date
-    NSInteger referenceTimeInterval = (NSInteger) [self.selectedTime timeIntervalSinceReferenceDate];
-    NSInteger remainingSeconds = referenceTimeInterval % (minuteInterval * 60);
+    NSInteger referenceTimeInterval = (NSInteger)[self.selectedTime timeIntervalSinceReferenceDate];
+    NSInteger remainingSeconds = referenceTimeInterval % (minuteInterval *60);
     NSInteger timeRoundedTo5Minutes = referenceTimeInterval - remainingSeconds;
-    if (remainingSeconds > ((minuteInterval * 60) / 2)) {/// round up
-        timeRoundedTo5Minutes = referenceTimeInterval + ((minuteInterval * 60) - remainingSeconds);
+    if(remainingSeconds>((minuteInterval*60)/2)) {/// round up
+        timeRoundedTo5Minutes = referenceTimeInterval +((minuteInterval*60)-remainingSeconds);
     }
 
-    self.selectedTime = [NSDate dateWithTimeIntervalSinceReferenceDate:(NSTimeInterval) timeRoundedTo5Minutes];
+    self.selectedTime = [NSDate dateWithTimeIntervalSinceReferenceDate:(NSTimeInterval)timeRoundedTo5Minutes];
 
     ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Select a time" datePickerMode:UIDatePickerModeTime selectedDate:self.selectedTime target:self action:@selector(timeWasSelected:element:) origin:sender];
     datePicker.minuteInterval = minuteInterval;
@@ -173,7 +161,8 @@
     [datePicker showActionSheetPicker];
 }
 
-- (void)dateSelector {
+-(void)dateSelector
+{
     NSLog(@"SELECTOR");
 }
 
@@ -221,13 +210,13 @@
     ActionSheetLocalePicker *picker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Select Locale:" initialSelection:[[NSTimeZone alloc] initWithName:@"Antarctica/McMurdo"] doneBlock:done cancelBlock:nil origin:sender];
     [picker addCustomButtonWithTitle:@"My locale" value:[NSTimeZone localTimeZone]];
 
-    UIButton *okButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *okButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [okButton setImage:[UIImage imageNamed:@"ok.png"] forState:UIControlStateNormal];
     [okButton setFrame:CGRectMake(0, 0, 32, 32)];
     [picker setDoneButton:[[UIBarButtonItem alloc] initWithCustomView:okButton]];
 //    [picker setDoneButton:[[UIBarButtonItem alloc] initWithTitle:@"My Text"  style:UIBarButtonItemStylePlain target:nil action:nil]];
 
-    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *cancelButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [cancelButton setImage:[UIImage imageNamed:@"cancel.png"] forState:UIControlStateNormal];
     [cancelButton setFrame:CGRectMake(0, 0, 32, 32)];
     [picker setCancelButton:[[UIBarButtonItem alloc] initWithCustomView:cancelButton]];
@@ -246,7 +235,8 @@
     [picker showActionSheetPicker];
 }
 
-- (UIFont *)getRandomFont {
+- (UIFont *)getRandomFont
+{
     NSArray *familyNames = [UIFont familyNames];
     NSString *familyName = familyNames[arc4random() % [familyNames count]];
     NSArray *namesForFamilyName = [UIFont fontNamesForFamilyName:familyName];
@@ -276,7 +266,7 @@
     self.countDownTextField.text = selectedDate.stringValue;
 }
 
-- (void)timeWasSelected:(NSDate *)selectedTime element:(id)element {
+-(void)timeWasSelected:(NSDate *)selectedTime element:(id)element {
     self.selectedTime = selectedTime;
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -293,6 +283,7 @@
 - (void)actionPickerCancelled:(id)sender {
     NSLog(@"Delegate has been informed that ActionSheetPicker was cancelled");
 }
+
 
 
 - (IBAction)popoverButtonPressed:(id)sender {
@@ -324,16 +315,16 @@
 
 }
 
-- (void)pickerButtonPressed:(id)sender {
+- (void) pickerButtonPressed:(id)sender {
     NSLog(@"Picker");
 
-    ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:@"Title" rows:@[@"Row1", @"Row2", @"Row3"] initialSelection:0 doneBlock:^(ActionSheetStringPicker *stringPicker, NSInteger selectedIndex, id selectedValue) {
-        NSLog(@"selectedIndex = %li", (long) selectedIndex);
-    }                                                                    cancelBlock:^(ActionSheetStringPicker *stringPicker) {
+    ActionSheetStringPicker * picker = [[ActionSheetStringPicker alloc] initWithTitle:@"Title"  rows:@[@"Row1",@"Row2",@"Row3"] initialSelection:0  doneBlock:^(ActionSheetStringPicker *stringPicker, NSInteger selectedIndex, id selectedValue) {
+        NSLog(@"selectedIndex = %li", (long)selectedIndex);
+    } cancelBlock:^(ActionSheetStringPicker *stringPicker) {
         NSLog(@"picker = %@", stringPicker);
-    }                                                                         origin:(UIView *) sender];
+    } origin: (UIView*)sender ];
 
-    UIButton *okButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *okButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [okButton setImage:[UIImage imageNamed:@"ok.png"] forState:UIControlStateNormal];
     [okButton setFrame:CGRectMake(0, 0, 32, 32)];
 

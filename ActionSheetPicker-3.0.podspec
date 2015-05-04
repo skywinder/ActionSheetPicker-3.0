@@ -18,5 +18,7 @@ Pod::Spec.new do | s |
     s.platform = :ios
     s.public_header_files = 'ActionSheetPicker.h', 'Pickers/*.h'
     s.source_files = 'ActionSheetPicker.h', 'Pickers/*.{h,m}'
+    s.resources = 'Pickers/CountryPicker.bundle'
+ 
     s.framework = 'UIKit'
 end

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
+   LastUpgradeVersion = "0620"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,20 +17,6 @@
                BlueprintIdentifier = "1C9444B4197B1C2F005F495B"
                BuildableName = "ActionSheetPickerTests.xctest"
                BlueprintName = "ActionSheetPickerTests"
-               ReferencedContainer = "container:ActionSheetPicker.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1C1B33001ADD51DD008E962A"
-               BuildableName = "CoreActionSheetPickerTests.xctest"
-               BlueprintName = "CoreActionSheetPickerTests"
                ReferencedContainer = "container:ActionSheetPicker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,26 +38,7 @@
                ReferencedContainer = "container:ActionSheetPicker.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1CCA904D1AE0EFB000368F5E"
-               BuildableName = "CoreActionSheetPickerTests.xctest"
-               BlueprintName = "CoreActionSheetPickerTests"
-               ReferencedContainer = "container:../CoreActionSheetPicker/CoreActionSheetPicker.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1C9444B4197B1C2F005F495B"
-            BuildableName = "ActionSheetPickerTests.xctest"
-            BlueprintName = "ActionSheetPickerTests"
-            ReferencedContainer = "container:ActionSheetPicker.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -99,15 +67,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1C9444B4197B1C2F005F495B"
-            BuildableName = "ActionSheetPickerTests.xctest"
-            BlueprintName = "ActionSheetPickerTests"
-            ReferencedContainer = "container:ActionSheetPicker.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -51,6 +51,9 @@
     self.animals = @[@"Aardvark", @"Beaver", @"Cheetah", @"Deer", @"Elephant", @"Frog", @"Gopher", @"Horse", @"Impala", @"...", @"Zebra"];
     self.selectedDate = [NSDate date];
     self.selectedTime = [NSDate date];
+    
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    self.selectedCountryCode = [currentLocale objectForKey:NSLocaleCountryCode];
 
     self.navigationController.navigationBar.barStyle = (UIBarStyle) self.statusBarSegmentControl.selectedSegmentIndex;
 }
@@ -151,8 +154,6 @@
 
 -(IBAction)selectATime:(id)sender {
 
-
-
     NSInteger minuteInterval = 5;
     //clamp date
     NSInteger referenceTimeInterval = (NSInteger)[self.selectedTime timeIntervalSinceReferenceDate];
@@ -194,6 +195,22 @@
 
     [ActionSheetCustomPicker showPickerWithTitle:@"Select Key & Scale" delegate:delg showCancelButton:NO origin:sender
                                initialSelections:initialSelections];
+}
+
+- (IBAction)selectACountry:(id)sender {
+    
+    ActionCountryDoneBlock done = ^(ActionSheetCountryPicker *picker, NSString *selectedCountryCode, NSString *selectedCountryName) {
+        self.selectedCountryCode = selectedCountryCode;
+        if ([sender respondsToSelector:@selector(setText:)]) {
+            [sender performSelector:@selector(setText:) withObject:selectedCountryName];
+        }
+    };
+    ActionCountryCancelBlock cancel = ^(ActionSheetCountryPicker *picker) {
+        NSLog(@"Country Picker Canceled");
+    };
+    
+    
+    [ActionSheetCountryPicker showPickerWithTitle:@"Select Country" initialSelection:self.selectedCountryCode doneBlock:done cancelBlock:cancel origin:sender];
 }
 
 - (IBAction)showTableView:(id)sender {
@@ -259,6 +276,8 @@
 }
 
 #pragma mark - Implementation
+
+
 
 - (void)animalWasSelected:(NSNumber *)selectedIndex element:(id)element {
     self.selectedIndex = [selectedIndex intValue];

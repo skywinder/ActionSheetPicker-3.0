@@ -40,6 +40,7 @@
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, strong) NSDate *selectedDate;
 @property (nonatomic, strong) NSDate *selectedTime;
+@property (nonatomic, strong) NSString *selectedCountryCode;
 @property (nonatomic, assign) NSInteger selectedBigUnit;
 @property (nonatomic, assign) NSInteger selectedSmallUnit;
 @property (nonatomic, strong) AbstractActionSheetPicker *actionSheetPicker;
@@ -54,6 +55,7 @@
 
 - (IBAction)selectAMeasurement:(id)sender;
 - (IBAction)selectAMusicalScale:(UIControl *)sender;
+- (IBAction)selectACountry:(id)sender;
 
 - (IBAction)showTableView:(id)sender;
 - (IBAction)dismiss:(id)sender;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gb7-DM-9kh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gb7-DM-9kh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -160,7 +160,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="selectALocale:" destination="frx-l8-dCy" eventType="touchDown" id="yit-l6-395"/>
-                                                        <outlet property="delegate" destination="frx-l8-dCy" id="M7L-jA-ZW0"/>
+                                                        <outlet property="delegate" destination="frx-l8-dCy" id="BVw-xh-bFP"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -168,6 +168,29 @@
                                                 <constraint firstAttribute="centerY" secondItem="LGs-er-Ndh" secondAttribute="centerY" id="cJP-lH-0QB"/>
                                                 <constraint firstItem="LGs-er-Ndh" firstAttribute="leading" secondItem="ndz-Dj-5jN" secondAttribute="leadingMargin" constant="12" id="ppa-gO-Him"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="LGs-er-Ndh" secondAttribute="trailing" constant="11" id="ra4-jI-gUO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XS8-P7-7Rm">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XS8-P7-7Rm" id="2MX-yT-fVy">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select a Country" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zb6-h8-fHy">
+                                                    <rect key="frame" x="19" y="7" width="280" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="selectACountry:" destination="frx-l8-dCy" eventType="touchDown" id="kxj-ge-soW"/>
+                                                        <outlet property="delegate" destination="frx-l8-dCy" id="RLD-mJ-Lt0"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Zb6-h8-fHy" secondAttribute="trailing" constant="13" id="msQ-Nd-7ay"/>
+                                                <constraint firstItem="Zb6-h8-fHy" firstAttribute="leading" secondItem="2MX-yT-fVy" secondAttribute="leadingMargin" constant="11" id="t4D-8K-L5u"/>
+                                                <constraint firstAttribute="centerY" secondItem="Zb6-h8-fHy" secondAttribute="centerY" id="wyf-cd-f5Q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
