@@ -194,7 +194,7 @@ static UIView *origin;
     [customPicker showActionSheetPicker];
     XCTAssertNotNil(customPicker);
 
-    [self waitForExpectationsWithTimeout:1 handler:nil];
+    [self waitForExpectationsWithTimeout:2 handler:nil];
 }
 
 

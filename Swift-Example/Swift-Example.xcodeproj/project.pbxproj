@@ -14,6 +14,7 @@
 		1C243EF219CC5AE0000EE6A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C243EF019CC5AE0000EE6A6 /* LaunchScreen.xib */; };
 		1C243EFE19CC5AE0000EE6A6 /* Swift_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C243EFD19CC5AE0000EE6A6 /* Swift_ExampleTests.swift */; };
 		1C243F0E19CC67AE000EE6A6 /* SWTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C243F0D19CC67AE000EE6A6 /* SWTableViewController.swift */; };
+		1CE479DC1AE109FE00CA93B9 /* CoreActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE479DB1AE109FE00CA93B9 /* CoreActionSheetPicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,20 +27,8 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		1C8B59451A19EA15003857EF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		1C1B333C1ADD5509008E962A /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreActionSheetPicker.framework; path = "../../../Library/Developer/Xcode/DerivedData/Example-heqowupkotascefopnknxqwrfsgq/Build/Products/Debug-iphoneos/CoreActionSheetPicker.framework"; sourceTree = "<group>"; };
 		1C243EE219CC5AE0000EE6A6 /* Swift-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C243EE619CC5AE0000EE6A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C243EE719CC5AE0000EE6A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +40,7 @@
 		1C243EFC19CC5AE0000EE6A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C243EFD19CC5AE0000EE6A6 /* Swift_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_ExampleTests.swift; sourceTree = "<group>"; };
 		1C243F0D19CC67AE000EE6A6 /* SWTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWTableViewController.swift; sourceTree = "<group>"; };
+		1CE479DB1AE109FE00CA93B9 /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreActionSheetPicker.framework; path = "../CoreActionSheetPicker/build/Debug-iphoneos/CoreActionSheetPicker.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE479DC1AE109FE00CA93B9 /* CoreActionSheetPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +131,8 @@
 		D66F5025FE1F1ECC58FAF7AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CE479DB1AE109FE00CA93B9 /* CoreActionSheetPicker.framework */,
+				1C1B333C1ADD5509008E962A /* CoreActionSheetPicker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,7 +147,6 @@
 				1C243EDE19CC5AE0000EE6A6 /* Sources */,
 				1C243EDF19CC5AE0000EE6A6 /* Frameworks */,
 				1C243EE019CC5AE0000EE6A6 /* Resources */,
-				1C8B59451A19EA15003857EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -325,7 +317,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,6 +369,7 @@
 					"$(inherited)",
 					"/Users/petrkorolev/repo/ActionSheetPicker-3.0/CoreActionSheetPicker/CoreActionSheetPicker/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Example-heqowupkotascefopnknxqwrfsgq/Build/Products/Debug-iphoneos",
+					"/Users/petrkorolev/repo/ActionSheetPicker-3.0/CoreActionSheetPicker/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Swift-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -394,6 +387,7 @@
 					"$(inherited)",
 					"/Users/petrkorolev/repo/ActionSheetPicker-3.0/CoreActionSheetPicker/CoreActionSheetPicker/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Example-heqowupkotascefopnknxqwrfsgq/Build/Products/Debug-iphoneos",
+					"/Users/petrkorolev/repo/ActionSheetPicker-3.0/CoreActionSheetPicker/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Swift-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

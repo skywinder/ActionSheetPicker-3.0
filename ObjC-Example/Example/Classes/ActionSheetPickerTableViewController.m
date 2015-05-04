@@ -107,7 +107,20 @@
 
 
 - (IBAction)selectADate:(UIControl *)sender {
-    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate selectedDate:self.selectedDate minimumDate:nil maximumDate:nil target:self action:@selector(dateWasSelected:element:) origin:sender];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *minimumDateComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    [minimumDateComponents setYear:2000];
+    NSDate *minDate = [calendar dateFromComponents:minimumDateComponents];
+    NSDate *maxDate = [NSDate date];
+
+
+    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate selectedDate:self.selectedDate
+                                                               target:self action:@selector(dateWasSelected:element:) origin:sender];
+
+
+    [(ActionSheetDatePicker *) self.actionSheetPicker setMinimumDate:minDate];
+    [(ActionSheetDatePicker *) self.actionSheetPicker setMaximumDate:maxDate];
+
     [self.actionSheetPicker addCustomButtonWithTitle:@"Today" value:[NSDate date]];
     [self.actionSheetPicker addCustomButtonWithTitle:@"Yesterday" value:[[NSDate date] TC_dateByAddingCalendarUnits:NSCalendarUnitDay amount:-1]];
     self.actionSheetPicker.hideCancel = YES;

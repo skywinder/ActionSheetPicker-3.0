@@ -18,8 +18,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cellId"
-                                                forIndexPath:indexPath];
+    UITableViewCell *cell;
+    if ([self.tableView respondsToSelector:@selector(dequeueReusableCellWithIdentifier:forIndexPath:)])
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cellId"
+                                                    forIndexPath:indexPath];
+    else
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cellId"];
 
     cell.textLabel.text = @(indexPath.row).stringValue;
     cell.detailTextLabel.text = @"Choose me!";

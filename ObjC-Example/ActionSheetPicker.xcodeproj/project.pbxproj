@@ -12,9 +12,7 @@
 		1C6EE71C192BB41600A27994 /* ActionSheetPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE70F192BB41600A27994 /* ActionSheetPickerViewController.m */; };
 		1C6EE71D192BB41600A27994 /* NSDate+TCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE711192BB41600A27994 /* NSDate+TCUtils.m */; };
 		1C6EE71E192BB41600A27994 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C6EE712192BB41600A27994 /* Default-568h@2x.png */; };
-		1C6EE71F192BB41600A27994 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6EE714192BB41600A27994 /* MainWindow-iPad.xib */; };
 		1C6EE720192BB41600A27994 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE715192BB41600A27994 /* main.m */; };
-		1C6EE721192BB41600A27994 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6EE716192BB41600A27994 /* MainWindow.xib */; };
 		1C7A57A9199DEDD5007B9B70 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A57A8199DEDD5007B9B70 /* cancel.png */; };
 		1C7A57AA199DEDD5007B9B70 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A57A8199DEDD5007B9B70 /* cancel.png */; };
 		1C7A57AC199DF30B007B9B70 /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A57AB199DF30B007B9B70 /* ok.png */; };
@@ -61,9 +59,7 @@
 		1C6EE710192BB41600A27994 /* NSDate+TCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TCUtils.h"; sourceTree = "<group>"; };
 		1C6EE711192BB41600A27994 /* NSDate+TCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TCUtils.m"; sourceTree = "<group>"; };
 		1C6EE712192BB41600A27994 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1C6EE714192BB41600A27994 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		1C6EE715192BB41600A27994 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1C6EE716192BB41600A27994 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		1C6EE722192BB47000A27994 /* ActionSheetPicker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker_Prefix.pch; sourceTree = "<group>"; };
 		1C6EE723192BB47000A27994 /* ActionSheetPicker-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ActionSheetPicker-Info.plist"; sourceTree = "<group>"; };
 		1C7A57A8199DEDD5007B9B70 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
@@ -129,9 +125,7 @@
 				1D07100719C4C7AF0033BA4D /* Default-667h@2x.png */,
 				1D07100819C4C7AF0033BA4D /* Default-736h@3x.png */,
 				1D07100919C4C7AF0033BA4D /* Default-736w@3x.png */,
-				1C6EE713192BB41600A27994 /* iPad */,
 				1C6EE715192BB41600A27994 /* main.m */,
-				1C6EE716192BB41600A27994 /* MainWindow.xib */,
 				D66F56315B19D0C87B8D1933 /* Resources */,
 			);
 			path = Example;
@@ -156,14 +150,6 @@
 				D66F5954E97888BB98D46969 /* ActionSheetPickerTableViewController.h */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		1C6EE713192BB41600A27994 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				1C6EE714192BB41600A27994 /* MainWindow-iPad.xib */,
-			);
-			path = iPad;
 			sourceTree = "<group>";
 		};
 		1C9444BA197B1C2F005F495B /* ActionSheetPicker Tests */ = {
@@ -324,11 +310,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7A57AC199DF30B007B9B70 /* ok.png in Resources */,
-				1C6EE721192BB41600A27994 /* MainWindow.xib in Resources */,
 				1D07100C19C4C7AF0033BA4D /* Default-736w@3x.png in Resources */,
 				1D07100A19C4C7AF0033BA4D /* Default-667h@2x.png in Resources */,
 				1D07100B19C4C7AF0033BA4D /* Default-736h@3x.png in Resources */,
-				1C6EE71F192BB41600A27994 /* MainWindow-iPad.xib in Resources */,
 				1C7A57A9199DEDD5007B9B70 /* cancel.png in Resources */,
 				1C6EE71E192BB41600A27994 /* Default-568h@2x.png in Resources */,
 				1CFCACFD1980FA320056A594 /* Storyboard.storyboard in Resources */,

@@ -34,7 +34,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *animalTextField;
 @property (nonatomic, strong) IBOutlet UITextField *dateTextField;
 @property (nonatomic, strong) IBOutlet UITextField *timeTextField;
-@property (strong, nonatomic) IBOutlet UITextField *counDownTextField;
+@property (strong, nonatomic) IBOutlet UITextField *countDownTextField;
 
 @property (nonatomic, strong) NSArray *animals;
 @property (nonatomic, assign) NSInteger selectedIndex;
