@@ -5,22 +5,6 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA11A9351ACA8ECC00E624FF"
-               BuildableName = "CoreActionSheetPickerResource.bundle"
-               BlueprintName = "CoreActionSheetPickerResource"
-               ReferencedContainer = "container:CoreActionSheetPicker.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -29,6 +13,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FA11A9351ACA8ECC00E624FF"
+            BuildableName = "CoreActionSheetPickerResource.bundle"
+            BlueprintName = "CoreActionSheetPickerResource"
+            ReferencedContainer = "container:CoreActionSheetPicker.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -39,15 +32,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA11A9351ACA8ECC00E624FF"
-            BuildableName = "CoreActionSheetPickerResource.bundle"
-            BlueprintName = "CoreActionSheetPickerResource"
-            ReferencedContainer = "container:CoreActionSheetPicker.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -57,15 +41,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA11A9351ACA8ECC00E624FF"
-            BuildableName = "CoreActionSheetPickerResource.bundle"
-            BlueprintName = "CoreActionSheetPickerResource"
-            ReferencedContainer = "container:CoreActionSheetPicker.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -37,6 +37,7 @@
 		D66F52867C4F51FF504876CB /* AbstractActionSheetPickerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5B887137F3C8C61C74D7 /* AbstractActionSheetPickerTestCase.m */; };
 		D66F56BDCC3CDD653D0A86ED /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5524D86DF2C1AA77B398 /* TestTableViewController.m */; };
 		D66F5832537A4862C9F19770 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5524D86DF2C1AA77B398 /* TestTableViewController.m */; };
+		FA139F561AFDF22500580511 /* CountryPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA139F551AFDF22500580511 /* CountryPicker.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +91,7 @@
 		D66F5893094B8D4B8A9FCE33 /* ActionSheetCustomPickerTestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerTestDelegate.h; sourceTree = "<group>"; };
 		D66F5954E97888BB98D46969 /* ActionSheetPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPickerTableViewController.h; sourceTree = "<group>"; };
 		D66F5B887137F3C8C61C74D7 /* AbstractActionSheetPickerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPickerTestCase.m; sourceTree = "<group>"; };
-		FA11A93E1ACA8FAC00E624FF /* CoreActionSheetPickerResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CoreActionSheetPickerResource.bundle; sourceTree = SOURCE_ROOT; };
+		FA139F551AFDF22500580511 /* CountryPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CountryPicker.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +189,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				FA11A93E1ACA8FAC00E624FF /* CoreActionSheetPickerResource.bundle */,
+				FA139F551AFDF22500580511 /* CountryPicker.bundle */,
 				1CFCACFC1980FA320056A594 /* Storyboard.storyboard */,
 				1C6EE722192BB47000A27994 /* ActionSheetPicker_Prefix.pch */,
 				1C6EE723192BB47000A27994 /* ActionSheetPicker-Info.plist */,
@@ -309,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA139F561AFDF22500580511 /* CountryPicker.bundle in Resources */,
 				1C7A57AC199DF30B007B9B70 /* ok.png in Resources */,
 				1D07100C19C4C7AF0033BA4D /* Default-736w@3x.png in Resources */,
 				1D07100A19C4C7AF0033BA4D /* Default-667h@2x.png in Resources */,
