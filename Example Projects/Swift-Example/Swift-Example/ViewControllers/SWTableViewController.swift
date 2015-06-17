@@ -9,11 +9,11 @@
 import UIKit
 import CoreActionSheetPicker
 
-class SWTableViewController: UITableViewController, UITableViewDelegate {
+class SWTableViewController: UITableViewController {
     @IBOutlet var UIDatePickerModeTime: UIButton!
     @IBAction func TimePickerClicked(sender: UIButton) {
 
-        var datePicker = ActionSheetDatePicker(title: "Time:", datePickerMode: UIDatePickerMode.Time, selectedDate: NSDate(), target: self, action: "datePicked:", origin: sender.superview!.superview)
+        let datePicker = ActionSheetDatePicker(title: "Time:", datePickerMode: UIDatePickerMode.Time, selectedDate: NSDate(), target: self, action: "datePicked:", origin: sender.superview!.superview)
 
         datePicker.minuteInterval = 20
         datePicker.showActionSheetPicker()
@@ -22,12 +22,12 @@ class SWTableViewController: UITableViewController, UITableViewDelegate {
 
     @IBAction func DatePickerClicked(sender: UIButton) {
 
-        var datePicker = ActionSheetDatePicker(title: "Date:", datePickerMode: UIDatePickerMode.Date, selectedDate: NSDate(), doneBlock: {
+        let datePicker = ActionSheetDatePicker(title: "Date:", datePickerMode: UIDatePickerMode.Date, selectedDate: NSDate(), doneBlock: {
             picker, value, index in
 
-            println("value = \(value)")
-            println("index = \(index)")
-            println("picker = \(picker)")
+            print("value = \(value)")
+            print("index = \(index)")
+            print("picker = \(picker)")
             return
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
         let secondsInWeek: NSTimeInterval = 7 * 24 * 60 * 60;
@@ -43,22 +43,21 @@ class SWTableViewController: UITableViewController, UITableViewDelegate {
     }
 
     func measurementWasSelected(bigUnit: NSNumber, smallUnit: NSNumber, element: AnyObject) {
-        println("\(element)")
-        println("\(smallUnit)")
-        println("\(bigUnit)")
-        println("measurementWasSelected")
-
+        print("\(element)")
+        print("\(smallUnit)")
+        print("\(bigUnit)")
+        print("measurementWasSelected")
     }
 
     @IBAction func DateAndTimeClicked(sender: UIButton) {
 
 
-        var datePicker = ActionSheetDatePicker(title: "DateAndTime:", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: {
+        let datePicker = ActionSheetDatePicker(title: "DateAndTime:", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: {
             picker, value, index in
 
-            println("value = \(value)")
-            println("index = \(index)")
-            println("picker = \(picker)")
+            print("value = \(value)")
+            print("index = \(index)")
+            print("picker = \(picker)")
             return
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
         let secondsInWeek: NSTimeInterval = 7 * 24 * 60 * 60;
@@ -70,12 +69,12 @@ class SWTableViewController: UITableViewController, UITableViewDelegate {
     }
 
     @IBAction func CountdownTimerClicked(sender: UIButton) {
-        var datePicker = ActionSheetDatePicker(title: "CountDownTimer:", datePickerMode: UIDatePickerMode.CountDownTimer, selectedDate: NSDate(), doneBlock: {
+        let datePicker = ActionSheetDatePicker(title: "CountDownTimer:", datePickerMode: UIDatePickerMode.CountDownTimer, selectedDate: NSDate(), doneBlock: {
             picker, value, index in
 
-            println("value = \(value)")
-            println("index = \(index)")
-            println("picker = \(picker)")
+            print("value = \(value)")
+            print("index = \(index)")
+            print("picker = \(picker)")
             return
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
 
@@ -87,9 +86,9 @@ class SWTableViewController: UITableViewController, UITableViewDelegate {
         ActionSheetStringPicker.showPickerWithTitle("Nav Bar From Picker", rows: ["One", "Two", "A lot"], initialSelection: 1, doneBlock: {
             picker, value, index in
 
-            println("value = \(value)")
-            println("index = \(index)")
-            println("picker = \(picker)")
+            print("value = \(value)")
+            print("index = \(index)")
+            print("picker = \(picker)")
             return
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender)
     }
@@ -98,8 +97,8 @@ class SWTableViewController: UITableViewController, UITableViewDelegate {
         ActionSheetLocalePicker.showPickerWithTitle("Locale picker", initialSelection: NSTimeZone(), doneBlock: {
             picker, index in
 
-            println("index = \(index)")
-            println("picker = \(picker)")
+            print("index = \(index)")
+            print("picker = \(picker)")
             return
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
 
