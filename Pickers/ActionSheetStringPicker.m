@@ -241,6 +241,7 @@
         if (!stringPicker) {
             return;
         }
+        [stringPicker reloadAllComponents];;
         if (infinite) {
             NSInteger selectedRow = INT16_MAX/2 - (INT16_MAX/2%self.data.count) + self.selectedIndex;
             [stringPicker selectRow:selectedRow inComponent:0 animated:YES];
