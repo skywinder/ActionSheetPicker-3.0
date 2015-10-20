@@ -78,7 +78,7 @@
         NSLog(@"Block Picker Canceled");
     };
     NSArray *colors = @[@"Red", @"Green", @"Blue", @"Orange"];
-    [ActionSheetStringPicker showPickerWithTitle:@"Select a Block" rows:colors initialSelection:0 doneBlock:done cancelBlock:cancel origin:sender];
+    [ActionSheetStringPicker showPickerWithTitle:@"Select a Block" infiniteRows:colors initialSelection:0 doneBlock:done cancelBlock:cancel origin:sender];
 }
 
 - (IBAction)selectALocale:(UIControl *)sender {

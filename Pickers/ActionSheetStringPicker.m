@@ -34,6 +34,8 @@
 
 @implementation ActionSheetStringPicker
 
+@synthesize infinite = _infinite;
+
 + (instancetype)showPickerWithTitle:(NSString *)title rows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlockOrNil origin:(id)origin {
     ActionSheetStringPicker * picker = [[ActionSheetStringPicker alloc] initWithTitle:title rows:strings initialSelection:index doneBlock:doneBlock cancelBlock:cancelBlockOrNil origin:origin];
     [picker showActionSheetPicker];
@@ -65,6 +67,37 @@
     return self;
 }
 
++ (instancetype)showPickerWithTitle:(NSString *)title infiniteRows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlockOrNil origin:(id)origin {
+    ActionSheetStringPicker * picker = [[ActionSheetStringPicker alloc] initWithTitle:title infiniteRows:strings initialSelection:index doneBlock:doneBlock cancelBlock:cancelBlockOrNil origin:origin];
+    [picker showActionSheetPicker];
+    return picker;
+}
+
+- (instancetype)initWithTitle:(NSString *)title infiniteRows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlockOrNil origin:(id)origin {
+    self = [self initWithTitle:title infiniteRows:strings initialSelection:index target:nil successAction:nil cancelAction:nil origin:origin];
+    if (self) {
+        self.onActionSheetDone = doneBlock;
+        self.onActionSheetCancel = cancelBlockOrNil;
+    }
+    return self;
+}
+
++ (instancetype)showPickerWithTitle:(NSString *)title infiniteRows:(NSArray *)data initialSelection:(NSInteger)index target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin {
+    ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:title infiniteRows:data initialSelection:index target:target successAction:successAction cancelAction:cancelActionOrNil origin:origin];
+    [picker showActionSheetPicker];
+    return picker;
+}
+
+- (instancetype)initWithTitle:(NSString *)title infiniteRows:(NSArray *)data initialSelection:(NSInteger)index target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin {
+    self = [self initWithTarget:target successAction:successAction cancelAction:cancelActionOrNil origin:origin];
+    if (self) {
+        self.data = data;
+        self.selectedIndex = index;
+        self.title = title;
+        self.infinite = YES;
+    }
+    return self;
+}
 
 - (UIView *)configuredPickerView {
     if (!self.data)
@@ -73,7 +106,12 @@
     UIPickerView *stringPicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     stringPicker.delegate = self;
     stringPicker.dataSource = self;
-    [stringPicker selectRow:self.selectedIndex inComponent:0 animated:NO];
+    if (self.infinite) {
+        NSInteger selectedRow = INT16_MAX/2 - (INT16_MAX/2%self.data.count) + self.selectedIndex;
+        [stringPicker selectRow:selectedRow inComponent:0 animated:NO]; // Make the selectedIndex in the middle
+    } else {
+        [stringPicker selectRow:self.selectedIndex inComponent:0 animated:NO];
+    }
     if (self.data.count == 0) {
         stringPicker.showsSelectionIndicator = NO;
         stringPicker.userInteractionEnabled = NO;
@@ -120,7 +158,7 @@
 #pragma mark - UIPickerViewDelegate / DataSource
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.selectedIndex = row;
+    self.selectedIndex = row % self.data.count;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -128,10 +166,11 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.data.count;
+    return self.infinite ? INT16_MAX : self.data.count;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    row %= self.data.count;
     id obj = (self.data)[(NSUInteger) row];
 
     // return the object if it is already a NSString,
@@ -148,6 +187,7 @@
 }
 
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    row %= self.data.count;
     id obj = (self.data)[(NSUInteger) row];
     
     // return the object if it is already a NSString,
@@ -164,6 +204,7 @@
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    row %= self.data.count;
     UILabel *pickerLabel = (UILabel *)view;
     if (pickerLabel == nil) {
         pickerLabel = [[UILabel alloc] init];
@@ -190,6 +231,24 @@
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
     return pickerView.frame.size.width - 30;
+}
+
+- (void)setInfinite:(BOOL)infinite
+{
+    if (_infinite != infinite) {
+        _infinite = infinite;
+        UIPickerView *stringPicker = (UIPickerView *)self.pickerView;
+        if (!stringPicker) {
+            return;
+        }
+        [stringPicker reloadAllComponents];;
+        if (infinite) {
+            NSInteger selectedRow = INT16_MAX/2 - (INT16_MAX/2%self.data.count) + self.selectedIndex;
+            [stringPicker selectRow:selectedRow inComponent:0 animated:YES];
+        } else {
+            [stringPicker selectRow:self.selectedIndex inComponent:0 animated:YES];
+        }
+    }
 }
 
 @end

@@ -71,6 +71,7 @@ static NSString *const kActionTarget  = @"buttonActionTarget";
 @property (nonatomic, strong) UIView *pickerView;
 @property (nonatomic, readonly) CGSize viewSize;
 @property (nonatomic, strong) NSMutableArray *customButtons;
+@property (nonatomic, assign) BOOL infinite; // infinite loop
 @property (nonatomic, assign) BOOL hideCancel; // show or hide cancel button.
 @property (nonatomic, assign) CGRect presentFromRect;
 @property (nonatomic) NSDictionary *titleTextAttributes; // default is nil. Used to specify Title Label attributes.
