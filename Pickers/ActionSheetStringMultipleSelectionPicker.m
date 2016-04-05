@@ -63,7 +63,7 @@
     if (self) {
         self.data = data;
         self.selectedIndex = [[NSMutableArray alloc]initWithArray:selectedIndexes];
-        self.currentIndex = 0;
+        self.currentIndex = [[NSNumber alloc]initWithInt:0];
         self.title = title;
     }
     return self;
@@ -92,7 +92,8 @@
     UITapGestureRecognizer * singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleSelection:)];
     singleTapGestureRecognizer.numberOfTapsRequired = 1;
     [self.pickerView addGestureRecognizer:singleTapGestureRecognizer];
-    
+
+
     return stringPicker;
 }
 
@@ -171,8 +172,7 @@
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-    
-    
+
     UITableViewCell *cell = (UITableViewCell *)view;
     
     if (cell == nil) {
@@ -184,11 +184,11 @@
     }
     
     id obj = (self.data)[(NSUInteger) row];
-    
+        
     if ([self.selectedIndex indexOfObject:[NSNumber numberWithInt:row]] != NSNotFound) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     } else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
+       // [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     
     cell.textLabel.text = obj;
@@ -214,35 +214,27 @@
 
 - (void)toggleSelection:(UITapGestureRecognizer *)recognizer {
     
-    if(self.currentIndex!=nil){
-        
-        PickerView *picker =  self.pickerView;
-        
-        
-        UIView* cellView = [picker viewForRow:self.currentIndex.intValue forComponent:0];
-        
-        NSPredicate *valuePredicate=[NSPredicate predicateWithFormat:@"self.intValue == %d",self.currentIndex];
-        
-        if ([self.selectedIndex indexOfObject:self.currentIndex] != NSNotFound) {
-
-            [self.selectedIndex removeObject:self.currentIndex];
-            [(UITableViewCell *)cellView setAccessoryType:UITableViewCellAccessoryNone];
-        }else  {
-            [self.selectedIndex addObject:self.currentIndex];
-            [(UITableViewCell *)cellView setAccessoryType:UITableViewCellAccessoryCheckmark];
-        }
-        
-        
-    }
+    UIView *selectView = [[[[[self.pickerView.subviews objectAtIndex:0]subviews]objectAtIndex:0]subviews]objectAtIndex:2];
     
-    /* NSNumber *row = [NSNumber numberWithInt:recognizer.view.tag];
-     NSUInteger ind ex = [self.selectedIndex indexOfObject:row];
-     if (index != NSNotFound) {
-     [self.selectedIndex removeObjectAtIndex:index];
-     [(UITableViewCell *)(recognizer.view) setAccessoryType:UITableViewCellAccessoryNone];
-     } else { [self.selectedIndex addObject:row];
-     [(UITableViewCell *)(recognizer.view) setAccessoryType:UITableViewCellAccessoryCheckmark];
-     }*/
+    CGPoint location = [recognizer locationInView:selectView];
+
+    if(CGRectContainsPoint(selectView.bounds,location)){
+        if(self.currentIndex!=nil){
+            
+            PickerView *picker =  self.pickerView;
+            
+            int result = [self.selectedIndex indexOfObject:self.currentIndex];
+            if (result != NSNotFound) {
+                [self.selectedIndex removeObjectAtIndex:result];
+            }else  {
+                [self.selectedIndex addObject:self.currentIndex];
+            }
+            
+            [(UIPickerView*)self.pickerView reloadAllComponents];
+            [(UIPickerView*)self.pickerView selectRow:self.currentIndex.intValue inComponent:0 animated:NO];
+            
+        }
+    }
 }
 
 @end
