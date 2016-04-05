@@ -186,6 +186,7 @@ CG_INLINE BOOL isIPhone4() {
 }
 
 - (void)dealloc {
+    
     //need to clear picker delegates and datasources, otherwise they may call this object after it's gone
     if ([self.pickerView respondsToSelector:@selector(setDelegate:)])
         [self.pickerView performSelector:@selector(setDelegate:) withObject:nil];
@@ -734,6 +735,11 @@ CG_INLINE BOOL isIPhone4() {
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     CGPoint location = [gestureRecognizer locationInView:self.toolbar];
     return !CGRectContainsPoint(self.toolbar.bounds, location);
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return true;
 }
 
 @end
