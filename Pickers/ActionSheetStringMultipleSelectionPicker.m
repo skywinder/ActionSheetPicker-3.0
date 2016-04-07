@@ -224,7 +224,7 @@
             PickerView *picker =  self.pickerView;
             
             int result = [self.selectedIndex indexOfObject:self.currentIndex];
-            if (result != NSNotFound) {
+            if (result != -1) {
                 [self.selectedIndex removeObjectAtIndex:result];
             }else  {
                 [self.selectedIndex addObject:self.currentIndex];
