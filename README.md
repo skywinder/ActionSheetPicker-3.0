@@ -35,7 +35,7 @@ Well, that's how it started. Now, the following is more accurate:
 
 
 ## Overview ##
-Easily present an ActionSheet with a PickerView, allowing user to select from a number of immutable options. 
+Easily present an ActionSheet with a PickerView, allowing user to select from a number of immutable options.
 
 ### Benefits ##
 
@@ -70,7 +70,7 @@ NSArray *colors = [NSArray arrayWithObjects:@"Red", @"Green", @"Blue", @"Orange"
                                         rows:colors
                             initialSelection:0
                                    doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-                                      NSLog(@"Picker: %@, Index: %@, value: %@", 
+                                      NSLog(@"Picker: %@, Index: %@, value: %@",
                                       picker, selectedIndex, selectedValue);
                                     }
                                  cancelBlock:^(ActionSheetStringPicker *picker) {
@@ -80,7 +80,7 @@ NSArray *colors = [NSArray arrayWithObjects:@"Red", @"Green", @"Blue", @"Orange"
 // You can also use self.view if you don't have a sender
 ```
 
- 
+
 ##Installation##
 
 ### CocoaPods
@@ -119,7 +119,7 @@ To import pod you should add string:
 - For `Swift` projects:
 
 
-        import CoreActionSheetPicker
+        import ActionSheetPicker_3_0
 
 ### Carthage
 
@@ -179,7 +179,7 @@ Here is 4 projects:
 ![iPad Support](https://raw.githubusercontent.com/skywinder/ActionSheetPicker-3.0/master/Screenshots/ipad.png "iPad Support")
 
 
-## [Apps using this library](https://github.com/skywinder/ActionSheetPicker-3.0/wiki/Apps-using-ActionSheetPicker-3.0) 
+## [Apps using this library](https://github.com/skywinder/ActionSheetPicker-3.0/wiki/Apps-using-ActionSheetPicker-3.0)
 
 If you've used this project in a live app, please let me know! Nothing makes me happier than seeing someone else take my work and go wild with it.
 
