@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C6042751B5E776D008D9549 /* CoreActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6042741B5E776D008D9549 /* CoreActionSheetPicker.framework */; };
+		1C6EE71A192BB41600A27994 /* ActionSheetPickerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE70B192BB41600A27994 /* ActionSheetPickerAppDelegate.m */; };
+		1C6EE71B192BB41600A27994 /* ActionSheetPickerCustomPickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE70D192BB41600A27994 /* ActionSheetPickerCustomPickerDelegate.m */; };
+		1C6EE71C192BB41600A27994 /* ActionSheetPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE70F192BB41600A27994 /* ActionSheetPickerViewController.m */; };
+		1C6EE71D192BB41600A27994 /* NSDate+TCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE711192BB41600A27994 /* NSDate+TCUtils.m */; };
+		1C6EE71E192BB41600A27994 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C6EE712192BB41600A27994 /* Default-568h@2x.png */; };
+		1C6EE720192BB41600A27994 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE715192BB41600A27994 /* main.m */; };
+		1C7A57A9199DEDD5007B9B70 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A57A8199DEDD5007B9B70 /* cancel.png */; };
+		1C7A57AA199DEDD5007B9B70 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A57A8199DEDD5007B9B70 /* cancel.png */; };
+		1C7A57AC199DF30B007B9B70 /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A57AB199DF30B007B9B70 /* ok.png */; };
+		1C7A57AD199DF30B007B9B70 /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A57AB199DF30B007B9B70 /* ok.png */; };
+		1C84AF9119DE9B9400EF5B2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1C9444B7197B1C2F005F495B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9444B6197B1C2F005F495B /* XCTest.framework */; };
+		1C9444B8197B1C2F005F495B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1C9444B9197B1C2F005F495B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1C9444BF197B1C2F005F495B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C9444BD197B1C2F005F495B /* InfoPlist.strings */; };
+		1C9444C9197B1C75005F495B /* ActionSheetCustomPickerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9444C8197B1C75005F495B /* ActionSheetCustomPickerTestCase.m */; };
+		1C9444D5197B1E8F005F495B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		1CFCACFD1980FA320056A594 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CFCACFC1980FA320056A594 /* Storyboard.storyboard */; };
+		1D07100A19C4C7AF0033BA4D /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D07100719C4C7AF0033BA4D /* Default-667h@2x.png */; };
+		1D07100B19C4C7AF0033BA4D /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D07100819C4C7AF0033BA4D /* Default-736h@3x.png */; };
+		1D07100C19C4C7AF0033BA4D /* Default-736w@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D07100919C4C7AF0033BA4D /* Default-736w@3x.png */; };
+		9691A94D7D01E0FBDF9686C3 /* AbstractActionSheetPicker+CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691A8995255E329AAABAA07 /* AbstractActionSheetPicker+CustomButton.m */; };
+		9947CBEB19F811300083B32D /* ActionSheetDatePickerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9947CBEA19F811300083B32D /* ActionSheetDatePickerTestCase.m */; };
+		D66F506882340A184FC6B2C5 /* ActionSheetLocalePickerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F51B8FD5B8B4B7A1F46E8 /* ActionSheetLocalePickerTestCase.m */; };
+		D66F51ADA2999F44F2C282BF /* ActionSheetPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F572853325E5592CF945B /* ActionSheetPickerTableViewController.m */; };
+		D66F51F7B65FE68619FB9762 /* ActionSheetCustomPickerTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F576CF2A850BF7FFA6085 /* ActionSheetCustomPickerTestDelegate.m */; };
+		D66F52867C4F51FF504876CB /* AbstractActionSheetPickerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5B887137F3C8C61C74D7 /* AbstractActionSheetPickerTestCase.m */; };
+		D66F56BDCC3CDD653D0A86ED /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5524D86DF2C1AA77B398 /* TestTableViewController.m */; };
+		D66F5832537A4862C9F19770 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5524D86DF2C1AA77B398 /* TestTableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C9444C3197B1C2F005F495B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = ActionSheetPicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C11947A1B5E3ECF00C68054 /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreActionSheetPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C6042741B5E776D008D9549 /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreActionSheetPicker.framework; path = "../CoreActionSheetPicker/build/Debug-iphoneos/CoreActionSheetPicker.framework"; sourceTree = "<group>"; };
+		1C6EE70A192BB41600A27994 /* ActionSheetPickerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPickerAppDelegate.h; sourceTree = "<group>"; };
+		1C6EE70B192BB41600A27994 /* ActionSheetPickerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetPickerAppDelegate.m; sourceTree = "<group>"; };
+		1C6EE70C192BB41600A27994 /* ActionSheetPickerCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPickerCustomPickerDelegate.h; sourceTree = "<group>"; };
+		1C6EE70D192BB41600A27994 /* ActionSheetPickerCustomPickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetPickerCustomPickerDelegate.m; sourceTree = "<group>"; };
+		1C6EE70E192BB41600A27994 /* ActionSheetPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPickerViewController.h; sourceTree = "<group>"; };
+		1C6EE70F192BB41600A27994 /* ActionSheetPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetPickerViewController.m; sourceTree = "<group>"; };
+		1C6EE710192BB41600A27994 /* NSDate+TCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TCUtils.h"; sourceTree = "<group>"; };
+		1C6EE711192BB41600A27994 /* NSDate+TCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TCUtils.m"; sourceTree = "<group>"; };
+		1C6EE712192BB41600A27994 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1C6EE715192BB41600A27994 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C6EE722192BB47000A27994 /* ActionSheetPicker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker_Prefix.pch; sourceTree = "<group>"; };
+		1C6EE723192BB47000A27994 /* ActionSheetPicker-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ActionSheetPicker-Info.plist"; sourceTree = "<group>"; };
+		1C7A57A8199DEDD5007B9B70 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
+		1C7A57AB199DF30B007B9B70 /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
+		1C9444B5197B1C2F005F495B /* ActionSheetPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionSheetPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C9444B6197B1C2F005F495B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1C9444BC197B1C2F005F495B /* ActionSheetPicker Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActionSheetPicker Tests-Info.plist"; sourceTree = "<group>"; };
+		1C9444BE197B1C2F005F495B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1C9444C2197B1C2F005F495B /* ActionSheetPicker Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActionSheetPicker Tests-Prefix.pch"; sourceTree = "<group>"; };
+		1C9444C8197B1C75005F495B /* ActionSheetCustomPickerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPickerTestCase.m; sourceTree = "<group>"; };
+		1CD15A2F192C7A0A00B28881 /* ActionSheetPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionSheetPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CEFA0181AFB847C00110399 /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreActionSheetPicker.framework; path = "../CoreActionSheetPicker/build/Debug-iphoneos/CoreActionSheetPicker.framework"; sourceTree = "<group>"; };
+		1CFCACFC1980FA320056A594 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		1D07100719C4C7AF0033BA4D /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		1D07100819C4C7AF0033BA4D /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		1D07100919C4C7AF0033BA4D /* Default-736w@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736w@3x.png"; sourceTree = "<group>"; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9691A8995255E329AAABAA07 /* AbstractActionSheetPicker+CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AbstractActionSheetPicker+CustomButton.m"; sourceTree = "<group>"; };
+		9691ABB7429A0D6A2F235006 /* AbstractActionSheetPicker+CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AbstractActionSheetPicker+CustomButton.h"; sourceTree = "<group>"; };
+		9947CBEA19F811300083B32D /* ActionSheetDatePickerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePickerTestCase.m; sourceTree = "<group>"; };
+		D66F5006831D8C2E94BAFA4D /* TestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
+		D66F51B8FD5B8B4B7A1F46E8 /* ActionSheetLocalePickerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePickerTestCase.m; sourceTree = "<group>"; };
+		D66F5524D86DF2C1AA77B398 /* TestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
+		D66F572853325E5592CF945B /* ActionSheetPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetPickerTableViewController.m; sourceTree = "<group>"; };
+		D66F576CF2A850BF7FFA6085 /* ActionSheetCustomPickerTestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPickerTestDelegate.m; sourceTree = "<group>"; };
+		D66F5893094B8D4B8A9FCE33 /* ActionSheetCustomPickerTestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerTestDelegate.h; sourceTree = "<group>"; };
+		D66F5954E97888BB98D46969 /* ActionSheetPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPickerTableViewController.h; sourceTree = "<group>"; };
+		D66F5B887137F3C8C61C74D7 /* AbstractActionSheetPickerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPickerTestCase.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C9444B2197B1C2F005F495B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9444D5197B1E8F005F495B /* CoreGraphics.framework in Frameworks */,
+				1C9444B7197B1C2F005F495B /* XCTest.framework in Frameworks */,
+				1C9444B9197B1C2F005F495B /* UIKit.framework in Frameworks */,
+				1C9444B8197B1C2F005F495B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C6042751B5E776D008D9549 /* CoreActionSheetPicker.framework in Frameworks */,
+				1C84AF9119DE9B9400EF5B2E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C6EE704192BB41600A27994 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				1C6EE709192BB41600A27994 /* Classes */,
+				1C6EE712192BB41600A27994 /* Default-568h@2x.png */,
+				1D07100719C4C7AF0033BA4D /* Default-667h@2x.png */,
+				1D07100819C4C7AF0033BA4D /* Default-736h@3x.png */,
+				1D07100919C4C7AF0033BA4D /* Default-736w@3x.png */,
+				1C6EE715192BB41600A27994 /* main.m */,
+				D66F56315B19D0C87B8D1933 /* Resources */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		1C6EE709192BB41600A27994 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1C6EE70A192BB41600A27994 /* ActionSheetPickerAppDelegate.h */,
+				1C6EE70B192BB41600A27994 /* ActionSheetPickerAppDelegate.m */,
+				1C6EE70C192BB41600A27994 /* ActionSheetPickerCustomPickerDelegate.h */,
+				1C6EE70D192BB41600A27994 /* ActionSheetPickerCustomPickerDelegate.m */,
+				1C6EE70E192BB41600A27994 /* ActionSheetPickerViewController.h */,
+				1C6EE70F192BB41600A27994 /* ActionSheetPickerViewController.m */,
+				1C6EE710192BB41600A27994 /* NSDate+TCUtils.h */,
+				1C6EE711192BB41600A27994 /* NSDate+TCUtils.m */,
+				D66F5524D86DF2C1AA77B398 /* TestTableViewController.m */,
+				D66F5006831D8C2E94BAFA4D /* TestTableViewController.h */,
+				9691A8995255E329AAABAA07 /* AbstractActionSheetPicker+CustomButton.m */,
+				9691ABB7429A0D6A2F235006 /* AbstractActionSheetPicker+CustomButton.h */,
+				D66F572853325E5592CF945B /* ActionSheetPickerTableViewController.m */,
+				D66F5954E97888BB98D46969 /* ActionSheetPickerTableViewController.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1C9444BA197B1C2F005F495B /* ActionSheetPicker Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1C9444C8197B1C75005F495B /* ActionSheetCustomPickerTestCase.m */,
+				1C9444BB197B1C2F005F495B /* Supporting Files */,
+				D66F51B8FD5B8B4B7A1F46E8 /* ActionSheetLocalePickerTestCase.m */,
+				9947CBEA19F811300083B32D /* ActionSheetDatePickerTestCase.m */,
+				D66F5B887137F3C8C61C74D7 /* AbstractActionSheetPickerTestCase.m */,
+				D66F576CF2A850BF7FFA6085 /* ActionSheetCustomPickerTestDelegate.m */,
+				D66F5893094B8D4B8A9FCE33 /* ActionSheetCustomPickerTestDelegate.h */,
+			);
+			path = "ActionSheetPicker Tests";
+			sourceTree = "<group>";
+		};
+		1C9444BB197B1C2F005F495B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C9444BC197B1C2F005F495B /* ActionSheetPicker Tests-Info.plist */,
+				1C9444BD197B1C2F005F495B /* InfoPlist.strings */,
+				1C9444C2197B1C2F005F495B /* ActionSheetPicker Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CD15A30192C7A0A00B28881 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CD15A2F192C7A0A00B28881 /* ActionSheetPicker.app */,
+				1C9444B5197B1C2F005F495B /* ActionSheetPickerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				1C11947A1B5E3ECF00C68054 /* CoreActionSheetPicker.framework */,
+				1CFCACFC1980FA320056A594 /* Storyboard.storyboard */,
+				1C6EE722192BB47000A27994 /* ActionSheetPicker_Prefix.pch */,
+				1C6EE723192BB47000A27994 /* ActionSheetPicker-Info.plist */,
+				1C6EE704192BB41600A27994 /* Example */,
+				1C9444BA197B1C2F005F495B /* ActionSheetPicker Tests */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				1CD15A30192C7A0A00B28881 /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C6042741B5E776D008D9549 /* CoreActionSheetPicker.framework */,
+				1CEFA0181AFB847C00110399 /* CoreActionSheetPicker.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				1C9444B6197B1C2F005F495B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D66F56315B19D0C87B8D1933 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C7A57AB199DF30B007B9B70 /* ok.png */,
+				1C7A57A8199DEDD5007B9B70 /* cancel.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C9444B4197B1C2F005F495B /* ActionSheetPickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C9444C7197B1C2F005F495B /* Build configuration list for PBXNativeTarget "ActionSheetPickerTests" */;
+			buildPhases = (
+				1C9444B1197B1C2F005F495B /* Sources */,
+				1C9444B2197B1C2F005F495B /* Frameworks */,
+				1C9444B3197B1C2F005F495B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C9444C4197B1C2F005F495B /* PBXTargetDependency */,
+			);
+			name = ActionSheetPickerTests;
+			productName = "ActionSheetPicker Tests";
+			productReference = 1C9444B5197B1C2F005F495B /* ActionSheetPickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1D6058900D05DD3D006BFB54 /* ActionSheetPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ActionSheetPicker" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				1CE95A561ADE7BAA00CB7CBD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ActionSheetPicker;
+			productName = ActionSheetPicker;
+			productReference = 1CD15A2F192C7A0A00B28881 /* ActionSheetPicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					1C9444B4197B1C2F005F495B = {
+						TestTargetID = 1D6058900D05DD3D006BFB54;
+					};
+				};
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ActionSheetPicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 1CD15A30192C7A0A00B28881 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* ActionSheetPicker */,
+				1C9444B4197B1C2F005F495B /* ActionSheetPickerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C9444B3197B1C2F005F495B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9444BF197B1C2F005F495B /* InfoPlist.strings in Resources */,
+				1C7A57AA199DEDD5007B9B70 /* cancel.png in Resources */,
+				1C7A57AD199DF30B007B9B70 /* ok.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C7A57AC199DF30B007B9B70 /* ok.png in Resources */,
+				1D07100C19C4C7AF0033BA4D /* Default-736w@3x.png in Resources */,
+				1D07100A19C4C7AF0033BA4D /* Default-667h@2x.png in Resources */,
+				1D07100B19C4C7AF0033BA4D /* Default-736h@3x.png in Resources */,
+				1C7A57A9199DEDD5007B9B70 /* cancel.png in Resources */,
+				1C6EE71E192BB41600A27994 /* Default-568h@2x.png in Resources */,
+				1CFCACFD1980FA320056A594 /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CE95A561ADE7BAA00CB7CBD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "UNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\necho xcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\necho xcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator -arch x86_64 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure to the universal folder\necho cp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Create universal binary file using lipo and place the combined executable in the copied framework directory\necho lipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C9444B1197B1C2F005F495B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9444C9197B1C75005F495B /* ActionSheetCustomPickerTestCase.m in Sources */,
+				D66F56BDCC3CDD653D0A86ED /* TestTableViewController.m in Sources */,
+				9947CBEB19F811300083B32D /* ActionSheetDatePickerTestCase.m in Sources */,
+				D66F506882340A184FC6B2C5 /* ActionSheetLocalePickerTestCase.m in Sources */,
+				D66F52867C4F51FF504876CB /* AbstractActionSheetPickerTestCase.m in Sources */,
+				D66F51F7B65FE68619FB9762 /* ActionSheetCustomPickerTestDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C6EE71D192BB41600A27994 /* NSDate+TCUtils.m in Sources */,
+				1C6EE720192BB41600A27994 /* main.m in Sources */,
+				1C6EE71C192BB41600A27994 /* ActionSheetPickerViewController.m in Sources */,
+				1C6EE71B192BB41600A27994 /* ActionSheetPickerCustomPickerDelegate.m in Sources */,
+				1C6EE71A192BB41600A27994 /* ActionSheetPickerAppDelegate.m in Sources */,
+				D66F5832537A4862C9F19770 /* TestTableViewController.m in Sources */,
+				9691A94D7D01E0FBDF9686C3 /* AbstractActionSheetPicker+CustomButton.m in Sources */,
+				D66F51ADA2999F44F2C282BF /* ActionSheetPickerTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C9444C4197B1C2F005F495B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* ActionSheetPicker */;
+			targetProxy = 1C9444C3197B1C2F005F495B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1C9444BD197B1C2F005F495B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C9444BE197B1C2F005F495B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1C9444C5197B1C2F005F495B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ActionSheetPicker.app/ActionSheetPicker";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ActionSheetPicker Tests/ActionSheetPicker Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "ActionSheetPicker Tests/ActionSheetPicker Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PK.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1C9444C6197B1C2F005F495B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ActionSheetPicker.app/ActionSheetPicker";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ActionSheetPicker Tests/ActionSheetPicker Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "ActionSheetPicker Tests/ActionSheetPicker Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PK.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(BUILT_PRODUCTS_DIR)/**",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ActionSheetPicker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				INFOPLIST_FILE = "ActionSheetPicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = ActionSheetPicker;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(BUILT_PRODUCTS_DIR)/**",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ActionSheetPicker_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				INFOPLIST_FILE = "ActionSheetPicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = ActionSheetPicker;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C9444C7197B1C2F005F495B /* Build configuration list for PBXNativeTarget "ActionSheetPickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C9444C5197B1C2F005F495B /* Debug */,
+				1C9444C6197B1C2F005F495B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ActionSheetPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ActionSheetPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

@@ -36,7 +36,7 @@
 
 @implementation ActionSheetDatePicker
 
-+ (id)showPickerWithTitle:(NSString *)title
++ (instancetype)showPickerWithTitle:(NSString *)title
            datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
                    target:(id)target action:(SEL)action origin:(id)origin {
     ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin];
@@ -44,7 +44,7 @@
     return picker;
 }
 
-+ (id)showPickerWithTitle:(NSString *)title
++ (instancetype)showPickerWithTitle:(NSString *)title
            datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
                    target:(id)target action:(SEL)action origin:(id)origin cancelAction:(SEL)cancelAction {
     ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin cancelAction:cancelAction];
@@ -52,7 +52,7 @@
     return picker;
 }
 
-+ (id)showPickerWithTitle:(NSString *)title
++ (instancetype)showPickerWithTitle:(NSString *)title
            datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
               minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate
                    target:(id)target action:(SEL)action origin:(id)origin {
@@ -63,7 +63,7 @@
     return picker;
 }
 
-+ (id)showPickerWithTitle:(NSString *)title
++ (instancetype)showPickerWithTitle:(NSString *)title
            datePickerMode:(UIDatePickerMode)datePickerMode
              selectedDate:(NSDate *)selectedDate
                 doneBlock:(ActionDateDoneBlock)doneBlock
@@ -80,7 +80,7 @@
     return picker;
 }
 
-+ (id)showPickerWithTitle:(NSString *)title
++ (instancetype)showPickerWithTitle:(NSString *)title
            datePickerMode:(UIDatePickerMode)datePickerMode
              selectedDate:(NSDate *)selectedDate
               minimumDate:(NSDate *)minimumDate
@@ -107,7 +107,7 @@
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate target:(id)target action:(SEL)action origin:(id)origin
+- (instancetype)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate target:(id)target action:(SEL)action origin:(id)origin
 {
     self = [self initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin cancelAction:nil];
     self.minimumDate = minimumDate;
@@ -115,7 +115,7 @@
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin cancelAction:(SEL)cancelAction
+- (instancetype)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin cancelAction:(SEL)cancelAction
 {
     self = [super initWithTarget:target successAction:action cancelAction:cancelAction origin:origin];
     if (self) {
@@ -126,7 +126,7 @@
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate target:(id)target action:(SEL)action cancelAction:(SEL)cancelAction origin:(id)origin
+- (instancetype)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate target:(id)target action:(SEL)action cancelAction:(SEL)cancelAction origin:(id)origin
 {
     self = [super initWithTarget:target successAction:action cancelAction:cancelAction origin:origin];
     if (self) {

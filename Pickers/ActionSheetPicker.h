@@ -32,3 +32,4 @@
 #import "ActionSheetDistancePicker.h"
 #import "ActionSheetLocalePicker.h"
 #import "ActionSheetStringPicker.h"
+#import "ActionSheetMultipleStringPicker.h"

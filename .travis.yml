@@ -3,12 +3,12 @@ language: objective-c
     # - brew update
     # - brew install xctool
 script:
-    - xcodebuild clean build test -workspace Example.xcworkspace -scheme ActionSheetPickerTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+    - xcodebuild clean build test -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPickerTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 
-# - xctool -workspace Example.xcworkspace -scheme CoreActionSheetPicker build
-# - xctool -workspace Example.xcworkspace -scheme ActionSheetPickerTests test
+# - xctool -workspace ActionSheetPicker-3.0.xcworkspace -scheme CoreActionSheetPicker build
+# - xctool -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPickerTests test
 
-# xcode_workspace: Example.xcworkspace
+# xcode_workspace: ActionSheetPicker-3.0.xcworkspace
 # xcode_scheme: ActionSheetPickerTests
 # xcode_sdk: iphonesimulator
 

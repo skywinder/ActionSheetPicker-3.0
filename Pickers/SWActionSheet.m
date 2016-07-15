@@ -206,4 +206,16 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
 	return [UIApplication sharedApplication].statusBarHidden;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return NO;
+}
+
+// iOS6 support
+// ---
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 @end
