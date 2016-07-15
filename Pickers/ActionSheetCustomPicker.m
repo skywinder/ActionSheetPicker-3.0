@@ -18,20 +18,20 @@
 #pragma mark - Init
 /////////////////////////////////////////////////////////////////////////
 
-- (id)initWithTitle:(NSString *)title delegate:(id <ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin
+- (instancetype)initWithTitle:(NSString *)title delegate:(id <ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin
 {
     return [self initWithTitle:title delegate:delegate
               showCancelButton:showCancelButton origin:origin
              initialSelections:nil];
 }
 
-+ (id)showPickerWithTitle:(NSString *)title delegate:(id <ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin
++ (instancetype)showPickerWithTitle:(NSString *)title delegate:(id <ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin
 {
     return [self showPickerWithTitle:title delegate:delegate showCancelButton:showCancelButton origin:origin
                    initialSelections:nil ];
 }
 
-- (id)initWithTitle:(NSString *)title delegate:(id <ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin initialSelections:(NSArray *)initialSelections
+- (instancetype)initWithTitle:(NSString *)title delegate:(id <ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin initialSelections:(NSArray *)initialSelections
 {
     if ( self = [self initWithTarget:nil successAction:nil cancelAction:nil origin:origin] )
     {
@@ -48,7 +48,7 @@
 
 /////////////////////////////////////////////////////////////////////////
 
-+ (id)showPickerWithTitle:(NSString *)title delegate:(id <ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin initialSelections:(NSArray *)initialSelections
++ (instancetype)showPickerWithTitle:(NSString *)title delegate:(id <ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin initialSelections:(NSArray *)initialSelections
 {
     ActionSheetCustomPicker *picker = [[ActionSheetCustomPicker alloc] initWithTitle:title delegate:delegate
                                                                     showCancelButton:showCancelButton origin:origin
@@ -65,6 +65,7 @@
 {
     CGRect pickerFrame = CGRectMake(0, 40, self.viewSize.width, 216);
     UIPickerView *pv = [[UIPickerView alloc] initWithFrame:pickerFrame];
+    self.pickerView = pv;
 
     // Default to our delegate being the picker's delegate and datasource
     pv.delegate = _delegate;
@@ -80,6 +81,10 @@
             NSInteger row = [(NSNumber *) self.initialSelections[i] integerValue];
             NSAssert([pv numberOfRowsInComponent:i] > row, @"Number of sections not match");
             [pv selectRow:row inComponent:i animated:NO];
+
+            // Strangely, the above selectRow:inComponent:animated: will not call
+            // pickerView:didSelectRow:inComponent: automatically, so we manually call it.
+            [pv reloadAllComponents];
         }
 
     }
@@ -90,7 +95,6 @@
     {
         [_delegate actionSheetPicker:self configurePickerView:pv];
     }
-    self.pickerView = pv;
     return pv;
 }
 

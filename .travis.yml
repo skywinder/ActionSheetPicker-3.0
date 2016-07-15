@@ -1,0 +1,20 @@
+language: objective-c
+# before_install:
+    # - brew update
+    # - brew install xctool
+script:
+    - xcodebuild clean build test -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPickerTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+
+# - xctool -workspace ActionSheetPicker-3.0.xcworkspace -scheme CoreActionSheetPicker build
+# - xctool -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPickerTests test
+
+# xcode_workspace: ActionSheetPicker-3.0.xcworkspace
+# xcode_scheme: ActionSheetPickerTests
+# xcode_sdk: iphonesimulator
+
+notifications:
+  email:
+    recipients:
+      - sky4winder+actionSheetPicker@gmail.com
+    on_success: never # [always|never|change]
+    on_failure: change # [always|never|change]
