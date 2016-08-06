@@ -68,7 +68,7 @@ There are 4 distinct picker view options: `ActionSheetStringPicker`, `ActionShee
             ["One", "Two", "A lot"],
             ["Many", "Many more", "Infinite"]
         ], initialSelection: [2, 2], doneBlock: {
-            picker, values, indexes in
+            picker, indexes, values in
             
             print("values = \(values)")
             print("indexes = \(indexes)")
