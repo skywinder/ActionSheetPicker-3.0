@@ -165,6 +165,13 @@
     datePicker.timeZone = self.timeZone;
     datePicker.locale = self.locale;
 
+    // if text color is set then use Apple private API to change date picker's text color
+    if (self.pickerTextAttributes[NSForegroundColorAttributeName])
+    {
+        [datePicker setValue:self.pickerTextAttributes[NSForegroundColorAttributeName] forKey:@"textColor"];
+        [datePicker sendAction:@selector(setHighlightsToday:) to:nil forEvent:nil];
+    }
+    
     // if datepicker is set with a date in countDownMode then
     // 1h is added to the initial countdown
     if (self.datePickerMode == UIDatePickerModeCountDownTimer) {
