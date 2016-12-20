@@ -276,4 +276,15 @@
     }
 }
 
+- (void)setTextColor:(UIColor *)textColor {
+    [super setTextColor:textColor];
+    
+    if (self.pickerView)
+    {
+        UIDatePicker *datePicker = (UIDatePicker *)self.pickerView;
+        [datePicker setValue:textColor forKey:@"textColor"];
+        [datePicker sendAction:@selector(setHighlightsToday:) to:nil forEvent:nil];
+    }
+}
+
 @end
