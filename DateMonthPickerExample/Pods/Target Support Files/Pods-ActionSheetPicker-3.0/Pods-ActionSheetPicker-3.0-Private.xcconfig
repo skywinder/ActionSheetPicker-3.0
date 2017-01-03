@@ -1,0 +1,5 @@
+#include "Pods-ActionSheetPicker-3.0.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/ActionSheetPicker-3.0" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ActionSheetPicker-3.0"
+OTHER_LDFLAGS = ${PODS_ACTIONSHEETPICKER_____OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}
