@@ -723,8 +723,8 @@ CG_INLINE BOOL isIPhone4() {
 
     _popOverController = [[MyPopoverController alloc] initWithContentViewController:viewController];
     _popOverController.delegate = self;
-    if (self.pickerBackgroundColor) {
-        self.popOverController.backgroundColor = self.pickerBackgroundColor;
+    if (self.popOverBackgroundColor) {
+        self.popOverController.backgroundColor = self.popOverBackgroundColor;
     }
     if (self.popoverBackgroundViewClass) {
         [self.popOverController setPopoverBackgroundViewClass:self.popoverBackgroundViewClass];
