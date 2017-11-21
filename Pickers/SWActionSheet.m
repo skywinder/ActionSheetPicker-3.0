@@ -9,7 +9,7 @@ static const float delay = 0.f;
 
 static const float duration = .25f;
 
-static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEaseIn;
+static const enum UIViewAnimationOptions options = 7 << 16;
 
 
 @interface SWActionSheetVC : UIViewController
