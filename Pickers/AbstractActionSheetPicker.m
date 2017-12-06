@@ -569,9 +569,16 @@ CG_INLINE BOOL isIPhone4() {
 
 - (UIBarButtonItem *)createButtonWithType:(UIBarButtonSystemItem)type target:(id)target action:(SEL)buttonAction {
 
-    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:type target:target
-                                                                               action:buttonAction];
-    return barButton;
+    //    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:type target:target
+    //                                                                               action:buttonAction];
+    //    return barButton; //khuongld comment
+    if (type == UIBarButtonSystemItemDone) {
+        return  [[UIBarButtonItem alloc] initWithTitle:@"キャンセル" style:UIBarButtonItemStyleDone target:target action:buttonAction];
+    }
+    if (type == UIBarButtonSystemItemCancel) {
+        return [[UIBarButtonItem alloc] initWithTitle:@"決定" style:UIBarButtonItemStyleDone target:target action:buttonAction];
+    }
+    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:type target:target action:buttonAction];
 }
 
 #pragma mark - Custom Color
