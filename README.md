@@ -26,7 +26,8 @@ Please welcome: **ActionSheetPicker-3.0**!
 
 ##ActionSheetPicker = UIPickerView + UIActionSheet ##
 
-![Animation](Screenshots/example.gif)
+![Animation](Screenshots/example.gif)[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fskywinder%2FActionSheetPicker-3.0.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fskywinder%2FActionSheetPicker-3.0?ref=badge_shield)
+
 
 Well, that's how it started. Now, the following is more accurate:
 
@@ -228,3 +229,7 @@ If you've used this project in a live app, please let me know! Nothing makes me 
 **Bug reports, feature requests, patches, well-wishes, and rap demo tapes are always welcome.**
 
 [![Analytics](https://ga-beacon.appspot.com/UA-52127948-3/ActionSheetPicker-3.0/readme)](https://ga-beacon.appspot.com/UA-52127948-3/ActionSheetPicker-3.0/readme)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fskywinder%2FActionSheetPicker-3.0.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fskywinder%2FActionSheetPicker-3.0?ref=badge_large)
