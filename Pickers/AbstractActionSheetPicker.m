@@ -238,6 +238,10 @@ CG_INLINE BOOL isIPhone4() {
 
 - (void)showActionSheetPicker {
     UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, 260)];
+    
+    if (self.viewBackgroundColor) {
+        [masterView setBackgroundColor:self.viewBackgroundColor];
+    }
 
     // to fix bug, appeared only on iPhone 4 Device: https://github.com/skywinder/ActionSheetPicker-3.0/issues/5
     if (isIPhone4()) {
@@ -725,8 +729,8 @@ CG_INLINE BOOL isIPhone4() {
 
     _popOverController = [[MyPopoverController alloc] initWithContentViewController:viewController];
     _popOverController.delegate = self;
-    if (self.pickerBackgroundColor) {
-        self.popOverController.backgroundColor = self.pickerBackgroundColor;
+    if (self.popOverBackgroundColor) {
+        self.popOverController.backgroundColor = self.popOverBackgroundColor;
     }
     if (self.popoverBackgroundViewClass) {
         [self.popOverController setPopoverBackgroundViewClass:self.popoverBackgroundViewClass];
