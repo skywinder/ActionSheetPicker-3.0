@@ -173,7 +173,7 @@
     [datePicker showActionSheetPicker];
 }
 
-- (void)dateSelector {
+- (void)dateSelector:(id)sender {
     NSLog(@"SELECTOR");
 }
 

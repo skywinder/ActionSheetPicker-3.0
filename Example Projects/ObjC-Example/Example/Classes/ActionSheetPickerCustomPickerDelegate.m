@@ -43,6 +43,8 @@
                                                              self.selectedKey,
                                                              self.selectedScale];
     [[[UIAlertView alloc] initWithTitle:@"Success!" message:resultMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+    
+    
 }
 
 /////////////////////////////////////////////////////////////////////////

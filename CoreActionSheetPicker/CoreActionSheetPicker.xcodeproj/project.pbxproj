@@ -146,10 +146,10 @@
 		1CCA90831AE0EFF300368F5E /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				1CCA90621AE0EFC500368F5E /* AbstractActionSheetPicker.h */,
 				1CCA905F1AE0EFC500368F5E /* AbstractActionSheetPicker.m */,
 				1CCA90601AE0EFC500368F5E /* ActionSheetDistancePicker.h */,
 				1CCA90611AE0EFC500368F5E /* ActionSheetDistancePicker.m */,
-				1CCA90621AE0EFC500368F5E /* AbstractActionSheetPicker.h */,
 				1CCA90631AE0EFC500368F5E /* SWActionSheet.m */,
 				1CCA90641AE0EFC500368F5E /* ActionSheetDatePicker.h */,
 				1CCA90651AE0EFC500368F5E /* ActionSheetDatePicker.m */,
@@ -438,7 +438,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				INFOPLIST_FILE = CoreActionSheetPicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -457,7 +457,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				INFOPLIST_FILE = CoreActionSheetPicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
