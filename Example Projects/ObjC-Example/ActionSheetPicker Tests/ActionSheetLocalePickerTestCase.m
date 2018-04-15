@@ -10,7 +10,8 @@
 #import <XCTest/XCTest.h>
 #import <CoreActionSheetPicker/CoreActionSheetPicker.h>
 #import "AbstractActionSheetPicker+CustomButton.h"
-UIView *origin;
+
+UIView *originView;
 
 @interface ActionSheetLocalePickerTestCase : XCTestCase
 @property(nonatomic, strong) ActionSheetLocalePicker *actionSheetLocalePicker;
@@ -25,14 +26,14 @@ UIView *origin;
 +(void)setUp{
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     UIView *topView = window.rootViewController.view;
-    origin = topView;
-
+    originView = topView;
+    
 }
 
 - (void)setUp {
     [super setUp];
     _title                   = @"Title";
-    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:nil doneBlock:nil cancelBlock:nil origin:origin];
+    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:nil doneBlock:nil cancelBlock:nil origin:originView];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -43,13 +44,13 @@ UIView *origin;
 
 - (void)testPickerWithInitWithDefaultLocale
 {
-    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:nil doneBlock:nil cancelBlock:nil origin:origin];
+    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:nil doneBlock:nil cancelBlock:nil origin:originView];
     XCTAssertNotNil(_actionSheetLocalePicker);
 }
 
 - (void)testPickerWithInitWithLocale
 {
-    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:[NSTimeZone localTimeZone] doneBlock:nil cancelBlock:nil origin:origin];
+    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:[NSTimeZone localTimeZone] doneBlock:nil cancelBlock:nil origin:originView];
     XCTAssertNotNil(_actionSheetLocalePicker);
 }
 
