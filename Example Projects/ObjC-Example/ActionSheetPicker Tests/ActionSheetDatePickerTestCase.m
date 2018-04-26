@@ -12,7 +12,6 @@
 #import "AbstractActionSheetPicker+CustomButton.h"
 
 static const int countdownTestInt = 360;
-UIView           *origin;
 
 @interface ActionSheetDatePickerTestCase : XCTestCase
 @property(nonatomic, strong) ActionSheetDatePicker *actionSheetDatePicker;
@@ -21,20 +20,17 @@ UIView           *origin;
 @implementation ActionSheetDatePickerTestCase
 {
     NSString *_title;
-}
-
-+ (void)setUp
-{
-    UIWindow *window  = [[UIApplication sharedApplication] keyWindow];
-    UIView   *topView = window.rootViewController.view;
-    origin = topView;
+    UIView  *_origin;
 }
 
 - (void)setUp
 {
     [super setUp];
+    UIWindow *window  = [[UIApplication sharedApplication] keyWindow];
+    UIView   *topView = window.rootViewController.view;
+    _origin = topView;
     _title                 = @"Title";
-    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Test title" datePickerMode:UIDatePickerModeDate selectedDate:[NSDate date] target:nil action:nil origin:origin cancelAction:nil];
+    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Test title" datePickerMode:UIDatePickerModeDate selectedDate:[NSDate date] target:nil action:nil origin:_origin cancelAction:nil];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -46,37 +42,37 @@ UIView           *origin;
 
 - (void)testInitPicker
 {
-    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTarget:self successAction:@selector(exampleSelector) cancelAction:@selector(exampleSelector) origin:origin];
+    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTarget:self successAction:@selector(exampleSelector) cancelAction:@selector(exampleSelector) origin:_origin];
     XCTAssertNotNil(_actionSheetDatePicker);
 }
 
 - (void)testInitPicker2
 {
-    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:[NSDate date] doneBlock:nil cancelBlock:nil origin:origin];
+    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:[NSDate date] doneBlock:nil cancelBlock:nil origin:_origin];
     XCTAssertNotNil(_actionSheetDatePicker);
 }
 
 - (void)testInitPicker3
 {
-    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:[NSDate date] target:self action:@selector(exampleSelector) origin:origin];
+    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:[NSDate date] target:self action:@selector(exampleSelector) origin:_origin];
     XCTAssertNotNil(_actionSheetDatePicker);
 }
 
 - (void)testInitPicker4
 {
-    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:NSDate.date target:self action:@selector(exampleSelector) origin:origin cancelAction:@selector(exampleSelector)];
+    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:NSDate.date target:self action:@selector(exampleSelector) origin:_origin cancelAction:@selector(exampleSelector)];
     XCTAssertNotNil(_actionSheetDatePicker);
 }
 
 - (void)testInitPicker5
 {
-    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:[NSDate date] minimumDate:[NSDate date] maximumDate:[NSDate date] target:self action:@selector(exampleSelector) origin:origin];
+    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:[NSDate date] minimumDate:[NSDate date] maximumDate:[NSDate date] target:self action:@selector(exampleSelector) origin:_origin];
     XCTAssertNotNil(_actionSheetDatePicker);
 }
 
 - (void)testInitPicker6
 {
-    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:NSDate.date minimumDate:NSDate.date maximumDate:NSDate.date target:self action:@selector(exampleSelector) cancelAction:@selector(exampleSelector) origin:origin];
+    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:NSDate.date minimumDate:NSDate.date maximumDate:NSDate.date target:self action:@selector(exampleSelector) cancelAction:@selector(exampleSelector) origin:_origin];
     XCTAssertNotNil(_actionSheetDatePicker);
 }
 
@@ -178,7 +174,7 @@ UIView           *origin;
 
 - (void)testPickerCountDownTimerModeValueWithSelector
 {
-    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Test title" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:nil target:self action:@selector(countDownTest:) origin:origin cancelAction:nil];
+    _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Test title" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:nil target:self action:@selector(countDownTest:) origin:_origin cancelAction:nil];
     _actionSheetDatePicker.countDownDuration = countdownTestInt;
     [_actionSheetDatePicker showActionSheetPicker];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -196,7 +192,7 @@ UIView           *origin;
     _actionSheetDatePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Test" datePickerMode:UIDatePickerModeCountDownTimer selectedDate:nil doneBlock:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
         XCTAssertEqualObjects(selectedDate, @(countdownTestInt));
         XCTAssertEqualObjects(@(picker.countDownDuration), @(countdownTestInt));
-    }                                                         cancelBlock:nil origin:origin];
+    }                                                         cancelBlock:nil origin:_origin];
 
     _actionSheetDatePicker.countDownDuration = countdownTestInt;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
