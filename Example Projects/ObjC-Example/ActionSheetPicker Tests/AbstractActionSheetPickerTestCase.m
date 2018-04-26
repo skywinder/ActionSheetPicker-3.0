@@ -10,7 +10,6 @@
 #import <XCTest/XCTest.h>
 #import <CoreActionSheetPicker/ActionSheetStringPicker.h>
 #import "AbstractActionSheetPicker+CustomButton.h"
-static UIView *origin;
 
 @interface AbstractActionSheetPickerTestCase : XCTestCase
 @property(nonatomic, strong) ActionSheetStringPicker *sheetStringPicker;
@@ -20,19 +19,17 @@ static UIView *origin;
 @implementation AbstractActionSheetPickerTestCase
 {
     NSString *_title;
-}
-
-+(void)setUp{
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIView *topView = window.rootViewController.view;
-    origin = topView;
+    UIView  *_origin;
 }
 
 - (void)setUp
 {
     [super setUp];
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIView *topView = window.rootViewController.view;
+    _origin = topView;
     _title             = @"Title";
-    _sheetStringPicker = [[ActionSheetStringPicker alloc] initWithTitle:_title rows:@[@"1", @"2", @"3"] initialSelection:0 doneBlock:nil cancelBlock:nil origin:origin];
+    _sheetStringPicker = [[ActionSheetStringPicker alloc] initWithTitle:_title rows:@[@"1", @"2", @"3"] initialSelection:0 doneBlock:nil cancelBlock:nil origin:_origin];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 

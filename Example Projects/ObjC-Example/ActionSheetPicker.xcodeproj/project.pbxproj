@@ -35,7 +35,6 @@
 		D66F51ADA2999F44F2C282BF /* ActionSheetPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F572853325E5592CF945B /* ActionSheetPickerTableViewController.m */; };
 		D66F51F7B65FE68619FB9762 /* ActionSheetCustomPickerTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F576CF2A850BF7FFA6085 /* ActionSheetCustomPickerTestDelegate.m */; };
 		D66F52867C4F51FF504876CB /* AbstractActionSheetPickerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5B887137F3C8C61C74D7 /* AbstractActionSheetPickerTestCase.m */; };
-		D66F56BDCC3CDD653D0A86ED /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5524D86DF2C1AA77B398 /* TestTableViewController.m */; };
 		D66F5832537A4862C9F19770 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F5524D86DF2C1AA77B398 /* TestTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -346,7 +345,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C9444C9197B1C75005F495B /* ActionSheetCustomPickerTestCase.m in Sources */,
-				D66F56BDCC3CDD653D0A86ED /* TestTableViewController.m in Sources */,
 				9947CBEB19F811300083B32D /* ActionSheetDatePickerTestCase.m in Sources */,
 				D66F506882340A184FC6B2C5 /* ActionSheetLocalePickerTestCase.m in Sources */,
 				D66F52867C4F51FF504876CB /* AbstractActionSheetPickerTestCase.m in Sources */,
