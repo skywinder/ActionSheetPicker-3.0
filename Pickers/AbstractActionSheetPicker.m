@@ -132,6 +132,7 @@ CG_INLINE BOOL isIPhone4() {
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.windowLevel = UIWindowLevelAlert;
         self.presentFromRect = CGRectZero;
         self.popoverBackgroundViewClass = nil;
         self.popoverDisabled = NO;
@@ -516,6 +517,7 @@ CG_INLINE BOOL isIPhone4() {
     [barItems addObject:self.doneBarButtonItem];
 
     [pickerToolbar setItems:barItems animated:NO];
+    [pickerToolbar layoutIfNeeded];
     return pickerToolbar;
 }
 
@@ -678,7 +680,7 @@ CG_INLINE BOOL isIPhone4() {
 - (void)configureAndPresentActionSheetForView:(UIView *)aView {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
 
-    _actionSheet = [[SWActionSheet alloc] initWithView:aView];
+    _actionSheet = [[SWActionSheet alloc] initWithView:aView windowLevel:self.windowLevel];
     if (self.pickerBackgroundColor) {
         _actionSheet.bgView.backgroundColor = self.pickerBackgroundColor;
     }

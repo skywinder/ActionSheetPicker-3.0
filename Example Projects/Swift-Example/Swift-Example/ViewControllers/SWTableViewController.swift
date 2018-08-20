@@ -11,53 +11,53 @@ import CoreActionSheetPicker
 
 class SWTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var UIDatePickerModeTime: UIButton!
-    @IBAction func TimePickerClicked(sender: UIButton) {
+    @IBAction func TimePickerClicked(_ sender: UIButton) {
 
-        let datePicker = ActionSheetDatePicker(title: "Time:", datePickerMode: UIDatePickerMode.Time, selectedDate: NSDate(), target: self, action: "datePicked:", origin: sender.superview!.superview)
+        let datePicker = ActionSheetDatePicker(title: "Time:", datePickerMode: UIDatePickerMode.time, selectedDate: Date(), target: self, action: #selector(SWTableViewController.datePicked(_:)), origin: sender.superview!.superview)
 
-        datePicker.minuteInterval = 20
+        datePicker?.minuteInterval = 20
 
-        datePicker.showActionSheetPicker()
+        datePicker?.show()
 
     }
     @IBOutlet var textField: UITextField!
 
     @IBOutlet var localePicker: UIButton!
 
-    @IBAction func localePickerClicked(sender: UIButton) {
-        ActionSheetLocalePicker.showPickerWithTitle("Locale picker", initialSelection: NSTimeZone(), doneBlock: {
+    @IBAction func localePickerClicked(_ sender: UIButton) {
+        ActionSheetLocalePicker.show(withTitle: "Locale picker", initialSelection: nil, doneBlock: {
             picker, index in
 
             print("index = \(index)")
             print("picker = \(picker)")
             return
-            }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
+            }, cancel: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
 
     }
 
-    @IBAction func DatePickerClicked(sender: UIButton) {
+    @IBAction func DatePickerClicked(_ sender: UIButton) {
 
-        let datePicker = ActionSheetDatePicker(title: "Date:", datePickerMode: UIDatePickerMode.Date, selectedDate: NSDate(), doneBlock: {
+        let datePicker = ActionSheetDatePicker(title: "Date:", datePickerMode: UIDatePickerMode.date, selectedDate: Date(), doneBlock: {
             picker, value, index in
 
             print("value = \(value)")
             print("index = \(index)")
             print("picker = \(picker)")
             return
-        }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
-        let secondsInWeek: NSTimeInterval = 7 * 24 * 60 * 60;
-        datePicker.minimumDate = NSDate(timeInterval: -secondsInWeek, sinceDate: NSDate())
-        datePicker.maximumDate = NSDate(timeInterval: secondsInWeek, sinceDate: NSDate())
+        }, cancel: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
+        let secondsInWeek: TimeInterval = 7 * 24 * 60 * 60;
+        datePicker?.minimumDate = Date(timeInterval: -secondsInWeek, since: Date())
+        datePicker?.maximumDate = Date(timeInterval: secondsInWeek, since: Date())
 
-        datePicker.showActionSheetPicker()
+        datePicker?.show()
     }
 
-    @IBAction func distancePickerClicked(sender: UIButton) {
-        let distancePicker = ActionSheetDistancePicker(title: "Select distance", bigUnitString: "m", bigUnitMax: 2, selectedBigUnit: 1, smallUnitString: "cm", smallUnitMax: 99, selectedSmallUnit: 60, target: self, action: Selector("measurementWasSelected:smallUnit:element:"), origin: sender.superview!.superview)
-        distancePicker.showActionSheetPicker()
+    @IBAction func distancePickerClicked(_ sender: UIButton) {
+        let distancePicker = ActionSheetDistancePicker(title: "Select distance", bigUnitString: "m", bigUnitMax: 2, selectedBigUnit: 1, smallUnitString: "cm", smallUnitMax: 99, selectedSmallUnit: 60, target: self, action: #selector(SWTableViewController.measurementWasSelected(_:smallUnit:element:)), origin: sender.superview!.superview)
+        distancePicker?.show()
     }
 
-    func measurementWasSelected(bigUnit: NSNumber, smallUnit: NSNumber, element: AnyObject) {
+    func measurementWasSelected(_ bigUnit: NSNumber, smallUnit: NSNumber, element: AnyObject) {
         print("\(element)")
         print("\(smallUnit)")
         print("\(bigUnit)")
@@ -65,51 +65,51 @@ class SWTableViewController: UITableViewController, UITextFieldDelegate {
 
     }
 
-    @IBAction func DateAndTimeClicked(sender: UIButton) {
+    @IBAction func DateAndTimeClicked(_ sender: UIButton) {
 
 
-        let datePicker = ActionSheetDatePicker(title: "DateAndTime:", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: {
+        let datePicker = ActionSheetDatePicker(title: "DateAndTime:", datePickerMode: UIDatePickerMode.dateAndTime, selectedDate: Date(), doneBlock: {
             picker, value, index in
 
             print("value = \(value)")
             print("index = \(index)")
             print("picker = \(picker)")
             return
-        }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
-        let secondsInWeek: NSTimeInterval = 7 * 24 * 60 * 60;
-        datePicker.minimumDate = NSDate(timeInterval: -secondsInWeek, sinceDate: NSDate())
-        datePicker.maximumDate = NSDate(timeInterval: secondsInWeek, sinceDate: NSDate())
-        datePicker.minuteInterval = 20
+        }, cancel: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
+        let secondsInWeek: TimeInterval = 7 * 24 * 60 * 60;
+        datePicker?.minimumDate = Date(timeInterval: -secondsInWeek, since: Date())
+        datePicker?.maximumDate = Date(timeInterval: secondsInWeek, since: Date())
+        datePicker?.minuteInterval = 20
 
-        datePicker.showActionSheetPicker()
+        datePicker?.show()
     }
 
-    @IBAction func CountdownTimerClicked(sender: UIButton) {
-        let datePicker = ActionSheetDatePicker(title: "CountDownTimer:", datePickerMode: UIDatePickerMode.CountDownTimer, selectedDate: NSDate(), doneBlock: {
+    @IBAction func CountdownTimerClicked(_ sender: UIButton) {
+        let datePicker = ActionSheetDatePicker(title: "CountDownTimer:", datePickerMode: UIDatePickerMode.countDownTimer, selectedDate: Date(), doneBlock: {
             picker, value, index in
 
             print("value = \(value)")
             print("index = \(index)")
             print("picker = \(picker)")
             return
-        }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
+        }, cancel: { ActionStringCancelBlock in return }, origin: sender.superview!.superview)
 
-        datePicker.countDownDuration = 60 * 7
-        datePicker.showActionSheetPicker()
+        datePicker?.countDownDuration = 60 * 7
+        datePicker?.show()
     }
 
-    @IBAction func navigationItemPicker(sender: UIBarButtonItem) {
-        ActionSheetStringPicker.showPickerWithTitle("Nav Bar From Picker", rows: ["One", "Two", "A lot"], initialSelection: 1, doneBlock: {
+    @IBAction func navigationItemPicker(_ sender: UIBarButtonItem) {
+        ActionSheetStringPicker.show(withTitle: "Nav Bar From Picker", rows: ["One", "Two", "A lot"], initialSelection: 1, doneBlock: {
             picker, value, index in
 
             print("value = \(value)")
             print("index = \(index)")
             print("picker = \(picker)")
             return
-        }, cancelBlock: { ActionStringCancelBlock in return }, origin: sender)
+        }, cancel: { ActionStringCancelBlock in return }, origin: sender)
     }
 
-    @IBAction func multipleStringPickerClicked(sender: UIButton) {
+    @IBAction func multipleStringPickerClicked(_ sender: UIButton) {
         let acp = ActionSheetMultipleStringPicker(title: "Multiple String Picker", rows: [
             ["One", "Two", "A lot"],
             ["Many", "Many more", "Infinite"]
@@ -120,19 +120,20 @@ class SWTableViewController: UITableViewController, UITextFieldDelegate {
                 print("indexes = \(indexes)")
                 print("picker = \(picker)")
                 return
-            }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender)
+            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
 
 
-        acp.setTextColor(UIColor.redColor())
-        acp.pickerBackgroundColor = UIColor.blackColor()
-        acp.toolbarBackgroundColor = UIColor.yellowColor()
-        acp.toolbarButtonsColor = UIColor.whiteColor()
-        acp.showActionSheetPicker()
+        acp?.pickerTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 8.0)]
+        acp?.setTextColor(UIColor.red)
+        acp?.pickerBackgroundColor = UIColor.black
+        acp?.toolbarBackgroundColor = UIColor.yellow
+        acp?.toolbarButtonsColor = UIColor.white
+        acp?.show()
     }
 
 
-    func datePicked(obj: NSDate) {
-        UIDatePickerModeTime.setTitle(obj.description, forState: UIControlState.Normal)
+    func datePicked(_ obj: Date) {
+        UIDatePickerModeTime.setTitle(obj.description, for: UIControlState())
     }
 
     override func viewDidLoad() {
@@ -145,16 +146,16 @@ class SWTableViewController: UITableViewController, UITextFieldDelegate {
     }
 
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
     }
 
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
 
-    @IBAction func hideKeyboard(sender: AnyObject) {
+    @IBAction func hideKeyboard(_ sender: AnyObject) {
         self.textField.becomeFirstResponder()
     }
     // MARK: - Table view data source

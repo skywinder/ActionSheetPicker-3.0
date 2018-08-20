@@ -25,6 +25,7 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
 }
 
 @property (nonatomic, assign) BOOL presented;
+@property (nonatomic) UIWindowLevel windowLevel;
 
 - (void)configureFrameForBounds:(CGRect)bounds;
 - (void)showInContainerViewAnimated:(BOOL)animated;
@@ -45,7 +46,7 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     // Window of app
     //UIWindow *appWindow = [UIApplication sharedApplication].windows.firstObject;
     // Actions
-    void (^actions)() = ^{
+    void (^actions)(void) = ^{
         self.center = fadeOutToPoint;
         self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.0f];
     };
@@ -88,7 +89,7 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     {
         return SWActionSheetWindow = ({
             UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            window.windowLevel        = UIWindowLevelAlert;
+            window.windowLevel        = self.windowLevel;
             window.backgroundColor    = [UIColor clearColor];
             window.rootViewController = [SWActionSheetVC new];
             window;
@@ -101,11 +102,12 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     return (SWActionSheetVC *) [self window].rootViewController;
 }
 
-- (instancetype)initWithView:(UIView *)aView
+- (instancetype)initWithView:(UIView *)aView windowLevel:(UIWindowLevel)windowLevel
 {
     if ((self = [super init]))
     {
         view = aView;
+        _windowLevel = windowLevel;
         self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.0f];
         _bgView = [UIView new];
         _bgView.backgroundColor = [UIColor colorWithRed:247.f/255.f green:247.f/255.f blue:247.f/255.f alpha:1.0f];
@@ -146,7 +148,7 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     CGFloat y = self.center.y - CGRectGetHeight(view.frame);
     toPoint = CGPointMake(self.center.x, y);
     // Present actions
-    void (^animations)() = ^{
+    void (^animations)(void) = ^{
         self.center = toPoint;
         self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
     };

@@ -1,5 +1,35 @@
 # Change Log
 
+## [2.3.0](https://github.com/skywinder/ActionSheetPicker-3.0/tree/2.3.0) (2017-11-21)
+[Full Changelog](https://github.com/skywinder/ActionSheetPicker-3.0/compare/2.2.0...2.3.0)
+
+**Implemented enhancements:**
+
+- Change font in Multiple String picker [\#343](https://github.com/skywinder/ActionSheetPicker-3.0/pull/343) ([ricardohg](https://github.com/ricardohg))
+- Add option to customise window level presentation [\#299](https://github.com/skywinder/ActionSheetPicker-3.0/pull/299) ([tbaranes](https://github.com/tbaranes))
+
+**Closed issues:**
+
+- unknown error -1=ffffffffffffffff Command /bin/sh failed with exit code 1 [\#369](https://github.com/skywinder/ActionSheetPicker-3.0/issues/369)
+- App crashes in iOS 11 [\#360](https://github.com/skywinder/ActionSheetPicker-3.0/issues/360)
+- App crash when setTableFooterView [\#345](https://github.com/skywinder/ActionSheetPicker-3.0/issues/345)
+- iPad problem [\#338](https://github.com/skywinder/ActionSheetPicker-3.0/issues/338)
+- Date Picker not working in IOS 8.2 swift 3 [\#334](https://github.com/skywinder/ActionSheetPicker-3.0/issues/334)
+- Change value of picker programmatically  [\#333](https://github.com/skywinder/ActionSheetPicker-3.0/issues/333)
+- Date picker example [\#332](https://github.com/skywinder/ActionSheetPicker-3.0/issues/332)
+- Change time format to "HH:mm" for time picker [\#327](https://github.com/skywinder/ActionSheetPicker-3.0/issues/327)
+- Crash report help needed [\#317](https://github.com/skywinder/ActionSheetPicker-3.0/issues/317)
+- UIDatePicker not shows correct date [\#302](https://github.com/skywinder/ActionSheetPicker-3.0/issues/302)
+- Swift 3.0 Migration [\#293](https://github.com/skywinder/ActionSheetPicker-3.0/issues/293)
+- DEPRECATED\_MSG\_ATTRIBUTE [\#234](https://github.com/skywinder/ActionSheetPicker-3.0/issues/234)
+
+**Merged pull requests:**
+
+- Fixing tint color issue in toolbar [\#366](https://github.com/skywinder/ActionSheetPicker-3.0/pull/366) ([yapiskan](https://github.com/yapiskan))
+- Fixes documentation [\#352](https://github.com/skywinder/ActionSheetPicker-3.0/pull/352) ([ykws](https://github.com/ykws))
+- Update Readme for Swift 3 and fixing indexes / values [\#319](https://github.com/skywinder/ActionSheetPicker-3.0/pull/319) ([VincentNarbot](https://github.com/VincentNarbot))
+- Fix highlight ReadME [\#309](https://github.com/skywinder/ActionSheetPicker-3.0/pull/309) ([ezefranca](https://github.com/ezefranca))
+
 ## [2.2.0](https://github.com/skywinder/ActionSheetPicker-3.0/tree/2.2.0) (2016-06-27)
 [Full Changelog](https://github.com/skywinder/ActionSheetPicker-3.0/compare/2.1.0...2.2.0)
 
@@ -45,10 +75,6 @@
 
 ## [2.0.4](https://github.com/skywinder/ActionSheetPicker-3.0/tree/2.0.4) (2015-12-04)
 [Full Changelog](https://github.com/skywinder/ActionSheetPicker-3.0/compare/2.0.3...2.0.4)
-
-**Fixed bugs:**
-
-- ActionSheetStringPicker not working on iPad \(only iPhone\) [\#156](https://github.com/skywinder/ActionSheetPicker-3.0/issues/156)
 
 **Closed issues:**
 
@@ -117,7 +143,7 @@
 **Merged pull requests:**
 
 - make setPickerBackgroundColor work in iPad. [\#200](https://github.com/skywinder/ActionSheetPicker-3.0/pull/200) ([ainopara](https://github.com/ainopara))
-- ActionSheetMultipleStringsPicker [\#196](https://github.com/skywinder/ActionSheetPicker-3.0/pull/196) ([alexperezpaya](https://github.com/alexperezpaya))
+- ActionSheetMultipleStringsPicker [\#196](https://github.com/skywinder/ActionSheetPicker-3.0/pull/196) ([perezpaya](https://github.com/perezpaya))
 
 ## [1.7.0](https://github.com/skywinder/ActionSheetPicker-3.0/tree/1.7.0) (2015-07-21)
 [Full Changelog](https://github.com/skywinder/ActionSheetPicker-3.0/compare/1.6.2...1.7.0)

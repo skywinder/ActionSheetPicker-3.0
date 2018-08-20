@@ -62,6 +62,7 @@ static NSString *const kActionTarget = @"buttonActionTarget";
 
 @interface AbstractActionSheetPicker : NSObject <UIPopoverControllerDelegate>
 @property(nonatomic, strong) SWActionSheet *actionSheet;
+@property (nonatomic) UIWindowLevel windowLevel;
 @property(nonatomic, assign) NSInteger tag;
 @property(nonatomic, assign) int borderWidth;
 @property(nonatomic, strong) UIToolbar *toolbar;

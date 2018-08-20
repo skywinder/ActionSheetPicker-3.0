@@ -147,12 +147,12 @@
     [self.actionSheetPicker showActionSheetPicker];
 }
 
-
+-(void)dateSelector
+{
+    NSLog(@"SELECTOR");
+}
 
 -(IBAction)selectATime:(id)sender {
-
-
-
     NSInteger minuteInterval = 5;
     //clamp date
     NSInteger referenceTimeInterval = (NSInteger)[self.selectedTime timeIntervalSinceReferenceDate];
@@ -167,16 +167,12 @@
     ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Select a time" datePickerMode:UIDatePickerModeTime selectedDate:self.selectedTime target:self action:@selector(timeWasSelected:element:) origin:sender];
     datePicker.minuteInterval = minuteInterval;
     [datePicker addCustomButtonWithTitle:@"value" value:[NSDate date]];
-    [datePicker addCustomButtonWithTitle:@"sel" target:self selector:@selector(dateSelector:)];
+    SEL selector = NSSelectorFromString(@"dateSelector:");
+    [datePicker addCustomButtonWithTitle:@"sel" target:self selector:selector];
     [datePicker addCustomButtonWithTitle:@"Block" actionBlock:^{
         NSLog(@"Block invoked");
     }];
     [datePicker showActionSheetPicker];
-}
-
--(void)dateSelector
-{
-    NSLog(@"SELECTOR");
 }
 
 - (IBAction)selectAMeasurement:(UIControl *)sender {
@@ -256,7 +252,7 @@
     labelParagraphStyle.alignment = NSTextAlignmentCenter;
     picker.pickerTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
                                     NSParagraphStyleAttributeName: labelParagraphStyle,
-                                    NSFontAttributeName:[self getRandomFont],};
+                                    NSFontAttributeName:[self getRandomFont],}.mutableCopy;
     [picker showActionSheetPicker];
 }
 
