@@ -14,7 +14,7 @@ Pod::Spec.new do | s |
                         "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/ipad.png",
                         "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/string.png"]
     s.requires_arc = true
-    s.ios.deployment_target = '6.1'
+    s.ios.deployment_target = '10.0'
     s.platform = :ios
     s.public_header_files = 'ActionSheetPicker.h', 'Pickers/*.h'
     s.source_files = 'ActionSheetPicker.h', 'Pickers/*.{h,m}'
