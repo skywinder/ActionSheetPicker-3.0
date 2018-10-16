@@ -748,7 +748,7 @@ CG_INLINE BOOL isIPhone4() {
     }
     else if ((self.containerView)) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [popover presentPopoverFromRect:_containerView.bounds inView:_containerView
+            [popover presentPopoverFromRect:self.containerView.bounds inView:self.containerView
                    permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
         });
