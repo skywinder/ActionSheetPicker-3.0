@@ -1,8 +1,17 @@
 language: objective-c
-osx_image: xcode9
-
+osx_image: xcode9.1
+# before_install:
+    # - brew update
+    # - brew install xctool
 script:
-    - xcodebuild clean build test -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPicker -sdk iphonesimulator -destination "platform=iOS Simulator,OS=11.0,name=iPhone X" ONLY_ACTIVE_ARCH=NO
+    - xcodebuild clean build test -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPickerTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+
+# - xctool -workspace ActionSheetPicker-3.0.xcworkspace -scheme CoreActionSheetPicker build
+# - xctool -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPickerTests test
+
+# xcode_workspace: ActionSheetPicker-3.0.xcworkspace
+# xcode_scheme: ActionSheetPickerTests
+# xcode_sdk: iphonesimulator
 
 notifications:
   email:
