@@ -4,7 +4,7 @@ osx_image: xcode10.1
     # - brew update
     # - brew install xctool
 script:
-    - xcodebuild clean build test -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPicker -sdk iphonesimulator -destination "platform=iOS Simulator,OS=11.0,name=iPhone X" ONLY_ACTIVE_ARCH=NO
+    - xcodebuild clean build test -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPicker -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.1,name=iPhone XS Max" ONLY_ACTIVE_ARCH=NO
 
 # - xctool -workspace ActionSheetPicker-3.0.xcworkspace -scheme CoreActionSheetPicker build
 # - xctool -workspace ActionSheetPicker-3.0.xcworkspace -scheme ActionSheetPickerTests test
