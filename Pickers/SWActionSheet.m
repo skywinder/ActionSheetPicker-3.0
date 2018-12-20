@@ -113,8 +113,15 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
         _bgView.backgroundColor = [UIColor colorWithRed:247.f/255.f green:247.f/255.f blue:247.f/255.f alpha:1.0f];
         [self addSubview:_bgView];
         [self addSubview:view];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction)];
+        [self addGestureRecognizer:tap];
     }
     return self;
+}
+
+- (void)tapGestureAction {
+    [self dismissWithClickedButtonIndex:0 animated:true];
 }
 
 - (void)configureFrameForBounds:(CGRect)bounds
