@@ -68,7 +68,7 @@
              selectedDate:(NSDate *)selectedDate
                 doneBlock:(ActionDateDoneBlock)doneBlock
               cancelBlock:(ActionDateCancelBlock)cancelBlock
-                   origin:(UIView*)view
+                   origin:(id)view
 {
     ActionSheetDatePicker* picker = [[ActionSheetDatePicker alloc] initWithTitle:title
                                                                   datePickerMode:datePickerMode
@@ -87,7 +87,7 @@
               maximumDate:(NSDate *)maximumDate
                 doneBlock:(ActionDateDoneBlock)doneBlock
               cancelBlock:(ActionDateCancelBlock)cancelBlock
-                   origin:(UIView*)view
+                   origin:(id)view
 {
     ActionSheetDatePicker* picker = [[ActionSheetDatePicker alloc] initWithTitle:title
                                                                   datePickerMode:datePickerMode
