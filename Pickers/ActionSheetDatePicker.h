@@ -88,7 +88,7 @@ typedef void(^ActionDateCancelBlock)(ActionSheetDatePicker *picker);
                  selectedDate:(NSDate *)selectedDate
                     doneBlock:(ActionDateDoneBlock)doneBlock
                   cancelBlock:(ActionDateCancelBlock)cancelBlock
-                       origin:(UIView*)view;
+                       origin:(id)view;
 
 - (void)eventForDatePicker:(id)sender;
 
