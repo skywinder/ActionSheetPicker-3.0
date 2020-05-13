@@ -311,6 +311,7 @@
 
         pickerLabel = [[UILabel alloc] initWithFrame:frame];
         [pickerLabel setTextAlignment:NSTextAlignmentCenter];
+        pickerLabel.tag = -1;
         if ([pickerLabel respondsToSelector:@selector(setMinimumScaleFactor:)])
             [pickerLabel setMinimumScaleFactor:0.5];
         [pickerLabel setAdjustsFontSizeToFitWidth:YES];

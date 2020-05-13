@@ -172,6 +172,7 @@
     if (pickerLabel == nil) {
         pickerLabel = [[UILabel alloc] init];
     }
+    pickerLabel.tag = -1;
     id obj = (self.data)[component][row];
     
     NSAttributedString *attributeTitle = nil;

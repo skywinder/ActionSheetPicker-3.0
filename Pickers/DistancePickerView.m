@@ -144,6 +144,7 @@
                 addlabelView = YES;
             }
 
+            label.tag = -1;
             label.text = text;
             label.font = labelfont;
             label.backgroundColor = [UIColor clearColor];

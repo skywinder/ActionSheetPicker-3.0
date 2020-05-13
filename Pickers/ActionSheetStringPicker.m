@@ -180,7 +180,7 @@
     if (pickerLabel == nil) {
         pickerLabel = [[UILabel alloc] init];
     }
-    
+    pickerLabel.tag = -1;
     NSAttributedString *attributedTitle = [self pickerView:pickerView attributedTitleForRow:row forComponent:component];
     if (attributedTitle == nil) {
         attributedTitle = [[NSAttributedString alloc] initWithString:@"" attributes:self.pickerTextAttributes];
