@@ -45,34 +45,50 @@ typedef void(^ActionDateCancelBlock)(ActionSheetDatePicker *picker);
 
 @property (nonatomic, assign) NSTimeInterval countDownDuration; // for UIDatePickerModeCountDownTimer, ignored otherwise. default is 0.0. limit is 23:59 (86,399 seconds). value being set is div 60 (drops remaining seconds).
 
+@property (nonatomic, assign) UIDatePickerStyle datePickerStyle API_AVAILABLE(ios(13.4));  // for UIDatePickerStyle, default is Automatic
+
 @property (nonatomic, copy) ActionDateDoneBlock onActionSheetDone;
 @property (nonatomic, copy) ActionDateCancelBlock onActionSheetCancel;
 
-+ (instancetype)showPickerWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin;
-
-+ (instancetype)showPickerWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin cancelAction:(SEL)cancelAction;
++ (instancetype)showPickerWithTitle:(NSString *)title
+                     datePickerMode:(UIDatePickerMode)datePickerMode
+                       selectedDate:(NSDate *)selectedDate
+                             target:(id)target
+                             action:(SEL)action
+                             origin:(id)origin;
 
 + (instancetype)showPickerWithTitle:(NSString *)title
-           datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
-              minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate
-                   target:(id)target action:(SEL)action origin:(id)origin;
+                     datePickerMode:(UIDatePickerMode)datePickerMode
+                       selectedDate:(NSDate *)selectedDate
+                             target:(id)target
+                             action:(SEL)action
+                             origin:(id)origin
+                       cancelAction:(SEL)cancelAction;
 
 + (instancetype)showPickerWithTitle:(NSString *)title
-           datePickerMode:(UIDatePickerMode)datePickerMode
-             selectedDate:(NSDate *)selectedDate
-                doneBlock:(ActionDateDoneBlock)doneBlock
-              cancelBlock:(ActionDateCancelBlock)cancelBlock
-                   origin:(UIView*)view;
+                     datePickerMode:(UIDatePickerMode)datePickerMode
+                       selectedDate:(NSDate *)selectedDate
+                        minimumDate:(NSDate *)minimumDate
+                        maximumDate:(NSDate *)maximumDate
+                             target:(id)target
+                             action:(SEL)action
+                             origin:(id)origin;
 
 + (instancetype)showPickerWithTitle:(NSString *)title
-           datePickerMode:(UIDatePickerMode)datePickerMode
-             selectedDate:(NSDate *)selectedDate
-              minimumDate:(NSDate *)minimumDate
-              maximumDate:(NSDate *)maximumDate
-                doneBlock:(ActionDateDoneBlock)doneBlock
-              cancelBlock:(ActionDateCancelBlock)cancelBlock
-                   origin:(UIView*)view;
+                     datePickerMode:(UIDatePickerMode)datePickerMode
+                       selectedDate:(NSDate *)selectedDate
+                          doneBlock:(ActionDateDoneBlock)doneBlock
+                        cancelBlock:(ActionDateCancelBlock)cancelBlock
+                             origin:(UIView*)view;
 
++ (instancetype)showPickerWithTitle:(NSString *)title
+                     datePickerMode:(UIDatePickerMode)datePickerMode
+                       selectedDate:(NSDate *)selectedDate
+                        minimumDate:(NSDate *)minimumDate
+                        maximumDate:(NSDate *)maximumDate
+                          doneBlock:(ActionDateDoneBlock)doneBlock
+                        cancelBlock:(ActionDateCancelBlock)cancelBlock
+                             origin:(UIView*)view;
 
 - (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin;
 

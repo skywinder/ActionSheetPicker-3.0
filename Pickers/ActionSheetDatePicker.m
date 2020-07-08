@@ -30,8 +30,10 @@
 #import <objc/message.h>
 
 @interface ActionSheetDatePicker()
+
 @property (nonatomic, assign) UIDatePickerMode datePickerMode;
 @property (nonatomic, strong) NSDate *selectedDate;
+
 @end
 
 @implementation ActionSheetDatePicker
@@ -164,10 +166,13 @@
     datePicker.calendar = self.calendar;
     datePicker.timeZone = self.timeZone;
     datePicker.locale = self.locale;
-
-    UIColor *textColor = [self.pickerTextAttributes valueForKey:NSForegroundColorAttributeName];
-    if (textColor) {
-        [datePicker setValue:textColor forKey:@"textColor"]; // use ObjC runtime to set value for property that is not exposed publicly
+    if (@available(iOS 13.4, *)) {
+        datePicker.preferredDatePickerStyle = self.datePickerStyle;
+    } else {
+        UIColor *textColor = [self.pickerTextAttributes valueForKey:NSForegroundColorAttributeName];
+        if (textColor) {
+            [datePicker setValue:textColor forKey:@"textColor"]; // use ObjC runtime to set value for property that is not exposed publicly
+        }
     }
     
     // if datepicker is set with a date in countDownMode then
