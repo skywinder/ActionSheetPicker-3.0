@@ -205,6 +205,28 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "KunzManuel",
+      "name": "Manuel Kunz",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/33420796?v=4",
+      "profile": "https://github.com/KunzManuel",
+      "contributions": [
+        "code",
+        "review",
+        "doc"
+      ]
+    },
+    {
+      "login": "noorulain17",
+      "name": "Noor ul Ain Ali",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6180345?v=4",
+      "profile": "https://github.com/noorulain17",
+      "contributions": [
+        "code",
+        "review",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
