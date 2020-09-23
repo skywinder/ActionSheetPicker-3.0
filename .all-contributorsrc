@@ -1,0 +1,238 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "skywinder",
+      "name": "Petr Korolev",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3356474?v=4",
+      "profile": "https://www.linkedin.com/in/korolevpetr",
+      "contributions": [
+        "code",
+        "review",
+        "question",
+        "example"
+      ]
+    },
+    {
+      "login": "TimCinel",
+      "name": "Tim Cinel",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/177173?v=4",
+      "profile": "http://www.timcinel.com/",
+      "contributions": [
+        "code",
+        "review",
+        "doc"
+      ]
+    },
+    {
+      "login": "xjki",
+      "name": "Jurģis Ķiršakmens",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/747340?v=4",
+      "profile": "https://twitter.com/xjki",
+      "contributions": [
+        "question",
+        "example"
+      ]
+    },
+    {
+      "login": "NikDude",
+      "name": "Nikos",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1115699?v=4",
+      "profile": "https://github.com/NikDude",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "vinhtnk",
+      "name": "Vinh Tran",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/10373392?v=4",
+      "profile": "https://github.com/vinhtnk",
+      "contributions": [
+        "code",
+        "security"
+      ]
+    },
+    {
+      "login": "kashifhisam",
+      "name": "Kashif Hisam",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/618660?v=4",
+      "profile": "http://www.linkedin.com/in/kashifhisam",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "xiaoer371",
+      "name": "DYY_Xiaoer",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7375120?v=4",
+      "profile": "http://user.qzone.qq.com/627426568?ptlang=2052",
+      "contributions": [
+        "code",
+        "security"
+      ]
+    },
+    {
+      "login": "delackner",
+      "name": "Seth Delackner",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/478341?v=4",
+      "profile": "https://github.com/delackner",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ainopara",
+      "name": "Zheng Li",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1849450?v=4",
+      "profile": "https://blog.ainopara.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BubiDevs",
+      "name": "Andrea",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/847860?v=4",
+      "profile": "https://www.bubidevs.net",
+      "contributions": [
+        "question",
+        "code",
+        "content",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "Bino90",
+      "name": "Bino90",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20422095?v=4",
+      "profile": "https://github.com/Bino90",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "arnoldxt",
+      "name": "arnoldxt",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4433222?v=4",
+      "profile": "https://github.com/arnoldxt",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "nowsprinting",
+      "name": "Koji Hasegawa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/117617?v=4",
+      "profile": "https://www.nowsprinting.com/",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "yapiskan",
+      "name": "Ali Ersoz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/529739?v=4",
+      "profile": "https://github.com/yapiskan",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ykws",
+      "name": "KAWASHIMA Yoshiyuki",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5770480?v=4",
+      "profile": "https://twitter.com/ykws__",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "ricardohg",
+      "name": "Ricardo Hernandez",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5543569?v=4",
+      "profile": "https://github.com/ricardohg",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "VincentNarbot",
+      "name": "Vincent Narbot",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/8729167?v=4",
+      "profile": "http://vincent.narbot.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "ezefranca",
+      "name": "Ezequiel França",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3648336?v=4",
+      "profile": "http://ezefranca.dev",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "nikola-mladenovic",
+      "name": "Nikola Mladenovic",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/14024032?v=4",
+      "profile": "https://github.com/nikola-mladenovic",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "umerasif",
+      "name": "Umer Asif",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/4849696?v=4",
+      "profile": "https://github.com/umerasif",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "longjun-9",
+      "name": "longjun",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4412991?v=4",
+      "profile": "https://github.com/longjun-9",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "KunzManuel",
+      "name": "Manuel Kunz",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/33420796?v=4",
+      "profile": "https://github.com/KunzManuel",
+      "contributions": [
+        "code",
+        "review",
+        "doc"
+      ]
+    },
+    {
+      "login": "noorulain17",
+      "name": "Noor ul Ain Ali",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6180345?v=4",
+      "profile": "https://github.com/noorulain17",
+      "contributions": [
+        "code",
+        "review",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "ActionSheetPicker-3.0",
+  "projectOwner": "skywinder",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

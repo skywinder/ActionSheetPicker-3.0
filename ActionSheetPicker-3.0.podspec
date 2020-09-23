@@ -1,22 +1,29 @@
-Pod::Spec.new do | s |
-    s.name = 'ActionSheetPicker-3.0'
-    s.version = '2.2.0'
-    s.summary = 'Better version of ActionSheetPicker with support iOS7 and other improvements.'
-    s.homepage = 'http://skywinder.github.io/ActionSheetPicker-3.0'
-    s.license = 'BSD'
-    s.authors = {
-        'Petr Korolev' => 'https://github.com/skywinder',
-        'Tim Cinel' => 'email@timcinel.com',
-    }
-    s.source = { :git => 'https://github.com/skywinder/ActionSheetPicker-3.0.git', :tag => "#{s.version}" }
-     s.screenshots   = [ "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/date.png",
-                        "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/distance.png",
-                        "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/ipad.png",
-                        "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/string.png"]
-    s.requires_arc = true
-    s.ios.deployment_target = '6.1'
-    s.platform = :ios
-    s.public_header_files = 'ActionSheetPicker.h', 'Pickers/*.h'
-    s.source_files = 'ActionSheetPicker.h', 'Pickers/*.{h,m}'
-    s.framework = 'UIKit'
+Pod::Spec.new do |spec|
+  spec.name = 'ActionSheetPicker-3.0'
+  spec.version = '2.5.1'
+  spec.summary = 'Easily present an ActionSheet with a PickerView, allowing the user to select from a number of immutable options.'
+  spec.description  = <<-DESC
+ Better version of ActionSheetPicker with support iOS7 and other improvements:
+   - Spawn pickers with convenience function - delegate or reference not required. Just provide a target/action callback.
+   - Add buttons to UIToolbar for quick selection (see ActionSheetDatePicker below)
+   - Delegate protocol available for more control
+   - Universal (iPhone/iPod/iPad)
+  DESC
+
+  spec.homepage = 'https://github.com/skywinder/ActionSheetPicker-3.0'
+  spec.screenshots   = [ "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/date.png",
+                         "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/distance.png",
+                         "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/ipad.png",
+                         "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/string.png"]
+  spec.license = 'BSD'
+  spec.authors = {
+    'Petr Korolev' => 'https://github.com/skywinder',
+    'Tim Cinel' => 'email@timcinel.com'
+  }
+  spec.social_media_url   = "https://twitter.com/skywinder/"
+  spec.platform     = :ios, "6.1"
+  spec.source = { :git => 'https://github.com/skywinder/ActionSheetPicker-3.0.git', :tag => "#{spec.version}" }
+  spec.source_files = 'Pickers/*.{h,m}'
+  spec.framework = 'UIKit'
+  spec.requires_arc = true
 end

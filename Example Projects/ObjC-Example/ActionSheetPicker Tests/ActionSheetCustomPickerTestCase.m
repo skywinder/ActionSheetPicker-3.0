@@ -15,8 +15,6 @@ static const int expectedNumberOfComponents = 2;
 
 static const int expectedNumberOfRows = 3;
 
-static UIView *origin;
-
 @interface ActionSheetCustomPickerTestCase : XCTestCase <ActionSheetCustomPickerDelegate>
 
 @property(nonatomic, strong) ActionSheetCustomPicker *actionSheetCustomPicker;
@@ -27,18 +25,16 @@ static UIView *origin;
 
 @implementation ActionSheetCustomPickerTestCase
 {
-
-}
-
-+(void)setUp{
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIView *topView = window.rootViewController.view;
-    origin = topView;
+    UIView  *_origin;
 }
 
 - (void)setUp
 {
     [super setUp];
+
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIView *topView = window.rootViewController.view;
+    _origin = topView;
 
     self.numberOfComponents = expectedNumberOfComponents;
     self.numberOfRowInComponent = expectedNumberOfRows;
@@ -72,7 +68,7 @@ static UIView *origin;
     _actionSheetCustomPicker = [[ActionSheetCustomPicker alloc] initWithTarget:self
                                                                  successAction:nil
                                                                   cancelAction:nil
-                                                                        origin:origin];
+                                                                        origin:_origin];
     XCTAssertNotNil(_actionSheetCustomPicker);
 }
 
@@ -82,7 +78,7 @@ static UIView *origin;
     _actionSheetCustomPicker = [ActionSheetCustomPicker showPickerWithTitle:@""
                                                                      delegate:self
                                                              showCancelButton:YES
-                                                                       origin:origin];
+                                                                       origin:_origin];
             XCTAssertNotNil(_actionSheetCustomPicker);
 }
 - (void)testPickerWithInit3
@@ -91,7 +87,7 @@ static UIView *origin;
     _actionSheetCustomPicker = [ActionSheetCustomPicker showPickerWithTitle:@""
                                                                      delegate:self
                                                              showCancelButton:YES
-                                                                       origin:origin
+                                                                       origin:_origin
                                                                        initialSelections:self.expectedSelections];
     XCTAssertNotNil(_actionSheetCustomPicker);
 }
@@ -111,14 +107,14 @@ static UIView *origin;
 
     XCTAssertTrue(_actionSheetCustomPicker = [ActionSheetCustomPicker showPickerWithTitle:@"title"
                                                       delegate:self
-                                              showCancelButton:YES origin:origin]);
+                                              showCancelButton:YES origin:_origin]);
 }
 
 - (void)testShow2
 {
     XCTAssertTrue(_actionSheetCustomPicker = [ActionSheetCustomPicker showPickerWithTitle:@"" delegate:self
                                               showCancelButton:YES
-                                                        origin:origin
+                                                        origin:_origin
                                              initialSelections:self.expectedSelections]);
 }
 
@@ -127,7 +123,7 @@ static UIView *origin;
 {
 
     _actionSheetCustomPicker = [ActionSheetCustomPicker showPickerWithTitle:@"title" delegate:self showCancelButton:NO
-                                                                       origin:origin initialSelections:nil ];
+                                                                       origin:_origin initialSelections:nil ];
     XCTAssertNotNil(_actionSheetCustomPicker);
 }
 
@@ -136,7 +132,7 @@ static UIView *origin;
 
     NSArray *selections = [self getArrayWithComponents:expectedNumberOfComponents rows:0];
     _actionSheetCustomPicker = [ActionSheetCustomPicker showPickerWithTitle:@"title" delegate:self showCancelButton:NO
-                                                                       origin:origin initialSelections:selections];
+                                                                       origin:_origin initialSelections:selections];
     XCTAssertNotNil(_actionSheetCustomPicker);
 }
 
@@ -145,7 +141,7 @@ static UIView *origin;
     NSArray *selections= [self getArrayWithComponents:expectedNumberOfComponents + 1 rows:expectedNumberOfRows];
     XCTAssertThrows([ActionSheetCustomPicker showPickerWithTitle:@""
                                                           delegate:self
-                                                  showCancelButton:YES origin:origin
+                                                  showCancelButton:YES origin:_origin
                                                  initialSelections:selections]);
     }
 
@@ -154,7 +150,7 @@ static UIView *origin;
     NSArray *selections= [self getArrayWithComponents:expectedNumberOfComponents - 1 rows:expectedNumberOfRows];
     XCTAssertThrows([ActionSheetCustomPicker showPickerWithTitle:@""
                                                           delegate:self
-                                                  showCancelButton:YES origin:origin
+                                                  showCancelButton:YES origin:_origin
                                                  initialSelections:selections]);
     }
 
@@ -163,7 +159,7 @@ static UIView *origin;
     NSArray *selections= [self getArrayWithComponents:expectedNumberOfComponents rows:expectedNumberOfRows + 1];
     XCTAssertThrows([ActionSheetCustomPicker showPickerWithTitle:@""
                                                           delegate:self
-                                                  showCancelButton:YES origin:origin
+                                                  showCancelButton:YES origin:_origin
                                                  initialSelections:selections]);
     }
 
@@ -171,7 +167,7 @@ static UIView *origin;
 
     XCTAssertThrows([ActionSheetCustomPicker showPickerWithTitle:@""
                                                     delegate:nil
-                                            showCancelButton:YES origin:origin]);
+                                            showCancelButton:YES origin:_origin]);
 }
 
 - (void)testWithDelegateAndCustomInitSections{
@@ -180,7 +176,7 @@ static UIView *origin;
 
     NSArray *initialSelections = @[@1, @2];
 
-    ActionSheetCustomPicker* customPicker = [ActionSheetCustomPicker showPickerWithTitle:@"Select Key & Scale" delegate:testDelegate showCancelButton:NO origin:origin
+    ActionSheetCustomPicker* customPicker = [ActionSheetCustomPicker showPickerWithTitle:@"Select Key & Scale" delegate:testDelegate showCancelButton:NO origin:_origin
                                                                        initialSelections:initialSelections];
 
     testDelegate.delegateReturnCorrectValueExpectation =  [self expectationWithDescription:@"delegate raised with correct values"];
@@ -203,7 +199,7 @@ static UIView *origin;
 
     self.actionSheetCustomPicker = [[ActionSheetCustomPicker alloc] initWithTarget:self successAction:nil
                                                                       cancelAction:nil
-                                                                            origin:origin];
+                                                                            origin:_origin];
     [self.actionSheetCustomPicker addCustomButtonWithTitle:@"Test titile" value:@0];
     XCTAssertNotNil(self.actionSheetCustomPicker);
 }

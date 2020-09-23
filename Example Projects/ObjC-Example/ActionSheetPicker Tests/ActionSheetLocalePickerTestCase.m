@@ -10,7 +10,6 @@
 #import <XCTest/XCTest.h>
 #import <CoreActionSheetPicker/CoreActionSheetPicker.h>
 #import "AbstractActionSheetPicker+CustomButton.h"
-UIView *origin;
 
 @interface ActionSheetLocalePickerTestCase : XCTestCase
 @property(nonatomic, strong) ActionSheetLocalePicker *actionSheetLocalePicker;
@@ -20,19 +19,16 @@ UIView *origin;
 @implementation ActionSheetLocalePickerTestCase
 {
     NSString *_title;
-}
-
-+(void)setUp{
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIView *topView = window.rootViewController.view;
-    origin = topView;
-
+    UIView  *_origin;
 }
 
 - (void)setUp {
     [super setUp];
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIView *topView = window.rootViewController.view;
+    _origin = topView;
     _title                   = @"Title";
-    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:nil doneBlock:nil cancelBlock:nil origin:origin];
+    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:nil doneBlock:nil cancelBlock:nil origin:_origin];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -43,13 +39,13 @@ UIView *origin;
 
 - (void)testPickerWithInitWithDefaultLocale
 {
-    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:nil doneBlock:nil cancelBlock:nil origin:origin];
+    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:nil doneBlock:nil cancelBlock:nil origin:_origin];
     XCTAssertNotNil(_actionSheetLocalePicker);
 }
 
 - (void)testPickerWithInitWithLocale
 {
-    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:[NSTimeZone localTimeZone] doneBlock:nil cancelBlock:nil origin:origin];
+    _actionSheetLocalePicker = [[ActionSheetLocalePicker alloc] initWithTitle:@"Test title" initialSelection:[NSTimeZone localTimeZone] doneBlock:nil cancelBlock:nil origin:_origin];
     XCTAssertNotNil(_actionSheetLocalePicker);
 }
 

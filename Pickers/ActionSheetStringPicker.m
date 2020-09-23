@@ -138,6 +138,10 @@
     // otherwise, return the description, just like the toString() method in Java
     // else, return nil to prevent exception
 
+    if ([obj isKindOfClass:[NSAttributedString class]]) {
+        return [obj string];
+    }
+
     if ([obj isKindOfClass:[NSString class]])
         return obj;
 
@@ -154,6 +158,14 @@
     // otherwise, return the description, just like the toString() method in Java
     // else, return nil to prevent exception
     
+    if ([obj isKindOfClass:[NSAttributedString class]]) {
+        NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithAttributedString:obj];
+        if (self.pickerTextAttributes) {
+            [title addAttributes:self.pickerTextAttributes range:NSMakeRange(0, [title length])];
+        }
+        return title;
+    }
+
     if ([obj isKindOfClass:[NSString class]])
         return [[NSAttributedString alloc] initWithString:obj attributes:self.pickerTextAttributes];
     
@@ -168,23 +180,12 @@
     if (pickerLabel == nil) {
         pickerLabel = [[UILabel alloc] init];
     }
-    id obj = (self.data)[(NSUInteger) row];
     
-    NSAttributedString *attributeTitle = nil;
-    // use the object if it is already a NSString,
-    // otherwise, use the description, just like the toString() method in Java
-    // else, use String with no text to ensure this delegate do not return a nil value.
-    
-    if ([obj isKindOfClass:[NSString class]])
-        attributeTitle = [[NSAttributedString alloc] initWithString:obj attributes:self.pickerTextAttributes];
-    
-    if ([obj respondsToSelector:@selector(description)])
-        attributeTitle = [[NSAttributedString alloc] initWithString:[obj performSelector:@selector(description)] attributes:self.pickerTextAttributes];
-    
-    if (attributeTitle == nil) {
-        attributeTitle = [[NSAttributedString alloc] initWithString:@"" attributes:self.pickerTextAttributes];
+    NSAttributedString *attributedTitle = [self pickerView:pickerView attributedTitleForRow:row forComponent:component];
+    if (attributedTitle == nil) {
+        attributedTitle = [[NSAttributedString alloc] initWithString:@"" attributes:self.pickerTextAttributes];
     }
-    pickerLabel.attributedText = attributeTitle;
+    pickerLabel.attributedText = attributedTitle;
     return pickerLabel;
 }
 

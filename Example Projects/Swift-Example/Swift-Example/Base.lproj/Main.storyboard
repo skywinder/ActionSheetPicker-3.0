@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FKR-yZ-MrN">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKR-yZ-MrN">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--ActionSheetPicker-3.0-->
@@ -11,26 +12,26 @@
             <objects>
                 <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="HSJ-wC-erj" customClass="SWTableViewController" customModule="Swift_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="79" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mw3-TG-fMf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Main" id="Mbm-qD-1RO">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="HwN-MG-62r">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HwN-MG-62r" id="YBf-05-8DH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEo-wc-8cF">
-                                                    <rect key="frame" x="234" y="5" width="132" height="30"/>
-                                                    <state key="normal" title="ActionLocalePicker">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEo-wc-8cF">
+                                                    <rect key="frame" x="144" y="5" width="87" height="30"/>
+                                                    <state key="normal" title="LocalePicker">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="localePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="rQI-SW-ueg"/>
+                                                        <action selector="localePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="bMA-zZ-BtH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -45,19 +46,19 @@
                             <tableViewSection headerTitle="DatePicker" id="I3U-3v-jNH">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="PKV-Io-373">
-                                        <rect key="frame" x="0.0" y="148" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="124" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PKV-Io-373" id="aP3-IM-crm">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60e-hh-B1B">
-                                                    <rect key="frame" x="217" y="5" width="167" height="30"/>
-                                                    <state key="normal" title="UIDatePickerMode Time">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60e-hh-B1B">
+                                                    <rect key="frame" x="170.5" y="5" width="34" height="30"/>
+                                                    <state key="normal" title="Time">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="TimePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="iKc-f6-UAM"/>
+                                                        <action selector="timePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="EkF-e0-s2F"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -68,19 +69,19 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="fQj-Gy-eaI">
-                                        <rect key="frame" x="0.0" y="188" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="164" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fQj-Gy-eaI" id="5HL-9P-BSC">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwg-Rl-1ga">
-                                                    <rect key="frame" x="217" y="5" width="166" height="30"/>
-                                                    <state key="normal" title="UIDatePickerMode Date">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwg-Rl-1ga">
+                                                    <rect key="frame" x="171" y="5" width="33" height="30"/>
+                                                    <state key="normal" title="Date">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="DatePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="3cR-j0-e5K"/>
+                                                        <action selector="datePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="rxJ-CO-of0"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -91,19 +92,19 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="03N-CA-zCk">
-                                        <rect key="frame" x="0.0" y="228" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="204" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="03N-CA-zCk" id="c2k-vn-5la">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgK-kh-kbI">
-                                                    <rect key="frame" x="187" y="5" width="227" height="30"/>
-                                                    <state key="normal" title="UIDatePickerMode DateAndTime">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgK-kh-kbI">
+                                                    <rect key="frame" x="140.5" y="5" width="94" height="30"/>
+                                                    <state key="normal" title="DateAndTime">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="DateAndTimeClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="nbs-xk-l9c"/>
+                                                        <action selector="dateAndTimePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="wbY-rR-TwF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -114,19 +115,19 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="ovV-BR-3gD">
-                                        <rect key="frame" x="0.0" y="268" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="244" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ovV-BR-3gD" id="wNc-NC-rhh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XY-HP-JJh">
-                                                    <rect key="frame" x="173" y="5" width="254" height="30"/>
-                                                    <state key="normal" title="UIDatePickerMode CountDownTimer">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XY-HP-JJh">
+                                                    <rect key="frame" x="128" y="5" width="119" height="30"/>
+                                                    <state key="normal" title="CountDownTimer">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="CountdownTimerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="qS0-aY-qp6"/>
+                                                        <action selector="countdownPickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="8wa-0I-srY"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -141,19 +142,19 @@
                             <tableViewSection headerTitle="DistancePicker" id="X0c-ep-s9t" userLabel="DistancePicker">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="JsD-LK-z9t">
-                                        <rect key="frame" x="0.0" y="330" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="340" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JsD-LK-z9t" id="Hvx-TI-Hbk">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fP-vb-x9d">
-                                                    <rect key="frame" x="207" y="5" width="186" height="30"/>
-                                                    <state key="normal" title="ActionSheetDistancePicker">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <rect key="frame" x="136" y="5" width="103" height="30"/>
+                                                    <state key="normal" title="DistancePicker">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="distancePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="7Di-vD-hXo"/>
+                                                        <action selector="distancePickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="mfv-27-Wb4"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -168,16 +169,16 @@
                             <tableViewSection headerTitle="Other" id="W3k-MW-rph">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="SQZ-RS-Qzf">
-                                        <rect key="frame" x="0.0" y="392" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="436" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SQZ-RS-Qzf" id="GuG-gB-D8q">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9j-w8-u5B">
-                                                    <rect key="frame" x="227" y="5" width="147" height="30"/>
-                                                    <state key="normal" title="Multiple String Picker">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9j-w8-u5B">
+                                                    <rect key="frame" x="65.5" y="5" width="244" height="30"/>
+                                                    <state key="normal" title="Multiple String  (customized colors)">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="multipleStringPickerClicked:" destination="HSJ-wC-erj" eventType="touchUpInside" id="PzA-JY-wfA"/>
@@ -191,16 +192,16 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="SDj-Yf-ZSQ">
-                                        <rect key="frame" x="0.0" y="432" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="476" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SDj-Yf-ZSQ" id="Z1J-bh-1Hz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uw-ZK-0n5">
-                                                    <rect key="frame" x="181" y="5" width="239" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uw-ZK-0n5">
+                                                    <rect key="frame" x="66" y="5" width="243" height="30"/>
                                                     <state key="normal" title="Push to self (for presentation tests)">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="HSJ-wC-erj" kind="show" id="cS1-5C-Uoc"/>
@@ -214,23 +215,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="ckK-3i-u8e">
-                                        <rect key="frame" x="0.0" y="472" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="516" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ckK-3i-u8e" id="vAR-Zn-2te">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cU-tz-UKi">
-                                                    <rect key="frame" x="122" y="4" width="122" height="30"/>
+                                                    <rect key="frame" x="9" y="5" width="122" height="30"/>
                                                     <state key="normal" title="Keyboard out test">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="hideKeyboard:" destination="HSJ-wC-erj" eventType="touchUpInside" id="nF7-6O-mSE"/>
+                                                        <action selector="showKeyboard:" destination="HSJ-wC-erj" eventType="touchUpInside" id="nMq-5M-AuL"/>
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpE-nW-CUp">
-                                                    <rect key="frame" x="252" y="4" width="97" height="30"/>
+                                                    <rect key="frame" x="139" y="3" width="97" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="97" id="tcG-6q-jrc"/>
                                                     </constraints>
@@ -243,6 +244,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="rpE-nW-CUp" firstAttribute="centerY" secondItem="vAR-Zn-2te" secondAttribute="centerY" id="AJB-Qs-qja"/>
+                                                <constraint firstItem="2cU-tz-UKi" firstAttribute="leading" secondItem="vAR-Zn-2te" secondAttribute="leading" constant="9" id="BZh-bJ-vOL"/>
                                                 <constraint firstAttribute="centerX" secondItem="2cU-tz-UKi" secondAttribute="centerX" id="Hqv-XJ-7z2"/>
                                                 <constraint firstAttribute="centerY" secondItem="2cU-tz-UKi" secondAttribute="centerY" id="VxU-3T-S9d"/>
                                                 <constraint firstItem="rpE-nW-CUp" firstAttribute="leading" secondItem="2cU-tz-UKi" secondAttribute="trailing" constant="8" id="sQa-uV-sQQ"/>
@@ -256,34 +258,26 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="footer" rowHeight="82" id="VZj-IG-45I">
-                                        <rect key="frame" x="0.0" y="512" width="600" height="82"/>
+                                        <rect key="frame" x="0.0" y="556" width="375" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VZj-IG-45I" id="RYb-Bv-Dca">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Made improvements?" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z0B-iM-46c">
-                                                    <rect key="frame" x="230" y="8" width="140" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="286" id="hFz-K8-lAh"/>
-                                                    </constraints>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Made improvements?" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z0B-iM-46c">
+                                                    <rect key="frame" x="118.5" y="6" width="138.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" size="system"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="hFz-K8-lAh"/>
-                                                        </mask>
-                                                    </variation>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Share them here:" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QZy-Ni-825">
-                                                    <rect key="frame" x="245" y="28" width="110" height="17"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share them here:" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QZy-Ni-825">
+                                                    <rect key="frame" x="132" y="26" width="111" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" size="system"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="https://github.com/skywinder/ActionSheetPicker-3.0" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wFx-vz-TX0">
-                                                    <rect key="frame" x="146" y="45" width="309" height="28"/>
+                                                    <rect key="frame" x="33" y="43" width="309" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="1sB-0v-4d0"/>
                                                         <constraint firstAttribute="width" constant="309" id="TZR-vk-yee"/>
@@ -324,19 +318,17 @@
                         <barButtonItem key="leftBarButtonItem" id="ZX9-n4-tbI"/>
                         <barButtonItem key="rightBarButtonItem" title="picker" id="Brb-iL-vfw">
                             <connections>
-                                <action selector="navigationItemPicker:" destination="HSJ-wC-erj" id="oRt-yY-Lrn"/>
+                                <action selector="navigationBarItemPicker:" destination="HSJ-wC-erj" id="Paa-KD-1pT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="UIDatePickerModeTime" destination="60e-hh-B1B" id="khp-ZY-jXp"/>
-                        <outlet property="localePicker" destination="JEo-wc-8cF" id="j7x-5m-qPY"/>
                         <outlet property="textField" destination="rpE-nW-CUp" id="B9i-ii-alg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFH-GB-uH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248" y="399"/>
+            <point key="canvasLocation" x="1166" y="390"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eam-JU-jtv">
@@ -344,7 +336,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FKR-yZ-MrN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BWN-Rt-mXm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -357,7 +349,4 @@
             <point key="canvasLocation" x="437" y="399"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="osL-7S-gGX"/>
-    </inferredMetricsTieBreakers>
 </document>

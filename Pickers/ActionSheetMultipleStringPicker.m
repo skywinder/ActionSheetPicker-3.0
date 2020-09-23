@@ -167,6 +167,32 @@
     return nil;
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    UILabel *pickerLabel = (UILabel *)view;
+    if (pickerLabel == nil) {
+        pickerLabel = [[UILabel alloc] init];
+    }
+    id obj = (self.data)[component][row];
+    
+    NSAttributedString *attributeTitle = nil;
+    // use the object if it is already a NSString,
+    // otherwise, use the description, just like the toString() method in Java
+    // else, use String with no text to ensure this delegate do not return a nil value.
+    
+    if ([obj isKindOfClass:[NSString class]])
+        attributeTitle = [[NSAttributedString alloc] initWithString:obj attributes:self.pickerTextAttributes];
+    
+    if ([obj respondsToSelector:@selector(description)])
+        attributeTitle = [[NSAttributedString alloc] initWithString:[obj performSelector:@selector(description)] attributes:self.pickerTextAttributes];
+    
+    if (attributeTitle == nil) {
+        attributeTitle = [[NSAttributedString alloc] initWithString:@"" attributes:self.pickerTextAttributes];
+    }
+    pickerLabel.attributedText = attributeTitle;
+    return pickerLabel;
+}
+
+
 - (void)performInitialSelectionInPickerView:(UIPickerView *)pickerView {
     for (int i = 0; i < self.selectedIndexes.count; i++) {
         NSInteger row = [(NSNumber *)self.initialSelection[i] integerValue];

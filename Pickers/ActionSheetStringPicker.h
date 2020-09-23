@@ -39,7 +39,7 @@ typedef void(^ActionStringCancelBlock)(ActionSheetStringPicker *picker);
  *  @param data              is an array of strings to use for the picker's available selection choices
  *  @param index             is used to establish the initially selected row;
  *  @param target            must not be empty.  It should respond to "onSuccess" actions.
- *  @param successAction
+ *  @param successAction     successAction
  *  @param cancelActionOrNil cancelAction
  *  @param origin            must not be empty.  It can be either an originating container view or a UIBarButtonItem to use with a popover arrow.
  *
@@ -47,13 +47,14 @@ typedef void(^ActionStringCancelBlock)(ActionSheetStringPicker *picker);
  */
 + (instancetype)showPickerWithTitle:(NSString *)title rows:(NSArray *)data initialSelection:(NSInteger)index target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
 
-    // Create an action sheet picker, but don't display until a subsequent call to "showActionPicker".  Receiver must release the picker when ready. */
+/// Create an action sheet picker, but don't display until a subsequent call to "showActionPicker".
 - (instancetype)initWithTitle:(NSString *)title rows:(NSArray *)data initialSelection:(NSInteger)index target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
 
 
-
+/// Create and display an action sheet picker sheet with completion blocks for success/cancel.
 + (instancetype)showPickerWithTitle:(NSString *)title rows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlock origin:(id)origin;
 
+/// Create an action sheet picker with completion blocks for success/cancel, but don't display until a subsequent call to "showActionPicker".
 - (instancetype)initWithTitle:(NSString *)title rows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlockOrNil origin:(id)origin;
 
 @property (nonatomic, copy) ActionStringDoneBlock onActionSheetDone;

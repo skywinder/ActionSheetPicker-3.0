@@ -1,12 +1,10 @@
-ActionSheetPicker Contributors
-================
+# ActionSheetPicker Contributors
 
-Original author
--------------------------
+## Original author
+
 [Tim Cinel](http://github.com/TimCinel)     email@timcinel.com      @TimCinel
 
-------------
-## Contributors ##
+## Contributors
 
 [Petr Korolev](http://github.com/skywinder) (maintainer and community support, bugfixing, update to iOS 7 and iOS 8, implementing new pickers)
 
@@ -26,6 +24,6 @@ Original author
 
 ActionSheetPicker exists because of these contributors, remember to thank them :)
 
-## Credits ##
+## Credits
 
 And most of all, thanks to ActionSheetPicker-3.0's [growing list of contributors](https://github.com/skywinder/ActionSheetPicker-3.0/graphs/contributors).

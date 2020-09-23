@@ -21,12 +21,6 @@
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - ActionSheetCustomPickerDelegate Optional's
-/////////////////////////////////////////////////////////////////////////
-- (void)configurePickerView:(UIPickerView *)pickerView
-{
-    // Override default and hide selection indicator
-    pickerView.showsSelectionIndicator = NO;
-}
 
 - (void)actionSheetPickerDidSucceed:(AbstractActionSheetPicker *)actionSheetPicker origin:(id)origin
 {
