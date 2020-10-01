@@ -293,6 +293,7 @@
 - (CGFloat)getDatePickerHeight
 {
     CGFloat height = 216.0;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 140000 // Xcode 12 and iOS 14, or greater
     if (@available(iOS 14.0, *)) {
         if (_datePickerStyle == UIDatePickerStyleCompact) {
             height = 90.0;
@@ -310,6 +311,7 @@
             }
         }
     }
+#endif
     return height;
 }
 
