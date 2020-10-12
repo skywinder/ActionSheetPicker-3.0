@@ -9,8 +9,6 @@ static const float delay = 0.f;
 
 static const float duration = .25f;
 
-static const int sheetBackgroundTag = 101;
-
 static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEaseIn;
 
 
@@ -126,11 +124,9 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     if ((self = [super init]))
     {
         view = aView;
-        view.tag = sheetBackgroundTag;
         _windowLevel = windowLevel;
         self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.0f];
         _bgView = [UIView new];
-        _bgView.tag = sheetBackgroundTag;
 
 // Support iOS 13 Dark Mode - support dynamic background color in iOS 13
 #if defined(__IPHONE_13_0)
