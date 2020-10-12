@@ -260,7 +260,8 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if (touch.view.tag == sheetBackgroundTag) {
+    CGPoint location = [touch locationInView:_actionSheet];
+    if (CGRectContainsPoint(_actionSheet.bgView.frame, location)) {
         return NO;
     }
     return YES;
