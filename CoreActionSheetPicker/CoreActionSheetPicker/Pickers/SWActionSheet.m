@@ -91,7 +91,7 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
         UIWindow *window = nil;
 
 // Handle UIWindow for iOS 13 changes
-#if defined(__IPHONE_13_0)
+#if defined(__IPHONE_13_0) && !defined(TARGET_APP_EXTENSIONS)
         if (@available(iOS 13.0, *)) {
             UIScene *scene = [UIApplication sharedApplication].connectedScenes.allObjects.firstObject;
             if (scene && [scene isKindOfClass:[UIWindowScene class]]) {
@@ -202,9 +202,11 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
 @implementation SWActionSheetVC
 
 
+#if !defined(TARGET_APP_EXTENSIONS)
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return [UIApplication sharedApplication].statusBarStyle;
 }
+#endif
 
 - (void)setActionSheet:(SWActionSheet *)actionSheet
 {
@@ -249,10 +251,12 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     [_actionSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
 
+#if !defined(TARGET_APP_EXTENSIONS)
 - (BOOL)prefersStatusBarHidden
 {
 	return [UIApplication sharedApplication].statusBarHidden;
 }
+#endif
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {

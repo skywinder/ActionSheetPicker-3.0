@@ -57,11 +57,13 @@ CG_INLINE BOOL isIPhone4() {
 @implementation MyPopoverController
 + (BOOL)canShowPopover {
     if (IS_IPAD) {
+#if !defined(TARGET_APP_EXTENSIONS)
         if ([UITraitCollection class]) {
             UITraitCollection *traits = [UIApplication sharedApplication].keyWindow.traitCollection;
             if (traits.horizontalSizeClass == UIUserInterfaceSizeClassCompact)
                 return NO;
         }
+#endif
         return YES;
     }
     return NO;
@@ -140,6 +142,9 @@ CG_INLINE BOOL isIPhone4() {
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "UnavailableInDeploymentTarget"
+#if defined(TARGET_APP_EXTENSIONS)
+        self.supportedInterfaceOrientations = UIInterfaceOrientationMaskAllButUpsideDown;
+#else
         if ([UIApplication instancesRespondToSelector:@selector(supportedInterfaceOrientationsForWindow:)])
             self.supportedInterfaceOrientations = (UIInterfaceOrientationMask) [[UIApplication sharedApplication]
                     supportedInterfaceOrientationsForWindow:
@@ -149,6 +154,7 @@ CG_INLINE BOOL isIPhone4() {
             if (IS_IPAD)
                 self.supportedInterfaceOrientations |= (1 << UIInterfaceOrientationPortraitUpsideDown);
         }
+#endif
 #pragma clang diagnostic pop
 
         UIBarButtonItem *sysDoneButton = [self createButtonWithType:UIBarButtonSystemItemDone target:self
@@ -254,10 +260,12 @@ CG_INLINE BOOL isIPhone4() {
     }
     
     /// Bottom padding for iPhone X style phones (adds some additional height for the home bar).
+#if !defined(TARGET_APP_EXTENSIONS)
     if (@available(iOS 11.0, *)) {
         UIWindow *window = UIApplication.sharedApplication.keyWindow;
         height += window.safeAreaInsets.bottom;
     }
+#endif
     
     UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, height)];
 
@@ -627,7 +635,9 @@ CG_INLINE BOOL isIPhone4() {
 #pragma mark - Picker blur effect
 
 - (void)blurPickerBackground {
-    UIViewController *rootViewController = [self rootViewController];
+#if !defined(TARGET_APP_EXTENSIONS)
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    UIViewController *rootViewController = window.rootViewController;
 
     UIView *masterView = self.pickerView.superview;
 
@@ -661,6 +671,7 @@ CG_INLINE BOOL isIPhone4() {
     [masterView sendSubviewToBack:blurredImageView];
 
     CGImageRelease(imageRef);
+#endif
 }
 
 #pragma mark - Utilities and Accessors
@@ -669,7 +680,11 @@ CG_INLINE BOOL isIPhone4() {
     if (IS_IPAD) {
         if (!self.popoverDisabled && [MyPopoverController canShowPopover])
             return CGSizeMake(320, 320);
+#if defined(TARGET_APP_EXTENSIONS)
+        return CGSizeMake(320, 320);
+#else
         return [UIApplication sharedApplication].keyWindow.bounds.size;
+#endif
     }
 
 #if defined(__IPHONE_8_0)
@@ -691,7 +706,11 @@ CG_INLINE BOOL isIPhone4() {
 }
 
 - (BOOL)isViewPortrait {
+#if defined(TARGET_APP_EXTENSIONS)
+    return NO;
+#else
     return UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
+#endif
 }
 
 - (BOOL)isValidOrigin:(id)origin {
@@ -709,12 +728,20 @@ CG_INLINE BOOL isIPhone4() {
 }
 
 - (UIViewController *)rootViewController {
+#if defined(TARGET_APP_EXTENSIONS)
+    return self.rootViewControllerForExtension;
+#else
     UIWindow *window = [UIApplication sharedApplication].delegate.window;
     return window.rootViewController;
+#endif
 }
 
 - (UIViewController *)topViewController {
+#if defined(TARGET_APP_EXTENSIONS)
+    UIViewController *topController = self.rootViewControllerForExtension;
+#else
     UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+#endif
     while (topController.presentedViewController) {
         topController = topController.presentedViewController;
     }
@@ -840,7 +867,8 @@ CG_INLINE BOOL isIPhone4() {
         });
     }
     @catch (NSException *exception) {
-        origin = [[self topViewController] view];
+#if !defined(TARGET_APP_EXTENSIONS)
+        origin = [[[[UIApplication sharedApplication] keyWindow] rootViewController] view];
         presentRect = CGRectMake(origin.center.x, origin.center.y, 1, 1);
         dispatch_async(dispatch_get_main_queue(), ^{
             viewController.popoverPresentationController.sourceRect = presentRect;
@@ -849,6 +877,7 @@ CG_INLINE BOOL isIPhone4() {
 
             [[self topViewController] presentViewController:viewController animated:YES completion:nil];
         });
+#endif
     }
 }
 
