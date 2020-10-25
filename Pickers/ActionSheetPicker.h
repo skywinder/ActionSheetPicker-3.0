@@ -25,11 +25,22 @@
 //SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import "ActionSheetCustomPickerDelegate.h"
-#import "AbstractActionSheetPicker.h"
-#import "ActionSheetCustomPicker.h"
-#import "ActionSheetDatePicker.h"
-#import "ActionSheetDistancePicker.h"
-#import "ActionSheetLocalePicker.h"
-#import "ActionSheetStringPicker.h"
-#import "ActionSheetMultipleStringPicker.h"
+#if COCOAPODS
+#import <ActionSheetCustomPickerDelegate.h>
+#import <AbstractActionSheetPicker.h>
+#import <ActionSheetCustomPicker.h>
+#import <ActionSheetDatePicker.h>
+#import <ActionSheetDistancePicker.h>
+#import <ActionSheetLocalePicker.h>
+#import <ActionSheetStringPicker.h>
+#import <ActionSheetMultipleStringPicker.h>
+#else
+#import <CoreActionSheetPicker/ActionSheetCustomPickerDelegate.h>
+#import <CoreActionSheetPicker/AbstractActionSheetPicker.h>
+#import <CoreActionSheetPicker/ActionSheetCustomPicker.h>
+#import <CoreActionSheetPicker/ActionSheetDatePicker.h>
+#import <CoreActionSheetPicker/ActionSheetDistancePicker.h>
+#import <CoreActionSheetPicker/ActionSheetLocalePicker.h>
+#import <CoreActionSheetPicker/ActionSheetStringPicker.h>
+#import <CoreActionSheetPicker/ActionSheetMultipleStringPicker.h>
+#endif
