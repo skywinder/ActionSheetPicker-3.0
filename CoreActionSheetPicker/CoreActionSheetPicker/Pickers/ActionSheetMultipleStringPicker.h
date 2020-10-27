@@ -51,7 +51,7 @@ typedef void(^ActionMultipleStringCancelBlock)(ActionSheetMultipleStringPicker *
  */
 + (instancetype)showPickerWithTitle:(NSString *)title rows:(NSArray *)data initialSelection:(NSArray *)indexes target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
 
-/// Create and display an action sheet picker with assigned target actions on sucess/cancel, but don't display until a subsequent call to "showActionPicker".
+/// Create and display an action sheet picker with assigned target actions on success/cancel, but don't display until a subsequent call to "showActionPicker".
 - (instancetype)initWithTitle:(NSString *)title rows:(NSArray *)data initialSelection:(NSArray *)indexes target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
 
 
