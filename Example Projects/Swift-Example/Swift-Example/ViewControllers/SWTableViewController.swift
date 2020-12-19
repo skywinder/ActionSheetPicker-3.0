@@ -46,27 +46,26 @@ class SWTableViewController: UITableViewController, UITextFieldDelegate {
                                     origin: sender.superview!.superview)
     }
 
-
     @IBAction func timePickerClicked(_ sender: UIButton) {
         // example of picker initialized with target/action parameters
-        let datePicker = ActionSheetDatePicker(title: "Time - (Automatic):",
-                                               datePickerMode: UIDatePicker.Mode.time,
-                                               selectedDate: Date(),
-                                               target: self,
-                                               action: #selector(datePicked(_:)),
-                                               origin: sender.superview!.superview)
+        let datePicker = ActionSheetDatePicker(
+                    title: "Time - (Automatic):",
+                    datePickerMode: .time,
+                    selectedDate: Date(),
+                    doneBlock: { (datePicker, selectedDate, origin) in
+                        print("DONE: Date picked \(selectedDate ?? "NO DATE")")
+                    },
+                    cancel: { (datePicker) in
+                        print("CANCELLED")
+                    },
+                    origin: sender.superview!.superview)
         datePicker?.minuteInterval = 20
         if #available(iOS 13.4, *) {
             datePicker?.datePickerStyle = .automatic
         }
-
+        datePicker?.tapDismissAction = .cancel
         datePicker?.show()
     }
-
-    @objc func datePicked(_ date: Date) {
-        print("Date picked \(date)")
-    }
-
 
     @IBAction func datePickerClicked(_ sender: UIButton) {
         // example of date picker with min and max values set (as a week in past and week in future from today)
