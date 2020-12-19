@@ -160,7 +160,7 @@ CG_INLINE BOOL isIPhone4() {
         [self setCancelBarButtonItem:sysCancelButton];
         [self setDoneBarButtonItem:sysDoneButton];
 
-        self.tapDismissAction = TapActionNone;
+        self.tapDismissAction = TapActionDismiss;
         //allows us to use this without needing to store a reference in calling class
         self.selfReference = self;
 
@@ -310,10 +310,16 @@ CG_INLINE BOOL isIPhone4() {
 #pragma ide diagnostic ignored "UnavailableInDeploymentTarget"
     {
         switch (self.tapDismissAction) {
-            case TapActionNone:
-                break;
-            case TapActionSuccess: {
+            case TapActionDismiss: {
                 // add tap dismiss action
+                self.actionSheet.window.userInteractionEnabled = YES;
+                UITapGestureRecognizer *tapAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPicker)];
+                tapAction.delegate = self;
+                [self.actionSheet.window addGestureRecognizer:tapAction];
+                break;
+            }
+            case TapActionSuccess: {
+                // add tap success action with dismissPicker
                 self.actionSheet.window.userInteractionEnabled = YES;
                 UITapGestureRecognizer *tapAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionPickerDone:)];
                 tapAction.delegate = self;
@@ -321,7 +327,7 @@ CG_INLINE BOOL isIPhone4() {
                 break;
             }
             case TapActionCancel: {
-                // add tap dismiss action
+                // add tap cancel action with dismissPicker
                 self.actionSheet.window.userInteractionEnabled = YES;
                 UITapGestureRecognizer *tapAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionPickerCancel:)];
                 tapAction.delegate = self;
