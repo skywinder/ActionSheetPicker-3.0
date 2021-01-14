@@ -70,8 +70,10 @@
     // Default to our delegate being the picker's delegate and datasource
     pv.delegate = _delegate;
     pv.dataSource = _delegate;
+    #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0  // silence deprecation warning
     pv.showsSelectionIndicator = YES;
-
+    #endif
+    
     if ( self.initialSelections )
     {
         NSAssert(pv.numberOfComponents == self.initialSelections.count, @"Number of sections not match");

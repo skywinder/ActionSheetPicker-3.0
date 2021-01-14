@@ -93,7 +93,9 @@
     DistancePickerView *picker = [[DistancePickerView alloc] initWithFrame:distancePickerFrame];
     picker.delegate = self;
     picker.dataSource = self;
+    #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0  // silence deprecation warning
     picker.showsSelectionIndicator = YES;
+    #endif
 //    [picker addLabel:self.bigUnitString forComponent:(NSUInteger) (self.bigUnitDigits - 1) forLongestString:nil];
 //    [picker addLabel:self.smallUnitString forComponent:(NSUInteger) (self.bigUnitDigits + self.smallUnitDigits - 1)
 //    forLongestString:nil];

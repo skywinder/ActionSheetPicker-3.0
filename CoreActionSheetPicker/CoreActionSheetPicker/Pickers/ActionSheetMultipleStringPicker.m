@@ -80,10 +80,14 @@
     [self performInitialSelectionInPickerView:stringPicker];
 
     if (self.data.count == 0) {
+        #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0
         stringPicker.showsSelectionIndicator = NO;
+        #endif
         stringPicker.userInteractionEnabled = NO;
     } else {
+        #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0
         stringPicker.showsSelectionIndicator = YES;
+        #endif
         stringPicker.userInteractionEnabled = YES;
     }
 

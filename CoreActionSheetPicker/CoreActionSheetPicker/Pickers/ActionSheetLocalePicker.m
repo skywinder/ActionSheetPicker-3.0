@@ -85,9 +85,11 @@
     UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
     pickerView.delegate = self;
     pickerView.dataSource = self;
-
+    
+    #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0  // silence deprecation warning
     pickerView.showsSelectionIndicator = YES;
-
+    #endif
+    
     [self selectCurrentLocale:pickerView];
 
     //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing

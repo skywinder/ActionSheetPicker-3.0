@@ -40,7 +40,7 @@ CG_INLINE BOOL isIPhone4() {
 }
 
 #define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
-#define IS_IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define IS_IPAD ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad )
 #define DEVICE_ORIENTATION [UIDevice currentDevice].orientation
 
 // UIInterfaceOrientationMask vs. UIInterfaceOrientation
@@ -501,8 +501,13 @@ CG_INLINE BOOL isIPhone4() {
 - (UIToolbar *)createPickerToolbarWithTitle:(NSString *)title {
     CGRect frame = CGRectMake(0, 0, self.viewSize.width, 44);
     UIToolbar *pickerToolbar = [[UIToolbar alloc] initWithFrame:frame];
+    
+    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0  // silence deprecation warning
+    pickerToolbar.barStyle = UIBarStyleDefault;
+    #else
     pickerToolbar.barStyle = (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) ? UIBarStyleDefault : UIBarStyleBlackTranslucent;
-
+    #endif
+    
     pickerToolbar.barTintColor = self.toolbarBackgroundColor;
     pickerToolbar.tintColor = self.toolbarButtonsColor;
 
@@ -733,8 +738,12 @@ CG_INLINE BOOL isIPhone4() {
 }
 
 - (void)configureAndPresentActionSheetForView:(UIView *)aView {
+    // TODO: silencing this warning on iOS >= 13 requires a non trivial update involving viewWillTransitionToSize:
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated"
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
-
+    #pragma clang diagnostic pop
+    
     _actionSheet = [[SWActionSheet alloc] initWithView:aView windowLevel:self.windowLevel];
     if (self.pickerBackgroundColor) {
         _actionSheet.bgView.backgroundColor = self.pickerBackgroundColor;
@@ -743,9 +752,14 @@ CG_INLINE BOOL isIPhone4() {
     [self presentActionSheet:_actionSheet];
 
     // Use beginAnimations for a smoother popup animation, otherwise the UIActionSheet pops into view
-    [UIView beginAnimations:nil context:nil];
+
+    // NOTE: the animation body was already commented out before removing [UIView beginAnimations:context:]
+    //       and [UIView commitAnimations] calls to silence deprecation warning
+    
+    // Use beginAnimations for a smoother popup animation, otherwise the UIActionSheet pops into view
+    //[UIView beginAnimations:nil context:nil];
 //    _actionSheet.bounds = CGRectMake(0, 0, self.viewSize.width, sheetHeight);
-    [UIView commitAnimations];
+    //[UIView commitAnimations];
 }
 
 - (void)didRotate:(NSNotification *)notification {

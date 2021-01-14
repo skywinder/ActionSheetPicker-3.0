@@ -56,13 +56,11 @@
         [self addLabel:labeltext forComponent:component forLongestString:longestString];
 
         // change label during fade out/in
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.75];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-        theLabel.alpha = 0.00;
-        theLabel.text = labeltext;
-        theLabel.alpha = 1.00;
-        [UIView commitAnimations];
+        [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            theLabel.alpha = 0.00;
+            theLabel.text = labeltext;
+            theLabel.alpha = 1.00;
+        } completion:nil];
     }
 
 }
@@ -156,6 +154,7 @@
 
             if ( addlabelView )
             {
+                #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0  // silence deprecation warning
                 /* 
                  and now for the tricky bit: adding the label to the view.
                  kind of a hack to be honest, might stop working if Apple decides to 
@@ -190,6 +189,7 @@
 
                     }
                 } else
+                #endif // iOS version < 7.0 compile time check
                         // there is no selection indicator, so just add it to the top
                     [self addSubview:label];
 

@@ -75,10 +75,14 @@
     stringPicker.dataSource = self;
     [stringPicker selectRow:self.selectedIndex inComponent:0 animated:NO];
     if (self.data.count == 0) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0  // silence deprecation warning
         stringPicker.showsSelectionIndicator = NO;
+#endif
         stringPicker.userInteractionEnabled = NO;
     } else {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0  // silence deprecation warning
         stringPicker.showsSelectionIndicator = YES;
+#endif
         stringPicker.userInteractionEnabled = YES;
     }
 
