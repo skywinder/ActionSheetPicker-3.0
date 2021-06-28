@@ -260,19 +260,8 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     return !CGRectContainsPoint(_actionSheet.bgView.frame, location);
 }
 
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
-// iOS6 support
-// ---
 - (BOOL)shouldAutorotate
 {
-        return YES;
+    return YES;
 }
-#else
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return NO;
-}
-#endif
 @end

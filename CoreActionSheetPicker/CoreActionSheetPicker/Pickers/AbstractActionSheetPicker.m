@@ -48,9 +48,6 @@ CG_INLINE BOOL isIPhone4() {
 // UIInterfaceOrientationMask.
 #define OrientationMaskSupportsOrientation(mask, orientation)   ((mask & (1 << orientation)) == (1 << orientation))
 
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
-
 @interface MyPopoverController : UIPopoverPresentationController <UIAdaptivePresentationControllerDelegate>
 @end
 
@@ -71,19 +68,6 @@ CG_INLINE BOOL isIPhone4() {
     return UIModalPresentationNone;
 }
 @end
-
-#else
-
-@interface MyPopoverController:UIPopoverController
-@end
-
-@implementation MyPopoverController
-+(BOOL)canShowPopover {
-    return IS_IPAD;
-}
-@end
-
-#endif
 
 @interface AbstractActionSheetPicker () <UIGestureRecognizerDelegate>
 
@@ -345,11 +329,7 @@ CG_INLINE BOOL isIPhone4() {
 }
 
 - (void)dismissPicker {
-#if __IPHONE_4_1 <= __IPHONE_OS_VERSION_MAX_ALLOWED
     if (self.actionSheet)
-#else
-        if (self.actionSheet && [self.actionSheet isVisible])
-#endif
         [_actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     else if (self.popOverViewController)
         [_popOverViewController dismissViewControllerAnimated:YES completion:nil];
@@ -671,8 +651,6 @@ CG_INLINE BOOL isIPhone4() {
             return CGSizeMake(320, 320);
         return [UIApplication sharedApplication].keyWindow.bounds.size;
     }
-
-#if defined(__IPHONE_8_0)
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
         //iOS 7.1 or earlier
         if ([self isViewPortrait])
@@ -683,11 +661,6 @@ CG_INLINE BOOL isIPhone4() {
         //iOS 8 or later
         return [[UIScreen mainScreen] bounds].size;
     }
-#else
-    if ( [self isViewPortrait] )
-        return CGSizeMake(320 , IS_WIDESCREEN ? 568 : 480);
-    return CGSizeMake(IS_WIDESCREEN ? 568 : 480, 320);
-#endif
 }
 
 - (BOOL)isViewPortrait {
