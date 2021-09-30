@@ -25,8 +25,13 @@
 //SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import "AbstractActionSheetPicker.h"
-#import "DistancePickerView.h"
+#if COCOAPODS
+#import <AbstractActionSheetPicker.h>
+#import <DistancePickerView.h>
+#else
+#import <CoreActionSheetPicker/AbstractActionSheetPicker.h>
+#import <CoreActionSheetPicker/DistancePickerView.h>
+#endif
 @interface ActionSheetDistancePicker : AbstractActionSheetPicker <UIPickerViewDelegate, UIPickerViewDataSource>
 
 + (instancetype)showPickerWithTitle:(NSString *)title bigUnitString:(NSString *)bigUnitString bigUnitMax:(NSInteger)bigUnitMax selectedBigUnit:(NSInteger)selectedBigUnit smallUnitString:(NSString *)smallUnitString smallUnitMax:(NSInteger)smallUnitMax selectedSmallUnit:(NSInteger)selectedSmallUnit target:(id)target action:(SEL)action origin:(id)origin;
