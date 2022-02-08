@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "ActionSheetPicker-3.0",
+    platforms: [.iOS(.v9)],
     products: [
         .library(
             name: "ActionSheetPicker-3.0",
@@ -13,11 +14,9 @@ let package = Package(
     targets: [
         .target(
             name: "CoreActionSheetPicker",
-            dependencies: [],
-            path: "CoreActionSheetPicker/CoreActionSheetPicker",
-            publicHeadersPath: "Pickers"
+            path: "CoreActionSheetPicker/CoreActionSheetPicker/Pickers",
+            publicHeadersPath: "include"
         )
     ],
-
     swiftLanguageVersions: [.v5]
 )
