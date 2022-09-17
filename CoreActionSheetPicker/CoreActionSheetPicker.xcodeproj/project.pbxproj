@@ -29,6 +29,8 @@
 		6BA0DC7927B228D5009EC711 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0DC6527B228D5009EC711 /* DistancePickerView.m */; };
 		6BA0DC7A27B228D5009EC711 /* ActionSheetMultipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0DC6627B228D5009EC711 /* ActionSheetMultipleStringPicker.m */; };
 		6BA0DC7B27B228D5009EC711 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0DC6727B228D5009EC711 /* AbstractActionSheetPicker.m */; };
+		F8E2BD9728D48A3400970139 /* CoreActionSheetMonthYearPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E2BD9528D48A3400970139 /* CoreActionSheetMonthYearPicker.m */; };
+		F8E2BD9828D48A3400970139 /* CoreActionSheetMonthYearPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = F8E2BD9628D48A3400970139 /* CoreActionSheetMonthYearPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		6BA0DC6527B228D5009EC711 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
 		6BA0DC6627B228D5009EC711 /* ActionSheetMultipleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetMultipleStringPicker.m; sourceTree = "<group>"; };
 		6BA0DC6727B228D5009EC711 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		F8E2BD9528D48A3400970139 /* CoreActionSheetMonthYearPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreActionSheetMonthYearPicker.m; sourceTree = "<group>"; };
+		F8E2BD9628D48A3400970139 /* CoreActionSheetMonthYearPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreActionSheetMonthYearPicker.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,15 +148,16 @@
 			isa = PBXGroup;
 			children = (
 				6BA0DC5527B228D5009EC711 /* include */,
-				6BA0DC5327B228D5009EC711 /* ActionSheetDatePicker.m */,
-				6BA0DC5427B228D5009EC711 /* ActionSheetLocalePicker.m */,
-				6BA0DC6127B228D5009EC711 /* ActionSheetDistancePicker.m */,
-				6BA0DC6227B228D5009EC711 /* ActionSheetCustomPicker.m */,
-				6BA0DC6327B228D5009EC711 /* SWActionSheet.m */,
-				6BA0DC6427B228D5009EC711 /* ActionSheetStringPicker.m */,
-				6BA0DC6527B228D5009EC711 /* DistancePickerView.m */,
-				6BA0DC6627B228D5009EC711 /* ActionSheetMultipleStringPicker.m */,
 				6BA0DC6727B228D5009EC711 /* AbstractActionSheetPicker.m */,
+				6BA0DC6227B228D5009EC711 /* ActionSheetCustomPicker.m */,
+				6BA0DC5327B228D5009EC711 /* ActionSheetDatePicker.m */,
+				6BA0DC6127B228D5009EC711 /* ActionSheetDistancePicker.m */,
+				6BA0DC5427B228D5009EC711 /* ActionSheetLocalePicker.m */,
+				6BA0DC6627B228D5009EC711 /* ActionSheetMultipleStringPicker.m */,
+				6BA0DC6427B228D5009EC711 /* ActionSheetStringPicker.m */,
+				F8E2BD9528D48A3400970139 /* CoreActionSheetMonthYearPicker.m */,
+				6BA0DC6527B228D5009EC711 /* DistancePickerView.m */,
+				6BA0DC6327B228D5009EC711 /* SWActionSheet.m */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -160,17 +165,18 @@
 		6BA0DC5527B228D5009EC711 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				6BA0DC5927B228D5009EC711 /* CoreActionSheetPicker.h */,
-				6BA0DC5627B228D5009EC711 /* ActionSheetCustomPicker.h */,
-				6BA0DC5727B228D5009EC711 /* ActionSheetStringPicker.h */,
-				6BA0DC5827B228D5009EC711 /* SWActionSheet.h */,
 				6BA0DC5A27B228D5009EC711 /* AbstractActionSheetPicker.h */,
-				6BA0DC5B27B228D5009EC711 /* ActionSheetMultipleStringPicker.h */,
-				6BA0DC5C27B228D5009EC711 /* DistancePickerView.h */,
+				6BA0DC5627B228D5009EC711 /* ActionSheetCustomPicker.h */,
 				6BA0DC5D27B228D5009EC711 /* ActionSheetCustomPickerDelegate.h */,
 				6BA0DC5E27B228D5009EC711 /* ActionSheetDatePicker.h */,
-				6BA0DC5F27B228D5009EC711 /* ActionSheetLocalePicker.h */,
 				6BA0DC6027B228D5009EC711 /* ActionSheetDistancePicker.h */,
+				6BA0DC5F27B228D5009EC711 /* ActionSheetLocalePicker.h */,
+				6BA0DC5B27B228D5009EC711 /* ActionSheetMultipleStringPicker.h */,
+				6BA0DC5727B228D5009EC711 /* ActionSheetStringPicker.h */,
+				F8E2BD9628D48A3400970139 /* CoreActionSheetMonthYearPicker.h */,
+				6BA0DC5927B228D5009EC711 /* CoreActionSheetPicker.h */,
+				6BA0DC5C27B228D5009EC711 /* DistancePickerView.h */,
+				6BA0DC5827B228D5009EC711 /* SWActionSheet.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 				6BA0DC7327B228D5009EC711 /* ActionSheetLocalePicker.h in Headers */,
 				6BA0DC6C27B228D5009EC711 /* SWActionSheet.h in Headers */,
 				6BA0DC7127B228D5009EC711 /* ActionSheetCustomPickerDelegate.h in Headers */,
+				F8E2BD9828D48A3400970139 /* CoreActionSheetMonthYearPicker.h in Headers */,
 				6BA0DC6D27B228D5009EC711 /* CoreActionSheetPicker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +309,7 @@
 				6BA0DC7527B228D5009EC711 /* ActionSheetDistancePicker.m in Sources */,
 				6BA0DC7A27B228D5009EC711 /* ActionSheetMultipleStringPicker.m in Sources */,
 				6BA0DC6827B228D5009EC711 /* ActionSheetDatePicker.m in Sources */,
+				F8E2BD9728D48A3400970139 /* CoreActionSheetMonthYearPicker.m in Sources */,
 				6BA0DC6927B228D5009EC711 /* ActionSheetLocalePicker.m in Sources */,
 				6BA0DC7927B228D5009EC711 /* DistancePickerView.m in Sources */,
 			);

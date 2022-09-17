@@ -1,4 +1,7 @@
 Example Projects/Carthage-example/Carthage/Checkouts
+### OS generated files ###
+.DS_Store
+.DS_Store?
 
 ### Xcode ###
 build/

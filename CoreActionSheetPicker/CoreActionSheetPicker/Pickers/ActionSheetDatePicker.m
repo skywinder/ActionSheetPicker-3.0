@@ -27,19 +27,21 @@
 
 
 #import "ActionSheetDatePicker.h"
+#import "CoreActionSheetMonthYearPicker.h"
 #import <objc/message.h>
 
 @interface ActionSheetDatePicker()
 
-@property (nonatomic, assign) UIDatePickerMode datePickerMode;
+@property (nonatomic, assign) ActionSheetDatePickerMode datePickerMode;
 @property (nonatomic, strong) NSDate *selectedDate;
 
 @end
 
 @implementation ActionSheetDatePicker
 
-@synthesize datePickerStyle = _datePickerStyle;
+const CGFloat kActionSheetDefaultHeight = 216;
 
+@synthesize datePickerStyle = _datePickerStyle;
 
 -(UIDatePickerStyle)datePickerStyle {
     if (_datePickerStyle != UIDatePickerStyleAutomatic) {
@@ -50,7 +52,7 @@
 }
 
 + (instancetype)showPickerWithTitle:(NSString *)title
-           datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
+           datePickerMode:(ActionSheetDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
                    target:(id)target action:(SEL)action origin:(id)origin {
     ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin];
     [picker showActionSheetPicker];
@@ -58,7 +60,7 @@
 }
 
 + (instancetype)showPickerWithTitle:(NSString *)title
-           datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
+           datePickerMode:(ActionSheetDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
                    target:(id)target action:(SEL)action origin:(id)origin cancelAction:(SEL)cancelAction {
     ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin cancelAction:cancelAction];
     [picker showActionSheetPicker];
@@ -66,7 +68,7 @@
 }
 
 + (instancetype)showPickerWithTitle:(NSString *)title
-           datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
+           datePickerMode:(ActionSheetDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate
               minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate
                    target:(id)target action:(SEL)action origin:(id)origin {
     ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin];
@@ -77,7 +79,7 @@
 }
 
 + (instancetype)showPickerWithTitle:(NSString *)title
-           datePickerMode:(UIDatePickerMode)datePickerMode
+           datePickerMode:(ActionSheetDatePickerMode)datePickerMode
              selectedDate:(NSDate *)selectedDate
                 doneBlock:(ActionDateDoneBlock)doneBlock
               cancelBlock:(ActionDateCancelBlock)cancelBlock
@@ -94,7 +96,7 @@
 }
 
 + (instancetype)showPickerWithTitle:(NSString *)title
-           datePickerMode:(UIDatePickerMode)datePickerMode
+           datePickerMode:(ActionSheetDatePickerMode)datePickerMode
              selectedDate:(NSDate *)selectedDate
               minimumDate:(NSDate *)minimumDate
               maximumDate:(NSDate *)maximumDate
@@ -114,13 +116,13 @@
     return picker;
 }
 
-- (id)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin
+- (id)initWithTitle:(NSString *)title datePickerMode:(ActionSheetDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin
 {
     self = [self initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin cancelAction:nil];
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate target:(id)target action:(SEL)action origin:(id)origin
+- (instancetype)initWithTitle:(NSString *)title datePickerMode:(ActionSheetDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate target:(id)target action:(SEL)action origin:(id)origin
 {
     self = [self initWithTitle:title datePickerMode:datePickerMode selectedDate:selectedDate target:target action:action origin:origin cancelAction:nil];
     self.minimumDate = minimumDate;
@@ -128,7 +130,7 @@
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin cancelAction:(SEL)cancelAction
+- (instancetype)initWithTitle:(NSString *)title datePickerMode:(ActionSheetDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate target:(id)target action:(SEL)action origin:(id)origin cancelAction:(SEL)cancelAction
 {
     self = [super initWithTarget:target successAction:action cancelAction:cancelAction origin:origin];
     if (self) {
@@ -139,7 +141,7 @@
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title datePickerMode:(UIDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate target:(id)target action:(SEL)action cancelAction:(SEL)cancelAction origin:(id)origin
+- (instancetype)initWithTitle:(NSString *)title datePickerMode:(ActionSheetDatePickerMode)datePickerMode selectedDate:(NSDate *)selectedDate minimumDate:(NSDate *)minimumDate maximumDate:(NSDate *)maximumDate target:(id)target action:(SEL)action cancelAction:(SEL)cancelAction origin:(id)origin
 {
     self = [super initWithTarget:target successAction:action cancelAction:cancelAction origin:origin];
     if (self) {
@@ -153,7 +155,7 @@
 }
 
 - (instancetype)initWithTitle:(NSString *)title
-               datePickerMode:(UIDatePickerMode)datePickerMode
+               datePickerMode:(ActionSheetDatePickerMode)datePickerMode
                  selectedDate:(NSDate *)selectedDate
                     doneBlock:(ActionDateDoneBlock)doneBlock
                   cancelBlock:(ActionDateCancelBlock)cancelBlock
@@ -167,10 +169,75 @@
     return self;
 }
 
+- (CoreActionSheetMonthYearPickerMode) CoreActionSheetMonthYearPickerMode {
+    switch (self.datePickerMode) {
+        case ActionSheetDatePickerModeMonthAndYear:
+            return CoreActionSheetMonthYearPickerModeMonthAndYear;
+        case ActionSheetDatePickerModeYear:
+            return CoreActionSheetMonthYearPickerModeYear;
+        default:
+            return CoreActionSheetMonthYearPickerModeMonthAndYear;
+    }
+}
+
+- (UIDatePickerMode) uiDatePickerMode {
+    switch (self.datePickerMode) {
+        case ActionSheetDatePickerModeTime:
+            return UIDatePickerModeTime;
+        case ActionSheetDatePickerModeDate:
+            return UIDatePickerModeDate;
+        case ActionSheetDatePickerModeDateAndTime:
+            return UIDatePickerModeDateAndTime;
+        case ActionSheetDatePickerModeCountDownTimer:
+            return UIDatePickerModeCountDownTimer;
+        default:
+            return UIDatePickerModeTime;
+    }
+}
+
+- (BOOL) isSystemDatePicker {
+    switch (self.datePickerMode) {
+        case ActionSheetDatePickerModeTime:
+        case ActionSheetDatePickerModeDate:
+        case ActionSheetDatePickerModeDateAndTime:
+        case ActionSheetDatePickerModeCountDownTimer:
+            return YES;
+        case ActionSheetDatePickerModeMonthAndYear:
+        case ActionSheetDatePickerModeYear:
+            return NO;
+    }
+}
+
 - (UIView *)configuredPickerView {
-    CGRect datePickerFrame = CGRectMake(0, 40, self.viewSize.width, 216);
-    UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:datePickerFrame];
-    datePicker.datePickerMode = self.datePickerMode;
+    UIView* datePicker;
+    if ([self isSystemDatePicker]) {
+        datePicker = [self createSystemDatePicker];
+    } else {
+        datePicker = [self createCustomPicker];
+    }
+    
+    //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing (not used in this picker, but just in case somebody uses this as a template for another picker)
+    self.pickerView = datePicker;
+
+    return datePicker;
+}
+
+- (UIView*) createCustomPicker {
+    CoreActionSheetMonthYearPicker *datePicker = [[CoreActionSheetMonthYearPicker alloc] initWithFrame: CGRectMake(0, 40, self.viewSize.width, kActionSheetDefaultHeight)];
+    datePicker.datePickerMode = [self CoreActionSheetMonthYearPickerMode];
+    datePicker.maximumDate = self.maximumDate;
+    datePicker.minimumDate = self.minimumDate;
+    datePicker.calendar = self.calendar;
+    datePicker.locale = self.locale;
+    datePicker.pickerTextAttributes = self.pickerTextAttributes;
+    datePicker.date = self.selectedDate;
+    [datePicker addTarget:self action:@selector(eventForDatePicker:) forControlEvents:UIControlEventValueChanged];
+    return datePicker;
+}
+
+- (UIView*) createSystemDatePicker {
+    UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame: CGRectMake(0, 40, self.viewSize.width, kActionSheetDefaultHeight)];
+    datePicker.datePickerMode = [self uiDatePickerMode];
     datePicker.maximumDate = self.maximumDate;
     datePicker.minimumDate = self.minimumDate;
     datePicker.minuteInterval = self.minuteInterval;
@@ -188,7 +255,7 @@
     
     // if datepicker is set with a date in countDownMode then
     // 1h is added to the initial countdown
-    if (self.datePickerMode == UIDatePickerModeCountDownTimer) {
+    if (self.datePickerMode == ActionSheetDatePickerModeCountDownTimer) {
         datePicker.countDownDuration = self.countDownDuration;
         // Due to a bug in UIDatePicker, countDownDuration needs to be set asynchronously
         // more info: http://stackoverflow.com/a/20204317/1161723
@@ -198,11 +265,8 @@
     } else {
         [datePicker setDate:self.selectedDate animated:NO];
     }
-
+    
     [datePicker addTarget:self action:@selector(eventForDatePicker:) forControlEvents:UIControlEventValueChanged];
-
-    //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing (not used in this picker, but just in case somebody uses this as a template for another picker)
-    self.pickerView = datePicker;
 
     return datePicker;
 }
@@ -211,7 +275,7 @@
 {
     if (self.onActionSheetDone)
     {
-        if (self.datePickerMode == UIDatePickerModeCountDownTimer)
+        if (self.datePickerMode == ActionSheetDatePickerModeCountDownTimer)
             self.onActionSheetDone(self, @(((UIDatePicker *)self.pickerView).countDownDuration), origin);
         else
             self.onActionSheetDone(self, self.selectedDate, origin);
@@ -221,7 +285,7 @@
     else if ([target respondsToSelector:action])
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        if (self.datePickerMode == UIDatePickerModeCountDownTimer) {
+        if (self.datePickerMode == ActionSheetDatePickerModeCountDownTimer) {
             [target performSelector:action withObject:@(((UIDatePicker *)self.pickerView).countDownDuration) withObject:origin];
 
         } else {
@@ -251,11 +315,21 @@
 
 - (void)eventForDatePicker:(id)sender
 {
-    if (!sender || ![sender isKindOfClass:[UIDatePicker class]])
+    if (!sender)
         return;
-    UIDatePicker *datePicker = (UIDatePicker *)sender;
-    self.selectedDate = datePicker.date;
-    self.countDownDuration = datePicker.countDownDuration;
+    
+    if ([sender isKindOfClass:[UIDatePicker class]]) {
+        UIDatePicker *datePicker = (UIDatePicker *)sender;
+        self.selectedDate = datePicker.date;
+        self.countDownDuration = datePicker.countDownDuration;
+        return;
+    }
+    
+    if ([sender isKindOfClass:[CoreActionSheetMonthYearPicker class]]) {
+        CoreActionSheetMonthYearPicker *datePicker = (CoreActionSheetMonthYearPicker *)sender;
+        self.selectedDate = datePicker.date;
+        return;
+    }
 }
 
 - (void)customButtonPressed:(id)sender {
@@ -270,10 +344,19 @@
         case ActionTypeValue: {
             NSAssert([self.pickerView respondsToSelector:@selector(setDate:animated:)], @"Bad pickerView for ActionSheetDatePicker, doesn't respond to setDate:animated:");
             NSDate *itemValue = buttonDetails[kButtonValue];
-            UIDatePicker *picker = (UIDatePicker *)self.pickerView;
-            if (self.datePickerMode != UIDatePickerModeCountDownTimer)
+            id picker = self.pickerView;
+            if (self.datePickerMode != ActionSheetDatePickerModeCountDownTimer)
             {
-                [picker setDate:itemValue animated:YES];
+                if ([picker isKindOfClass:[UIDatePicker class]]) {
+                    UIDatePicker *datePicker = (UIDatePicker *)picker;
+                    [datePicker setDate:itemValue animated:YES];
+                }
+                
+                if ([picker isKindOfClass:[CoreActionSheetMonthYearPicker class]]) {
+                    CoreActionSheetMonthYearPicker *datePicker = (CoreActionSheetMonthYearPicker *)picker;
+                    [datePicker setDate:itemValue animated:YES];
+                }
+                
                 [self eventForDatePicker:picker];
             }
             break;
@@ -292,26 +375,28 @@
 
 - (CGFloat)getDatePickerHeight
 {
-    CGFloat height = 216.0;
+    CGFloat height = kActionSheetDefaultHeight;
+    if ([self isSystemDatePicker]) {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 140000 // Xcode 12 and iOS 14, or greater
-    if (@available(iOS 14.0, *)) {
-        if (_datePickerStyle == UIDatePickerStyleCompact) {
-            height = 90.0;
-        } else if (_datePickerStyle == UIDatePickerStyleInline) {
-            switch (_datePickerMode) {
-                case UIDatePickerModeDate:
-                    height = 350.0;
-                    break;
-                case UIDatePickerModeTime:
-                    height = 90.0;
-                    break;
-                default: // UIDatePickerModeDateAndTime
-                    height = 400.0;
-                    break;
+        if (@available(iOS 14.0, *)) {
+            if (_datePickerStyle == UIDatePickerStyleCompact) {
+                height = 90.0;
+            } else if (_datePickerStyle == UIDatePickerStyleInline) {
+                switch (_datePickerMode) {
+                    case ActionSheetDatePickerModeDate:
+                        height = 350.0;
+                        break;
+                    case ActionSheetDatePickerModeTime:
+                        height = 90.0;
+                        break;
+                    default: // ActionSheetDatePickerModeDateAndTime
+                        height = 400.0;
+                        break;
+                }
             }
         }
-    }
 #endif
+    }
     return height;
 }
 
