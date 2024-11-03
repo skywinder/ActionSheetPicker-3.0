@@ -330,7 +330,7 @@ CG_INLINE BOOL isIPhone4() {
             self.actionSheet.window.userInteractionEnabled = YES;
             self.windowTapAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:sel];
             self.windowTapAction.delegate = self;
-            [self.actionSheet.window addGestureRecognizer:self.windowTapAction];
+            [self.pickerView.window addGestureRecognizer:self.windowTapAction];
         }
     }
 #pragma clang diagnostic pop
