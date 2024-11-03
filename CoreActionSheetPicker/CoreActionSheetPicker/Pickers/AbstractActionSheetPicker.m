@@ -288,8 +288,10 @@ CG_INLINE BOOL isIPhone4() {
     } else {
         [self presentPickerForView:masterView];
     }
-
-	[self addTapDismissAction];
+    
+    if (![MyPopoverController canShowPopover]) {
+        [self addTapDismissAction];
+    }
 }
 
 - (void)addTapDismissAction {
@@ -759,6 +761,7 @@ CG_INLINE BOOL isIPhone4() {
     NSParameterAssert(viewController != NULL);
 
     viewController.modalPresentationStyle = UIModalPresentationPopover;
+    viewController.presentationController.delegate = self;
 
     if (self.barButtonItem) {
         if (_containerView != nil) {
@@ -809,6 +812,21 @@ CG_INLINE BOOL isIPhone4() {
             [[self topViewController] presentViewController:viewController animated:YES completion:nil];
         });
     }
+}
+
+#pragma mark UIAdaptivePresentationControllerDelegate
+- (void)presentationControllerDidDismiss:(UIPresentationController *)presentationController {
+    switch (self.tapDismissAction) {
+        case TapActionDismiss:
+            [self dismissPicker];
+            break;
+        case TapActionSuccess:
+            [self actionPickerDone:nil];
+            break;
+        case TapActionCancel:
+            [self actionPickerCancel:nil];
+            break;
+    };
 }
 
 #pragma mark UIGestureRecognizerDelegate
