@@ -60,7 +60,7 @@ static NSString *const kActionType = @"buttonAction";
 
 static NSString *const kActionTarget = @"buttonActionTarget";
 
-@interface AbstractActionSheetPicker : NSObject <UIPopoverControllerDelegate>
+@interface AbstractActionSheetPicker : NSObject <UIPopoverControllerDelegate, UIAdaptivePresentationControllerDelegate>
 @property(nonatomic, strong) SWActionSheet *actionSheet;
 @property (nonatomic) UIWindowLevel windowLevel;
 @property(nonatomic, assign) NSInteger tag;
