@@ -15,8 +15,14 @@ let package = Package(
         .target(
             name: "CoreActionSheetPicker",
             path: "CoreActionSheetPicker/CoreActionSheetPicker/Pickers",
-            publicHeadersPath: "include"
+            publicHeadersPath: "include",
+        ),
+        .testTarget(
+            name: "CoreActionSheetPickerTests",
+            dependencies: ["CoreActionSheetPicker"],
+            path: "Tests/CoreActionSheetPickerTests"
         )
     ],
     swiftLanguageVersions: [.v5]
 )
+
