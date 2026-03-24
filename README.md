@@ -162,13 +162,13 @@ To import pod you should add string:
 - For `Obj-c` projects:
 
 ```obj-c
-   #import "ActionSheetPicker.h"
+   #import "CoreActionSheetPicker.h"
 ```
 
 - For `Swift` projects:
 
 ```swift
-  import ActionSheetPicker_3_0
+  import CoreActionSheetPicker
 ```
 
 ### Carthage
