@@ -201,6 +201,20 @@
 
     [datePicker addTarget:self action:@selector(eventForDatePicker:) forControlEvents:UIControlEventValueChanged];
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 140000 // Xcode 12 and iOS 14, or greater
+    if (@available(iOS 14.0, *)) {
+        if (self.datePickerStyle == UIDatePickerStyleCompact) {
+            // The compact style renders a small date capsule; stretched to the
+            // full sheet width it pins the capsule to the trailing edge under
+            // the Done button (#534). Size it to fit and center it vertically
+            // in the allocated region; the base class centers it horizontally.
+            CGSize fittingSize = [datePicker sizeThatFits:CGSizeZero];
+            CGFloat y = datePickerFrame.origin.y + (datePickerFrame.size.height - fittingSize.height) / 2;
+            datePicker.frame = CGRectMake(0, y, fittingSize.width, fittingSize.height);
+        }
+    }
+#endif
+
     //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing (not used in this picker, but just in case somebody uses this as a template for another picker)
     self.pickerView = datePicker;
 
