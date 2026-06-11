@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "ActionSheetStringPicker.h"
+#import "ActionSheetDatePicker.h"
 
 // Expose the private toolbar factory for geometry assertions.
 @interface AbstractActionSheetPicker (TestingHooks)
@@ -109,6 +110,35 @@
     XCTAssertEqualWithAccuracy(masterView.frame.size.height, 220.0, 0.01);
 
     [picker hidePickerWithCancelAction];
+}
+
+#pragma mark - Compact date picker (#534 / PR #541)
+
+- (void)testCompactDatePickerSizesToFitInsteadOfStretching {
+    if (@available(iOS 14.0, *)) {
+        ActionSheetDatePicker *picker =
+            [[ActionSheetDatePicker alloc] initWithTitle:@"Title"
+                                          datePickerMode:UIDatePickerModeDate
+                                            selectedDate:[NSDate dateWithTimeIntervalSince1970:1767225600]
+                                               doneBlock:nil
+                                             cancelBlock:nil
+                                                  origin:self.origin];
+        picker.datePickerStyle = UIDatePickerStyleCompact;
+        [picker showActionSheetPicker];
+
+        UIDatePicker *datePicker = (UIDatePicker *)picker.pickerView;
+        CGSize fittingSize = [datePicker sizeThatFits:CGSizeZero];
+
+        // The compact style renders a small capsule; stretching it to the full
+        // sheet width pins the capsule to the trailing edge under the Done
+        // button (#534).
+        XCTAssertEqualWithAccuracy(datePicker.frame.size.width, fittingSize.width, 0.5,
+                                   @"compact picker should size to fit, not stretch full width");
+        XCTAssertFalse(CGRectIntersectsRect(datePicker.frame, picker.toolbar.frame),
+                       @"compact picker must not underlap the toolbar");
+
+        [picker hidePickerWithCancelAction];
+    }
 }
 
 #pragma mark - Tap-dismiss retry budget (#579)
