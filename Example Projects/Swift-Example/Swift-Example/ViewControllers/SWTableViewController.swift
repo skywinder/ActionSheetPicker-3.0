@@ -12,6 +12,33 @@ import CoreActionSheetPicker
 class SWTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var textField: UITextField!
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Headless screenshot automation: present a picker automatically when
+        // launched with ASP_AUTOPRESENT=string|date (used with `simctl io screenshot`).
+        guard let kind = ProcessInfo.processInfo.environment["ASP_AUTOPRESENT"] else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            switch kind {
+            case "date":
+                let picker = ActionSheetDatePicker(title: "Select a Date",
+                                                   datePickerMode: .date,
+                                                   selectedDate: Date(timeIntervalSince1970: 1_767_225_600),
+                                                   doneBlock: nil,
+                                                   cancel: nil,
+                                                   origin: self.view)
+                if #available(iOS 13.4, *) { picker?.datePickerStyle = .wheels }
+                picker?.show()
+            default:
+                ActionSheetStringPicker.show(withTitle: "Select an Option",
+                                             rows: ["Option A", "Option B", "Option C"],
+                                             initialSelection: 1,
+                                             doneBlock: nil,
+                                             cancel: nil,
+                                             origin: self.view)
+            }
+        }
+    }
+
 
     @IBAction func navigationBarItemPicker(_ sender: UIBarButtonItem) {
         // example of string picker with done and cancel blocks
