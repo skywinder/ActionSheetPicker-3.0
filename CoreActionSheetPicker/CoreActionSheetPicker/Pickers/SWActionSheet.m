@@ -92,9 +92,32 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
 // Handle UIWindow for iOS 13 changes
 #if defined(__IPHONE_13_0)
         if (@available(iOS 13.0, *)) {
-            UIScene *scene = [UIApplication sharedApplication].connectedScenes.allObjects.firstObject;
-            if (scene && [scene isKindOfClass:[UIWindowScene class]]) {
-                UIWindowScene *windowScene = (UIWindowScene *)scene;
+            // Pick a foreground-active application scene. Taking connectedScenes.firstObject
+            // can return an external-display scene (screen mirroring, #587) or leave the
+            // window sceneless, whose trait collection lacks an idiom and crashes UIKit on
+            // iOS 26 (#591).
+            UIWindowScene *windowScene = nil;
+            UIWindowScene *fallbackScene = nil;
+            for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+                if (![scene isKindOfClass:[UIWindowScene class]])
+                    continue;
+                if (![scene.session.role isEqualToString:UIWindowSceneSessionRoleApplication]) {
+                    if (!fallbackScene)
+                        fallbackScene = (UIWindowScene *)scene;
+                    continue;
+                }
+                if (scene.activationState == UISceneActivationStateForegroundActive) {
+                    windowScene = (UIWindowScene *)scene;
+                    break;
+                }
+                if (!windowScene)
+                    windowScene = (UIWindowScene *)scene;
+            }
+            // Any window scene still beats a sceneless window, whose trait
+            // collection lacks an idiom and crashes UIKit on iOS 26 (#591).
+            if (!windowScene)
+                windowScene = fallbackScene;
+            if (windowScene) {
                 window = [[UIWindow alloc] initWithWindowScene:windowScene];
             }
         }
