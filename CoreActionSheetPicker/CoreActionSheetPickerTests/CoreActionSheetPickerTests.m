@@ -112,6 +112,51 @@
     [picker hidePickerWithCancelAction];
 }
 
+#pragma mark - Tap outside the sheet (#531)
+
+- (void)testTapOutsideDismissalNotifiesCancelByDefault {
+    __block BOOL cancelCalled = NO;
+    ActionSheetStringPicker *picker =
+        [[ActionSheetStringPicker alloc] initWithTitle:@"Title"
+                                                  rows:@[@"a", @"b"]
+                                      initialSelection:0
+                                             doneBlock:nil
+                                           cancelBlock:^(ActionSheetStringPicker *p) { cancelCalled = YES; }
+                                                origin:self.origin];
+    XCTAssertEqual(picker.tapDismissAction, TapActionCancel,
+                   @"tap-outside should default to the cancel action (#531)");
+
+    [picker showActionSheetPicker];
+    // Both dismissal-from-outside paths (the window tap gesture on iPhone and
+    // the popover delegate on iPad) route through tapDismissAction; drive the
+    // delegate path directly.
+    [picker presentationControllerDidDismiss:nil];
+    XCTAssertTrue(cancelCalled,
+                  @"dismissing by tapping outside should notify the cancel callback (#531)");
+}
+
+- (void)testTapDismissGestureAttachedToSheetWindow {
+    ActionSheetStringPicker *picker = [self makePicker];
+    [picker showActionSheetPicker];
+
+    // The recognizer may attach on a later runloop tick while the sheet window
+    // comes on screen.
+    BOOL found = NO;
+    NSDate *deadline = [NSDate dateWithTimeIntervalSinceNow:2.0];
+    while (!found && [deadline timeIntervalSinceNow] > 0) {
+        [[NSRunLoop mainRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
+        for (UIGestureRecognizer *recognizer in picker.pickerView.window.gestureRecognizers) {
+            if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+                found = YES;
+                break;
+            }
+        }
+    }
+    XCTAssertTrue(found, @"tap-dismiss gesture should be attached to the sheet window");
+
+    [picker hidePickerWithCancelAction];
+}
+
 #pragma mark - Compact date picker (#534 / PR #541)
 
 - (void)testCompactDatePickerSizesToFitInsteadOfStretching {

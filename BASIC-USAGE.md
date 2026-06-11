@@ -110,9 +110,9 @@ ActionSheetStringPicker *colorPicker = [[ActionSheetStringPicker alloc] initWith
 
 Use property `tapDismissAction` to specify action, by clicking outside area of the picker:
 
-- `TapActionNone` (default)
-- `TapActionSuccess`
-- `TapActionCancel`
+- `TapActionCancel` (default) — dismisses and fires the cancel callback
+- `TapActionSuccess` — dismisses and fires the success callback
+- `TapActionDismiss` — dismisses silently without notifying
 
 ### Customize picker by setting background color or apply blur effect to the picker background
 

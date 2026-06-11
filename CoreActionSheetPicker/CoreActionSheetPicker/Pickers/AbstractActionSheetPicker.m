@@ -146,7 +146,9 @@ CG_INLINE BOOL isIPhone4() {
         [self setCancelBarButtonItem:sysCancelButton];
         [self setDoneBarButtonItem:sysDoneButton];
 
-        self.tapDismissAction = TapActionDismiss;
+        // Tapping outside is a cancellation, matching UIKit sheet conventions
+        // — otherwise the host app has no way to learn the picker went away (#531).
+        self.tapDismissAction = TapActionCancel;
         //allows us to use this without needing to store a reference in calling class
         self.selfReference = self;
 
