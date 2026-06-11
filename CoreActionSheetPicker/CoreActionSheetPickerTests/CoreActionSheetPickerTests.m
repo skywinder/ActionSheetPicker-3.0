@@ -186,6 +186,47 @@
     }
 }
 
+#pragma mark - Date picker text color (#324 / #582 / #484)
+
+- (void)testSetTextColorAppliesToWheelsDatePicker {
+    if (@available(iOS 13.4, *)) {
+        ActionSheetDatePicker *picker =
+            [[ActionSheetDatePicker alloc] initWithTitle:@"Title"
+                                          datePickerMode:UIDatePickerModeDate
+                                            selectedDate:[NSDate dateWithTimeIntervalSince1970:1767225600]
+                                               doneBlock:nil
+                                             cancelBlock:nil
+                                                  origin:self.origin];
+        picker.datePickerStyle = UIDatePickerStyleWheels;
+        [picker setTextColor:UIColor.redColor];
+        [picker showActionSheetPicker];
+
+        UIColor *applied = [(UIDatePicker *)picker.pickerView valueForKey:@"textColor"];
+        XCTAssertEqualObjects(applied, UIColor.redColor,
+                              @"setTextColor should tint the wheels date picker (#324/#582)");
+
+        [picker hidePickerWithCancelAction];
+    }
+}
+
+- (void)testSetTextColorDoesNotThrowOnCompactStyle {
+    // The textColor KVC key only exists on the wheels view; the compact view
+    // (_UIDatePickerMacCompactView and friends) throws on it (#484).
+    if (@available(iOS 14.0, *)) {
+        ActionSheetDatePicker *picker =
+            [[ActionSheetDatePicker alloc] initWithTitle:@"Title"
+                                          datePickerMode:UIDatePickerModeDate
+                                            selectedDate:[NSDate dateWithTimeIntervalSince1970:1767225600]
+                                               doneBlock:nil
+                                             cancelBlock:nil
+                                                  origin:self.origin];
+        picker.datePickerStyle = UIDatePickerStyleCompact;
+        [picker setTextColor:UIColor.redColor];
+        XCTAssertNoThrow([picker showActionSheetPicker]);
+        [picker hidePickerWithCancelAction];
+    }
+}
+
 #pragma mark - Tap-dismiss retry budget (#579)
 
 - (void)testRetryCountResetsOnEachShow {
