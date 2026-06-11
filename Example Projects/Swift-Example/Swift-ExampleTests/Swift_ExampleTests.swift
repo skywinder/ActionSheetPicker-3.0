@@ -63,22 +63,10 @@ class Swift_ExampleTests: XCTestCase {
         presentAndSnapshot(picker)
     }
 
-    func testCompactDatePickerSheet() {
-        let picker = ActionSheetDatePicker(
-            title: "Select a Date",
-            datePickerMode: .date,
-            selectedDate: Date(timeIntervalSince1970: 1_767_225_600), // 2026-01-01 UTC
-            doneBlock: nil,
-            cancel: nil,
-            origin: hostView()
-        )!
-        picker.locale = Locale(identifier: "en_US_POSIX")
-        picker.timeZone = TimeZone(identifier: "UTC")
-        if #available(iOS 13.4, *) {
-            picker.datePickerStyle = .compact
-        }
-        presentAndSnapshot(picker)
-    }
+    // Note: no snapshot test for the compact date picker style — its capsule
+    // position jitters ~1pt across simulator boots (iOS 26), which flakes
+    // pixel comparison. Compact layout is guarded by the deterministic
+    // geometry unit test in CoreActionSheetPickerTests instead.
 
     func testDatePickerSheet() {
         let picker = ActionSheetDatePicker(
