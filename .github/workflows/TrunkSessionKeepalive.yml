@@ -1,0 +1,42 @@
+name: Trunk Session Keepalive
+
+# CocoaPods trunk session tokens expire 128 days after their last use, and
+# every authenticated request extends them by another 128 days
+# (trunk.cocoapods.org api_controller.rb: `@session.prolong!`).
+# A monthly ping keeps the COCOAPODS_TRUNK_TOKEN secret valid indefinitely,
+# so DeployCocoaPods.yml never hits an expired token (#565).
+
+on:
+  schedule:
+    # 02:00 UTC on the 1st of every month
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Prolong CocoaPods trunk session
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: |
+          set -eo pipefail
+          status=$(curl -s -o /tmp/session.json -w '%{http_code}' \
+            https://trunk.cocoapods.org/api/v1/sessions \
+            -H "Authorization: Token $COCOAPODS_TRUNK_TOKEN" \
+            -H 'Accept: application/json')
+          if [ "$status" != "200" ]; then
+            echo "::error::Trunk session check failed (HTTP $status) — the token has likely expired."
+            echo "Recreate one with: curl -X POST https://trunk.cocoapods.org/api/v1/sessions \\"
+            echo "  -H 'Content-Type: application/json' -d '{\"email\":\"<pod-owner-email>\",\"name\":\"<name>\",\"description\":\"ci\"}'"
+            echo "then verify via the email link and update the COCOAPODS_TRUNK_TOKEN secret."
+            cat /tmp/session.json
+            exit 1
+          fi
+          python3 -c "
+          import json
+          data = json.load(open('/tmp/session.json'))
+          session = next(s for s in data['sessions'] if s.get('current'))
+          print('session verified:', session['verified'])
+          print('valid until:', session['valid_until'])"
